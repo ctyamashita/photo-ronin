@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_23_085950) do
+
+ActiveRecord::Schema.define(version: 2022_05_23_083153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +61,18 @@ ActiveRecord::Schema.define(version: 2022_05_23_085950) do
     t.index ["place_id"], name: "index_markers_on_place_id"
   end
 
+  create_table "meta_data", force: :cascade do |t|
+    t.integer "aperture"
+    t.integer "shutter_speed"
+    t.integer "ISO"
+    t.date "taken_on"
+    t.bigint "photo_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "focal_length"
+    t.index ["photo_id"], name: "index_meta_data_on_photo_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "image_url"
     t.bigint "place_id", null: false
@@ -107,6 +120,7 @@ ActiveRecord::Schema.define(version: 2022_05_23_085950) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "lists", "users"
+  add_foreign_key "meta_data", "photos"
   add_foreign_key "photos", "places"
   add_foreign_key "photos", "users"
   add_foreign_key "reviews", "places"
