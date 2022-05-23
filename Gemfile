@@ -33,6 +33,7 @@ gem 'devise'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem "geocoder"
+gem 'pundit'
 gem 'simple_form', github: 'heartcombo/simple_form'
 
 
