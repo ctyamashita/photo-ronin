@@ -1,0 +1,5 @@
+<h1>Display Locations</h1>
+<% if @places.any? %>
+  <% @places.each do |place| %>
+    <%= render 'place_card', place: place %>
+  <% end %>
