@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :lists, only: %i[create show index]
 
   resources :photos, only: :show
+
 end
