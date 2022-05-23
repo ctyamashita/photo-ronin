@@ -5,3 +5,50 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "faker"
+require "open-uri"
+
+IMAGE_URLS = []
+
+# seed all 7 models
+puts "creating seeds"
+List.destrtoy_all
+User.destroy_all
+User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', instagram_url: 'instagram.com')
+2.times do
+  user = User.create!(
+    name: Faker::Name.unique.name,
+    email: Faker::Internet.email,
+    password: 'password',
+    instagram_url: 'instagram_url'
+  )
+  2.times do
+    List.create!(
+      title: Faker::Address.city,
+      user: user
+    )
+  end
+end
+puts "seeds created"
+
+
+# puts "creating seeds"
+# 10.times do
+#   Booking.create!(
+#     start_date: Date.today + rand(1..30).days,
+#     end_date: Date.today + rand(31..60).days,
+#     status: rand(0..2),
+#     user: User.all.sample,
+#     car: Car.all.sample
+#   )
+# end
+# 10.times do
+#   Booking.create!(
+#     start_date: Date.today - rand(31..60).days,
+#     end_date: Date.today - rand(1..30).days,
+#     status: rand(0..2),
+#     user: User.all.sample,
+#     car: Car.all.sample
+#   )
+# end
+# puts "created seeds"
