@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users do
+    get '/dashboard', to: 'users#dashboard', as: :dashboard
+  end
+
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :places, except: %i[destroy edit update] do
+    # resources :photos, only: %i[create]
+    resources :markers, only: %i[create]
+  end
+
+  resources :lists, only: %i[create show index]
+
+  resources :photos, only: :show
+
 end
