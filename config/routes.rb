@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :lists, only: :update
   end
 
-  resources :lists, only: %i[create index]
+  resources :lists, only: %i[create show index]
 end
