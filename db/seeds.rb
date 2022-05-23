@@ -8,10 +8,10 @@
 require "faker"
 require "open-uri"
 
-IMAGE_URLS = []
+# IMAGE_URLS = []
 
 # seed all 7 models
-puts "creating seeds"
+puts "creating user and list"
 List.destrtoy_all
 User.destroy_all
 User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', instagram_url: 'instagram.com')
@@ -29,7 +29,7 @@ User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', ins
     )
   end
 end
-puts "seeds created"
+puts "seeded user and list"
 
 
 # puts "creating seeds"
