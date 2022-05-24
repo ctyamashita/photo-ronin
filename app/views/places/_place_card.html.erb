@@ -1,4 +1,4 @@
-<div>
-  <h2><%= place.name %></h2>
-  <p><%= place.address %></p>
+<div class="card">
+  <%= link_to place.name, place_path(place) %>
+  <small><%= place.address %></small>
 </div>
