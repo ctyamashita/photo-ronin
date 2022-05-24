@@ -1,13 +1,17 @@
-<div class="container mt-5">
-  <div class="grid">
-    <% if @places.any? %>
-      <% @places.each do |place| %>
-        <div class="card-trip mb-3">
-        <%= render 'place_card', place: place %>
-        </div>
+<% if params[:address].present? %>
+  <%= render 'map', marker: @markers %>
+<% else %>
+  <div class="container mt-5">
+    <div class="grid">
+      <% if @places.any? %>
+        <% @places.each do |place| %>
+          <div class="card-trip mb-3">
+          <%= render 'place_card', place: place %>
+          </div>
+        <% end %>
+      <% else %>
+        <p>No places to display</p>
       <% end %>
-    <% else %>
-      <p>No places to display</p>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>
