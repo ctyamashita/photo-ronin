@@ -1,3 +1,9 @@
+<% if params[:address].present? %>
+  <%= render 'map', marker: @markers %>
+<% else %>
+
+<% end %>
+
 <div class="container mx-1 mt-5">
   <div class="d-flex">
       <% if @places.any? %>
