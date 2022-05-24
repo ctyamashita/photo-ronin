@@ -22,4 +22,10 @@ class PlacesController < ApplicationController
       }
     end
   end
+
+  def show
+    @place = Place.find(params[:id])
+    authorize @place
+
+  end
 end

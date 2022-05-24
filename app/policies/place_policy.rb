@@ -5,7 +5,7 @@ class PlacePolicy < ApplicationPolicy
     end
   end
 
-  def map_search?
+  def show?
     true
   end
 end

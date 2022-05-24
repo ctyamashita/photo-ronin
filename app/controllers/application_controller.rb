@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   include Pundit
 
+  def initialize
+    super
+    @list = List.new
+    # here so that new list page would be in every page
+  end
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
