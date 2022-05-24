@@ -1,5 +1,4 @@
 class Marker < ApplicationRecord
-  belongs_to :place
   belongs_to :list
-  # validates :
+  belongs_to :place
 end

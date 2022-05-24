@@ -3,6 +3,7 @@
   background: $black;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
+  position: relative;
 }
 
 .card-trip>img {
@@ -50,4 +51,31 @@
   .card-trip>img {
       height: 375px;
     }
+}
+
+.card-trip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  a {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    text-decoration: none;
+  }
 }
