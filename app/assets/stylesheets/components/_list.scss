@@ -1,0 +1,10 @@
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul {
+  background-color: $black;
+  box-shadow: -4px -4px 4px rgba($color: $black, $alpha: 1);
+}
