@@ -1,8 +1,7 @@
-<h3>Dashboard</h3>
-<h2>My lists</h2>
+<h2>Lists</h2>
 <% if @lists.any? %>
   <% @lists.each do |list|%>
-    <%= render "lists/list_card", list: list %>
+    <%= render "list_card", list: list %>
   <% end %>
 <% else %>
   No lists.
