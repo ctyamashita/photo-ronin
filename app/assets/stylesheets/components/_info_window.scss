@@ -1,0 +1,47 @@
+.mapboxgl-popup-content {
+  background: rgba($color: #000000, $alpha: 0);
+  padding: 0;
+  margin: 0;
+}
+
+
+.mapboxgl-popup-close-button {
+  outline: none;
+  color:crimson;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  color: white;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+.mapboxgl-popup-close-button:hover {
+  transform: scale(1.4);
+}
+
+.mapboxgl-popup-close-button:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.card-category-link {
+  // z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.description-capacity {
+  text-align: left;
+  h3, p {
+    color: black !important;
+  }
+}
+
+.card-trip-infos {
+  padding-left: 10px;
+  padding-bottom: 10px;
+  background-color: $black;
+}
