@@ -1,6 +1,3 @@
-
-<%= render 'map', marker: @markers %>
-
 <div class="container mt-5 d-none" data-map-toggle-target="list">
   <div class="grid">
     <% if @places.any? %>
@@ -14,3 +11,5 @@
     <% end %>
   </div>
 </div>
+
+<%= render 'map', marker: @markers %>
