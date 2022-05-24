@@ -14,7 +14,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/menu' %>
-    <%= yield %>
+    <div data-controller="map-toggle">
+      <%= render 'shared/menu' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

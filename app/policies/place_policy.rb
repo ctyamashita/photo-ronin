@@ -4,4 +4,8 @@ class PlacePolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def map_search?
+    true
+  end
 end

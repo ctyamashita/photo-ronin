@@ -6,11 +6,11 @@
         <div class="d-flex justify-content-between py-4 px-4 shadow-lg">
           <li><%= link_to places_path do %>
             <i class="icon-big gray fas fa-home"></i>
-            <% end %>
+          <% end %>
           </li>
-          <li><%= link_to places_path do %>
-            <i class="icon-big gray fas fa-map"></i>
-            <% end %>
+          <li><button style="background: rgba(0,0,0,0); border: none" data-map-toggle-target="button">
+            <i class="icon-big gray fas fa-map" data-action="click->map-toggle#list_display"></i>
+          </button>
           </li>
           <li><%= link_to places_path do %>
             <i class="icon-big gray fas fa-plus"></i>
