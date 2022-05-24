@@ -24,3 +24,9 @@
       font-size: 24px;
     }
 }
+
+// Icon grid
+
+.grid-icon {
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+}

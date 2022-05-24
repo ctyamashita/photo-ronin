@@ -1,26 +1,41 @@
 <% if current_user %>
-<div class="fixed-bottom">
+<div class="fixed-bottom mt-5">
   <div>
     <ul>
-      <div class="d-flex justify-content-between py-4 px-4">
+      <div class="grid grid-icon text-center mx-3 py-3">
         <li><%= link_to places_path do %>
-          <i class="icon-big gray fas fa-home"></i>
+          <div class="flex-column icon-active">
+            <i class="icon-big gray fas fa-home mb-1"></i>
+            <p class="icon-text">Home</p>
+          </div>
           <% end %>
         </li>
         <li><%= link_to places_path do %>
-          <i class="icon-big gray fas fa-map"></i>
+          <div class="flex-column icon-active">
+            <i class="icon-big gray fas fa-map mb-1"></i>
+            <p class="icon-text">Map</p>
+          </div>
           <% end %>
         </li>
         <li><%= link_to places_path do %>
-          <i class="icon-big gray fas fa-plus"></i>
+          <div class="flex-column icon-active">
+            <i class="icon-big gray fas fa-plus mb-1"></i>
+            <p class="icon-text">New</p>
+          </div>
           <% end %>
         </li>
         <li><%= link_to places_path do %>
-          <i class="icon-big gray fas fa-bars"></i>
+          <div class="flex-column icon-active">
+            <i class="icon-big gray fas fa-heart mb-1"></i>
+            <p class="icon-text">Wishlist</p>
+          </div>
           <% end %>
         </li>
         <li><%= link_to user_dashboard_path(current_user) do %>
-          <i class="icon-big gray fas fa-user"></i>
+          <div class="flex-column icon-active">
+            <i class="icon-big gray fas fa-user mb-1"></i>
+            <p class="icon-text">Profile</p>
+          </div>
           <% end %>
         </li>
       </div>
