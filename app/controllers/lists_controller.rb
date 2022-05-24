@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   def index
-    @lists = policy_scope(List.all)
+    @lists = policy_scope(List)
   end
 
   def new

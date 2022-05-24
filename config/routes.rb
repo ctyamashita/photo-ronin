@@ -2,15 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [] do
-    get :dashboard
+    get '/dashboard', to: 'users#dashboard', as: :dashboard
   end
 
   root to: 'places#index'
 
   resources :places, except: %i[destroy edit update] do
-    collection do
-      get :map_search
-    end
     # resources :photos, only: %i[create]
     resources :markers, only: %i[create]
   end
