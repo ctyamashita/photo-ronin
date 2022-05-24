@@ -14,13 +14,13 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
     <div data-controller="new-list">
       <%= render 'shared/menu' %>
       <%= render 'shared/new_list' %>
     </div>
-
-    <%= yield %>
-    <%= render 'shared/menu' %>
+    <div data-controller="map-toggle">    
+      <%= yield %>
+      <%= render 'shared/menu' %>
+    </div>
   </body>
 </html>

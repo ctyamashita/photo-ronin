@@ -2,7 +2,7 @@
 <h2>My lists</h2>
 <% if @lists.any? %>
   <% @lists.each do |list|%>
-    <%= render "list_card", list: list %>
+    <%= render "lists/list_card", list: list %>
   <% end %>
 <% else %>
   No lists.
