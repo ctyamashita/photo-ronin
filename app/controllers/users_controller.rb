@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
-    @lists = List.where(user: current_user)
+    @lists = policy_scope(List.all)
+    authorize @lists
   end
 end

@@ -1,19 +1,17 @@
 <% if params[:address].present? %>
   <%= render 'map', marker: @markers %>
 <% else %>
-
-<% end %>
-
-<div class="container mx-1 mt-5">
-  <div class="d-flex">
+  <div class="container mt-5">
+    <div class="grid">
       <% if @places.any? %>
-    <div class="col-12 col-md-8 offset-md-2">
         <% @places.each do |place| %>
+          <div class="card-trip mb-3">
           <%= render 'place_card', place: place %>
+          </div>
         <% end %>
       <% else %>
         <p>No places to display</p>
       <% end %>
     </div>
   </div>
-</div>
+<% end %>

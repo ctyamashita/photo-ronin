@@ -1,15 +1,14 @@
-<div class="card-trip mt-5 col-md-6 col-lg-4">
-  <div class="card-img-wrap w-100">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  </div>
-  <%# <img src=<%= place.photo.attached? ? cl_image_path(car.photo.key) : '/richard-brutyo-rJi0tWftHhg-unsplash.jpg' %>
-  <%# <%= link_to '', place_path(place), class: 'card-trip-link' %>
-  <div class="card-trip-infos pt-3">
-    <div>
-      <h3 class="bold"><%= place.name %></h3>
-      <h4 class="bold"><%= place.address %></h4>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis cum pariatur nisi, amet animi veniam.</p>
+<div class="card-trip">
+  <img src=<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : '/richard-brutyo-rJi0tWftHhg-unsplash.jpg' %> />
+  <%= link_to 'placeholder_link', place_path(place), class: 'card-trip-link' %>
+  <div class="card-trip-infos">
+    <div class="position-relative">
+      <div class="d-flex justify-content-between">
+        <h3 class="bold"><%= place.name %></h3>
+        <h4 class="rating-size">5.0  <i class="fas fa-star green"></i></h4>
+      </div>
+      <h4 class="green mb-3"><%= place.address %></h4>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit sit amet consectetur.</p>
     </div>
-    <p class="card-trip-pricing position-absolute">4.5 <i class="fas fa-star green"></i></p>
   </div>
 </div>
