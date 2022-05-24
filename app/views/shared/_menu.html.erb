@@ -18,8 +18,15 @@
           <i class="icon-big gray fas fa-bars"></i>
           <% end %>
         </li>
-        <li><%= link_to user_dashboard_path(current_user) do %>
-          <i class="icon-big gray fas fa-user"></i>
+        <li>
+          <% if current_user %>
+            <%= link_to user_dashboard_path(current_user) do %>
+              <i class="icon-big gray fas fa-user"></i>
+            <% end %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link" do %>
+              <i class="icon-big gray fas fa-user"></i>
+            <% end %>
           <% end %>
         </li>
       </div>
