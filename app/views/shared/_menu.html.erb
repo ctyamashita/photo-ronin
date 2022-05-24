@@ -11,9 +11,10 @@
           <i class="icon-big gray fas fa-map"></i>
           <% end %>
         </li>
-        <li><%= link_to places_path do %>
-          <i class="icon-big gray fas fa-plus"></i>
-          <% end %>
+        <li>
+          <button data-new-list-target="popupButton" data-action="click->new-list#showForm">
+            <i class="icon-big gray fas fa-plus"></i>
+          </button>
         </li>
         <li><%= link_to places_path do %>
           <i class="icon-big gray fas fa-bars"></i>
