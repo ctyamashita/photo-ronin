@@ -1,8 +1,13 @@
-<h1>Display Locations</h1>
-<% if @places.any? %>
-  <% @places.each do |place| %>
-    <%= render 'place_card', place: place %>
-  <% end %>
-<% else %>
-  <p>No places to display</p>
-<% end %>
+<div class="container mx-1 mt-5">
+  <div class="d-flex">
+      <% if @places.any? %>
+    <div class="col-12 col-md-8 offset-md-2">
+        <% @places.each do |place| %>
+          <%= render 'place_card', place: place %>
+        <% end %>
+      <% else %>
+        <p>No places to display</p>
+      <% end %>
+    </div>
+  </div>
+</div>

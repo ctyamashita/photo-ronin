@@ -1,0 +1,49 @@
+body {
+  background-color: $black;
+}
+
+h1, h2 {
+  color: $green;
+}
+
+h3, h4, h5, h6 {
+  color: $white;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: 300;
+  letter-spacing: 16px;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 20px;
+
+}
+
+h4 {
+  font-size: 14px;
+}
+
+h4 {
+  color: $green;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+p {
+  color: $white;
+  font-size: 14px;
+}
