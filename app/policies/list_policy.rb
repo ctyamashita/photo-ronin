@@ -5,6 +5,11 @@ class ListPolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    true
+  end
+
+
   def dashboard?
     true
   end
