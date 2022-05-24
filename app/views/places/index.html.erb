@@ -6,8 +6,12 @@
         <%= render 'place_card', place: place %>
         </div>
       <% end %>
+    <% else %>
+      No places.
+    <% end %>
     </div>
   </div>
 </div>
-
-<%= render 'map', marker: @markers %>
+<div data-map-toggle-target="map">
+  <%= render 'map', marker: @markers %>
+</div>
