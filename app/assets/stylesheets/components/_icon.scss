@@ -7,5 +7,14 @@
 }
 
 .icon-big {
-  font-size: 32px;
+  font-size: 24px;
+}
+
+.icon-text {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.icon-active:hover {
+  color: $green;
 }

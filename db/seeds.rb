@@ -19,7 +19,7 @@ List.destroy_all
 User.destroy_all
 Place.destroy_all
 
-2.times do
+8.times do
   Place.create!(
     name: Faker::Address.community,
     address: ['Tokyo', 'Kyoto', 'Saitama', 'Yokohama', 'Kawasaki'].sample
@@ -37,7 +37,7 @@ User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', ins
     instagram_url: 'instagram_url'
   )
 
-  2.times do
+  5.times do
     list = List.create!(
       title: Faker::Address.city,
       user: user
@@ -50,7 +50,7 @@ User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', ins
     end
   end
 
-  3.times do
+  5.times do
     photograph = Photo.create!(
       user: user,
       place: Place.all.sample
@@ -59,7 +59,7 @@ User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', ins
     photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
   end
 
-  2.times do
+  5.times do
     Review.create!(
       content: Faker::Camera.brand_with_model,
       rating: rand(1..5),
