@@ -1,32 +1,29 @@
 <% if current_user %>
-  <div class="fixed-bottom border-top border-3">
-    <div>
-      <ul>
-        <div class="d-flex justify-content-between py-4 px-4 shadow-lg">
-          <li><%= link_to places_path do %>
-            <i class="icon-big gray fas fa-home"></i>
-            <% end %>
-          </li>
-          <li><%= link_to places_path do %>
-            <i class="icon-big gray fas fa-map"></i>
-            <% end %>
-          </li>
-          <li><%= link_to places_path do %>
-            <i class="icon-big gray fas fa-plus"></i>
-            <% end %>
-          </li>
-          <li><%= link_to places_path do %>
-            <i class="icon-big gray fas fa-bars"></i>
-            <% end %>
-          </li>
-
-          <li><%= link_to user_dashboard_path(current_user) do %>
-            <i class="icon-big gray fas fa-user"></i>
-
-            <% end %>
-          </li>
-        </div>
-      </ul>
-    </div>
+<div class="fixed-bottom">
+  <div>
+    <ul>
+      <div class="d-flex justify-content-between py-4 px-4">
+        <li><%= link_to places_path do %>
+          <i class="icon-big gray fas fa-home"></i>
+          <% end %>
+        </li>
+        <li><%= link_to places_path do %>
+          <i class="icon-big gray fas fa-map"></i>
+          <% end %>
+        </li>
+        <li><%= link_to places_path do %>
+          <i class="icon-big gray fas fa-plus"></i>
+          <% end %>
+        </li>
+        <li><%= link_to places_path do %>
+          <i class="icon-big gray fas fa-bars"></i>
+          <% end %>
+        </li>
+        <li><%= link_to user_dashboard_path(current_user) do %>
+          <i class="icon-big gray fas fa-user"></i>
+          <% end %>
+        </li>
+      </div>
+    </ul>
   </div>
 <% end %>
