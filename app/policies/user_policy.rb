@@ -1,4 +1,4 @@
-class ListPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,10 +6,6 @@ class ListPolicy < ApplicationPolicy
   end
 
   def dashboard?
-    true
-  end
-
-  def show?
     true
   end
 end
