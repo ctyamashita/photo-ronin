@@ -1,4 +1,14 @@
-<div>
-  <h2><%= place.name %></h2>
-  <p><%= place.address %></p>
+<div class="card-trip">
+  <img src=<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : '/richard-brutyo-rJi0tWftHhg-unsplash.jpg' %> />
+  <%= link_to 'placeholder_link', place_path(place), class: 'card-trip-link' %>
+  <div class="card-trip-infos">
+    <div class="position-relative">
+      <div class="d-flex justify-content-between">
+        <h3 class="bold"><%= place.name %></h3>
+        <h4 class="rating-size">5.0  <i class="fas fa-star green"></i></h4>
+      </div>
+      <h4 class="green mb-3"><%= place.address %></h4>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit sit amet consectetur.</p>
+    </div>
+  </div>
 </div>
