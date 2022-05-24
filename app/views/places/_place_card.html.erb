@@ -1,5 +1,6 @@
 <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <img src=<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : '/richard-brutyo-rJi0tWftHhg-unsplash.jpg' %> />
+  <%= link_to 'placeholder_link', place_path(place), class: 'card-trip-link' %>
   <div class="card-trip-infos">
     <div class="position-relative">
       <div class="d-flex justify-content-between">
