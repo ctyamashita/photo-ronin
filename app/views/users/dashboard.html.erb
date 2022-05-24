@@ -1,9 +1,12 @@
-<h3>Dashboard</h3>
-<h2>My lists</h2>
-<% if @lists.any? %>
-  <% @lists.each do |list|%>
-    <%= render "list_card", list: list %>
-  <% end %>
-<% else %>
-  No lists.
-<% end %>
+<div class="container col-10 mt-5">
+  <h1 class="ms-4 mb-5 bold">Wishlist</h1>
+  <div class="grid">
+    <% if @lists.any? %>
+      <% @lists.each do |list|%>
+        <%= render "user_list_card", list: list %>
+      <% end %>
+    <% else %>
+      No lists.
+    <% end %>
+  </div>
+</div>
