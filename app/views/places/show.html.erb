@@ -1,30 +1,23 @@
-<div class="card-trip">
-
+<%# <div class="card-trip"> %>
 <%# <div class="card-trip mb-3"> %>
   <%#= render 'place_card', place: @place %>
 
-<div data-controller="carousel" class="swiper-container card-trip mb-3">
-  <div class="swiper-wrapper">
+<div class="card-trip m-5">
   <% if @place.photos.any? %>
     <% @place.photos.each do |photo| %>
-     <div class="swiper-slide"><%= cl_image_tag(photo.photo.key) %></div>
-
-    <% end %>
-    <% else %>
-    <div class="swiper-slide"><img src='/assets/Ronin.jpg' class="w-100"/></div>
-    <% end %>
-  </div>
-  <%# </div> %>
-</div>
-
-    <div class="card-trip-infos">
-      <div class="info-middle">
-        <i class="fas fa-calendar"></i>
-        <i class="fas fa-camera"></i>
-        <p>camera model</p>
+      <div class="rounded">
+        <%= image_tag cl_image_path(photo.photo.key) %>
       </div>
-    </div>
-
+      <% end %>
+      <% else %>
+        <div class="rounded">
+          <%= image_tag '/assets/Ronin.jpg' %>
+        </div>
+    <% end %>
+  <div class="card-trip-infos">
+    <h2 class="bold"><%= @place.name %></h2>
+    <h4><%= @place.address %></h4>
+  </div>
     <div class="row">
       <div class="col-4 text-center">
         <p>aperture</p>
@@ -37,3 +30,13 @@
       </div>
     </div>
 </div>
+
+    <%# <div class="card-trip-infos">
+      <div class="info-middle">
+        <i class="fas fa-calendar"></i>
+        <i class="fas fa-camera"></i>
+        <p>camera model</p>
+      </div>
+    </div> %>
+
+<%# </div> %>
