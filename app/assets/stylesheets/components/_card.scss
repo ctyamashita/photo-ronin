@@ -12,6 +12,8 @@
   object-fit: cover;
 }
 
+
+
 .card-trip h2 {
   font-size: 16px;
   font-weight: bold;
@@ -38,10 +40,26 @@
   width: 40px;
 }
 
-// .rating-position {
-//   top: 6px;
-//   right: 10px;
+.card-show {
+  margin: 30px 70px;
+}
+// .card-trip-infos-showpage {
+//   padding: 20px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-end;
+//   position: relative;
+//   position: absolute;
+//   right: 16px;
+//   top: -20px;
+//   width: 40px;
 // }
+
+
+.rating-position {
+  top: 6px;
+  right: 10px;
+}
 
 @media only screen and (max-width: 600px) {
 
