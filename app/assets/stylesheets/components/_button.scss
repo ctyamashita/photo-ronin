@@ -22,9 +22,11 @@
 .btn-center {
   z-index: 1;
   position: fixed;
-  left: 46.3vw;
+  left: 50vw;
   top: 75vh;
+  transform: translateX(-50%);
 }
+
 
 .toggle-button {
   padding: 8px 24px;
@@ -37,6 +39,6 @@
 }
 
 .toggle-button:hover {
-  transform: scale(1.1);
+  transform: translateX(-50%) scale(1.1);
   color: $white;
 }

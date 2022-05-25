@@ -1,7 +1,7 @@
 <% if current_user %>
   <div class="fixed-bottom">
     <ul>
-      <div class="grid grid-icon text-center mx-3 py-3">
+      <div class="grid grid-icon text-center px-3 py-3">
         <li><%= link_to places_path do %>
           <div class="flex-column icon-active">
             <i class="icon-big light-gray fas fa-images mb-1"></i>
@@ -23,17 +23,17 @@
               </div>
           </button>
         </li>
+        <li><%= link_to user_dashboard_path(current_user) do %>
+          <div class="flex-column icon-active">
+            <i class="icon-big light-gray fas fa-heart mb-1"></i>
+            <p class="icon-text">Paths</p>
+          </div>
+          <% end %>
+        </li>
         <li><%= link_to lists_path do %>
           <div class="flex-column icon-active">
             <i class="icon-big light-gray fas fa-list mb-1"></i>
             <p class="icon-text">Discover</p>
-          </div>
-          <% end %>
-        </li>
-        <li><%= link_to user_dashboard_path(current_user) do %>
-          <div class="flex-column icon-active">
-            <i class="icon-big light-gray fas fa-heart mb-1"></i>
-            <p class="icon-text">My lists</p>
           </div>
           <% end %>
         </li>
