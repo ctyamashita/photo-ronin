@@ -122,6 +122,7 @@ p {
 }
 
 a {
+  color: $light-gray;
   text-decoration: none;
 }
 
@@ -130,7 +131,7 @@ a {
 .vertical-center {
   margin: 0;
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);

@@ -12,7 +12,9 @@
         </li>
         <li>
           <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
-              <i class="icon-big gray fas fa-plus"></i><p class="icon-text">New</p>
+              <div class="flex-column icon-active">
+                <i class="icon-big gray fas fa-plus"></i><p class="icon-text">New</p>
+              </div>
           </button>
         </li>
         <li><%= link_to places_path do %>
