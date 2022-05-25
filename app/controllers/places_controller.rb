@@ -8,11 +8,14 @@ class PlacesController < ApplicationController
               else
                 policy_scope(Place.all)
               end
-    @markers = create_markers(@places)
+    @pins = create_markers(@places)
   end
+
   def show
     @place = Place.find(params[:id])
     authorize @place
+    @marker = Marker.new
+    @lists = List.where(user: current_user).where.not(id: @list.places)
   end
 
   private
