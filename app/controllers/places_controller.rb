@@ -8,12 +8,16 @@ class PlacesController < ApplicationController
               else
                 policy_scope(Place.all)
               end
-    @markers = set_markers(@places)
+    @markers = create_markers(@places)
+  end
+  def show
+    @place = Place.find(params[:id])
+    authorize @place
   end
 
   private
 
-  def set_markers(places)
+  def create_markers(places)
     places.geocoded.map do |place|
       {
         lat: place.latitude,
@@ -23,8 +27,4 @@ class PlacesController < ApplicationController
     end
   end
 
-  def show
-    @place = Place.find(params[:id])
-    authorize @place
-  end
 end

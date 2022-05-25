@@ -13,3 +13,15 @@
   color: $green;
   transform: scale(1.03);
 }
+
+.toggle-button-container {
+  z-index: 0;
+  position: relative;
+}
+
+.toggle-button {
+  z-index: 1;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
