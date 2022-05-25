@@ -124,6 +124,12 @@ p {
 a {
   color: $light-gray;
   text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-category a {
+  font-size: 20px;
 }
 
 // Alignment
@@ -141,4 +147,8 @@ a {
 
 .shadow {
   box-shadow: 0 -4px 8px rgba($color: #000000, $alpha: 0.3);
+}
+
+.rounded-corner {
+  border-radius: 16px;
 }
