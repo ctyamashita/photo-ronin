@@ -10,12 +10,10 @@
           </div>
           <% end %>
         </li>
-        <li><%= link_to places_path do %>
-          <div class="flex-column icon-active">
-            <i class="icon-big gray fas fa-plus mb-1"></i>
-            <p class="icon-text">New</p>
-          </div>
-          <% end %>
+        <li>
+          <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
+              <i class="icon-big gray fas fa-plus"></i><p class="icon-text">New</p>
+          </button>
         </li>
         <li><%= link_to places_path do %>
           <div class="flex-column icon-active">

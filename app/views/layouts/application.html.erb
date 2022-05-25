@@ -16,11 +16,10 @@
     <%= render 'shared/flashes' %>
 
     <div data-controller="new-list">
-      <%= render 'shared/menu' %>
       <%= render 'shared/new_list' %>
+      <%= yield %>
+      <%= render 'shared/menu' %>
     </div>
 
-    <%= yield %>
-    <%= render 'shared/menu' %>
   </body>
 </html>

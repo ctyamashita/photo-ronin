@@ -1,7 +1,9 @@
-<div class="container" id="form-list" data-new-list-target="formList">
+<div class="container text-center bg-black opacity" id="form-list" data-new-list-target="formList">
+<div class="vertical-center">
   <h1>Add List</h1>
   <%= simple_form_for @list do |f| %>
     <%= f.input :title, input_html: { class: "input" } %>
-    <%= f.submit class: 'btn btn-primario mt-3'%>
+    <%= f.submit class: 'btn btn-ghost mt-3'%>
   <% end %>
+  </div>
 </div>
