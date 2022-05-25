@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'users#dashboard', as: :dashboard
   end
 
-  root to: 'places#index'
+  root to: 'pages#home'
 
   resources :places, except: %i[destroy edit update] do
     # resources :photos, only: %i[create]
