@@ -4,9 +4,7 @@ body {
   color: $white;
 }
 
-.bg-black {
-  background-color: $black;
-}
+
 
 // Text
 
@@ -111,8 +109,26 @@ p {
   color: $gray;
 }
 
-.gray {
+.black {
+  color: $black;
+}
+
+.white {
   color: $white;
+}
+
+.yellow {
+  color: $yellow;
+}
+
+// BG colors
+
+.bg-black {
+  background-color: $black;
+}
+
+.bg-green {
+  background-color: $green;
 }
 
 // Other

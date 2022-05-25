@@ -6,6 +6,10 @@
   color: $gray;
 }
 
+.light-gray {
+  color: $light-gray;
+}
+
 .icon-big {
   font-size: 18px;
 }
@@ -19,7 +23,7 @@
 
   p,
   i {
-    transition: 0.2s;
+    transition: 0.4s;
   }
 }
 .icon-active:hover {
