@@ -2,7 +2,7 @@
 <div class="vertical-center">
   <h2>New List</h2>
   <%= simple_form_for @list do |f| %>
-    <%= f.input :title, label: false , input_html: { class: "input" } %>
+    <%= f.input :title, label: false , input_html: { class: "input" }, placeholder: "New_List_#{List.last.id}" %>
     <%= f.submit class: 'btn btn-ghost mt-3'%>
   <% end %>
   </div>
