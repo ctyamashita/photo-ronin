@@ -1,11 +1,11 @@
 <% if current_user %>
-  <div class="fixed-bottom">
+  <div class="fixed-bottom menu-mobile">
     <ul>
       <div class="grid grid-icon text-center px-3 py-3">
-        <li><%= link_to places_path do %>
+        <li><%= link_to root_path do %>
           <div class="flex-column icon-active">
             <i class="icon-big light-gray fas fa-images mb-1"></i>
-            <p class="icon-text">Places</p>
+            <p class="icon-text">Featured</p>
           </div>
           <% end %>
         </li>
