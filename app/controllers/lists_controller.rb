@@ -13,11 +13,11 @@ class ListsController < ApplicationController
     @list.user = current_user
     authorize @list
 
-    if @list.save
-      redirect_to user_dashboard_path(current_user), notice: "#{@list.title} has been added"
-    else
-      render :new
+    unless @list.save
+      @list = List.new(title: "New_List_#{List.last.id}", user: current_user)
+      @list.save
     end
+    redirect_to user_dashboard_path(current_user), notice: "#{@list.title} has been added"
   end
 
   def show
