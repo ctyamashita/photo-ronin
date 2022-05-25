@@ -7,9 +7,9 @@
             <i class="icon-big gray fas fa-home"></i>
             <% end %>
           </li>
-          <li><button data-map-toggle-target="button" style="background: rgba(0,0,0,0); border: none">
-              <i class="icon-big gray fas fa-bars" data-action="click->map-toggle#map_display"></i>
-            </button>
+          <li><%= link_to places_path do %>
+              <i class="icon-big gray fas fa-map"></i>
+            <% end %>
           </li>
           <li>
             <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">

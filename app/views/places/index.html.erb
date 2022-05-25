@@ -1,17 +1,21 @@
-<div class="container mt-5 d-none" data-map-toggle-target="list">
-  <div class="grid">
-    <% if @places.any? %>
-      <% @places.each do |place| %>
-        <div class="card-trip mb-3">
-        <%= render 'place_card', place: place %>
-        </div>
+<div data-controller="map-toggle" class="toggle-button-container">
+  <button data-map-toggle-target="button" class="btn btn-light toggle-button" data-action="click->map-toggle#mapDisplay">
+    See List
+  </button>
+  <div class="container" data-map-toggle-target="list">
+    <div class="grid">
+      <% if @places.any? %>
+        <% @places.each do |place| %>
+          <div class="card-trip mx-3 mt-5">
+          <%= render 'place_card', place: place %>
+          </div>
+        <% end %>
+      <% else %>
+        No places.
       <% end %>
-    <% else %>
-      No places.
-    <% end %>
     </div>
   </div>
-</div>
-<div data-map-toggle-target="map">
-  <%= render 'map', marker: @markers %>
+  <div data-map-toggle-target="map">
+    <%= render 'map', marker: @markers %>
+  </div>
 </div>

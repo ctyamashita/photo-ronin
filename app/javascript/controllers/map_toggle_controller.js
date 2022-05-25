@@ -7,16 +7,14 @@ export default class extends Controller {
     console.log('connected')
   }
 
-  map_display() {
+  mapDisplay() {
     console.log('click')
-    this.mapTarget.classList.remove('d-none')
-    this.listTarget.classList.add('d-none')
-    this.buttonTarget.innerHTML = '<i class="icon-big gray fas fa-bars" data-action="click->map-toggle#list_display"></i>'
-  }
-
-  list_display() {
-    this.mapTarget.classList.add('d-none')
-    this.listTarget.classList.remove('d-none')
-    this.buttonTarget.innerHTML = '<i class="icon-big gray fas fa-map" data-action="click->map-toggle#map_display"></i>'
+    this.mapTarget.classList.toggle('d-none')
+    this.listTarget.classList.toggle('d-none')
+    if (this.buttonTarget.innerHTML === "Map") {
+      this.buttonTarget.innerHTML = "See List";
+    } else {
+      this.buttonTarget.innerHTML = "See Map";
+    }
   }
 }
