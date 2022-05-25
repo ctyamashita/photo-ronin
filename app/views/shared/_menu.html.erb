@@ -1,12 +1,19 @@
 <% if current_user %>
-<div class="fixed-bottom mt-5">
+<div class="fixed-bottom">
   <div>
     <ul>
       <div class="grid grid-icon text-center mx-3 py-3">
         <li><%= link_to places_path do %>
           <div class="flex-column icon-active">
-            <i class="icon-big gray fas fa-map mb-1"></i>
-            <p class="icon-text">Map</p>
+            <i class="icon-big gray fas fa-images mb-1"></i>
+            <p class="icon-text">Places</p>
+          </div>
+          <% end %>
+        </li>
+        <li><%= link_to places_path do %>
+          <div class="flex-column icon-active">
+            <i class="icon-big gray fas fa-search mb-1"></i>
+            <p class="icon-text">Search</p>
           </div>
           <% end %>
         </li>
@@ -17,10 +24,10 @@
               </div>
           </button>
         </li>
-        <li><%= link_to places_path do %>
+        <li><%= link_to lists_path do %>
           <div class="flex-column icon-active">
             <i class="icon-big gray fas fa-list mb-1"></i>
-            <p class="icon-text">Places</p>
+            <p class="icon-text">Lists</p>
           </div>
           <% end %>
         </li>
