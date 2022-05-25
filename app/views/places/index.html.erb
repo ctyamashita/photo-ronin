@@ -2,7 +2,7 @@
   <button data-map-toggle-target="button" class="btn btn-light toggle-button" data-action="click->map-toggle#mapDisplay">
     See List
   </button>
-  <div class="container" data-map-toggle-target="list">
+  <div class="container d-none" data-map-toggle-target="list">
     <div class="grid">
       <% if @places.any? %>
         <% @places.each do |place| %>

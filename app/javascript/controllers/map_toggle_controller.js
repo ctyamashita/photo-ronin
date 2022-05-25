@@ -11,7 +11,7 @@ export default class extends Controller {
     console.log('click')
     this.mapTarget.classList.toggle('d-none')
     this.listTarget.classList.toggle('d-none')
-    if (this.buttonTarget.innerHTML === "Map") {
+    if (this.buttonTarget.innerHTML === "See Map") {
       this.buttonTarget.innerHTML = "See List";
     } else {
       this.buttonTarget.innerHTML = "See Map";
