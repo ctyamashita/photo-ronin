@@ -14,7 +14,7 @@ class ListsController < ApplicationController
     authorize @list
 
     if @list.save
-      redirect_to list_path(@list), notice: "#{@list.title} has been added"
+      redirect_to user_dashboard_path(current_user), notice: "#{@list.title} has been added"
     else
       render :new
     end
