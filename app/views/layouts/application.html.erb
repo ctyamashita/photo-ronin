@@ -14,7 +14,13 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/menu' %>
+
+    <div data-controller="new-list">
+      <%= render 'shared/menu' %>
+      <%= render 'shared/new_list' %>
+    </div>
+
     <%= yield %>
+    <%= render 'shared/menu' %>
   </body>
 </html>

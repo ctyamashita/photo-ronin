@@ -1,0 +1,19 @@
+
+.form-control:focus {
+  background-color: $white !important;
+}
+
+#form-list {
+  background-color: lightgrey;
+  color: darkgrey;
+  display: none;
+  position: absolute;
+  inset: 0;
+  // pairs with position absolute
+  z-index: 100;
+  // make it not transparent
+  &.show {
+    display: block;
+    // default value for display
+  }
+}
