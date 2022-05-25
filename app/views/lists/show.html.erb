@@ -1,10 +1,13 @@
 <div class="container mt-5">
-    <h1 class="mb-5 ms-4 bold"> <%= @list.title %></h1>
-    <div class="grid">
-      <% @list.places.each do |place|%>
-      <div class="card-trip mb-3">
-        <%= render 'place-card-list', place: place %>
+  <div class="grid">
+    <% if @list.places.any? %>
+      <% @list.places.each do |place| %>
+        <div class="card-trip mx-3 mt-5">
+        <%= render 'shared/place_card', place: place %>
         </div>
+      <% end %>
+    <% else %>
+      No places.
     <% end %>
-    </div>
+  </div>
 </div>
