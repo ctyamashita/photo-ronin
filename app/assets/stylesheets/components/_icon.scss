@@ -5,13 +5,11 @@
 .gray {
   color: $gray;
 }
-
 .light-gray {
   color: $light-gray;
 }
-
 .icon-big {
-  font-size: 18px;
+  font-size: 12px;
 }
 
 .icon-text {
@@ -19,15 +17,16 @@
   margin-bottom: 0;
   color: $light-gray;
 }
-.icon-active {
 
+.icon-active {
   p,
-  i {
-    transition: 0.4s;
+    i {
+      transition: 0.4s;
+    }
   }
-}
+
 .icon-active:hover {
-  p, i {
+  p, i, h2 {
     color: $green;
   }
 }
