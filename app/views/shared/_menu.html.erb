@@ -4,14 +4,14 @@
       <div class="grid grid-icon text-center mx-3 py-3">
         <li><%= link_to places_path do %>
           <div class="flex-column icon-active">
-            <i class="icon-big gray fas fa-images mb-1"></i>
+            <i class="icon-big light-gray fas fa-images mb-1"></i>
             <p class="icon-text">Places</p>
           </div>
           <% end %>
         </li>
         <li><%= link_to places_path do %>
           <div class="flex-column icon-active">
-            <i class="icon-big gray fas fa-search mb-1"></i>
+            <i class="icon-big light-gray fas fa-search mb-1"></i>
             <p class="icon-text">Search</p>
           </div>
           <% end %>
@@ -19,20 +19,20 @@
         <li>
           <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
               <div class="flex-column icon-active">
-                <i class="icon-big gray fas fa-plus"></i><p class="icon-text">New</p>
+                <i class="icon-big light-gray fas fa-plus"></i><p class="icon-text">New</p>
               </div>
           </button>
         </li>
         <li><%= link_to lists_path do %>
           <div class="flex-column icon-active">
-            <i class="icon-big gray fas fa-list mb-1"></i>
+            <i class="icon-big light-gray fas fa-list mb-1"></i>
             <p class="icon-text">Discover</p>
           </div>
           <% end %>
         </li>
         <li><%= link_to user_dashboard_path(current_user) do %>
           <div class="flex-column icon-active">
-            <i class="icon-big gray fas fa-heart mb-1"></i>
+            <i class="icon-big light-gray fas fa-heart mb-1"></i>
             <p class="icon-text">My lists</p>
           </div>
           <% end %>
