@@ -5,7 +5,7 @@
   <div class="grid">
     <% @places.each do |place| %>
       <div id="places-list" class="card-trip mb-5">
-        <%= render 'places/place_card', place: place %>
+        <%= render 'shared/place_card', place: place %>
       </div>
     <% end %>
   </div>
@@ -16,7 +16,7 @@
   <div class="grid">
     <% @places.each do |place| %>
       <div id="places-list" class="card-trip mb-5">
-        <%= render 'places/place_card', place: place %>
+        <%= render 'shared/place_card', place: place %>
       </div>
     <% end %>
   </div>
