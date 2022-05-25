@@ -19,18 +19,11 @@ List.destroy_all
 User.destroy_all
 Place.destroy_all
 
-places = ['Tokyo', 'Kyoto', 'Saitama', 'Yokohama', 'Kawasaki']
-counter = 0
-
-5.times do
-  Place.create!(
-    name: Faker::Address.community,
-    address: places[counter]
-    # latitude: Faker::Address.latitude,
-    # longitude: Faker::Address.longitude
-  )
-  counter + 1
-end
+Place.create!(name: Faker::Address.community, address: 'Tokyo')
+Place.create!(name: Faker::Address.community, address: 'Kyoto')
+Place.create!(name: Faker::Address.community, address: 'Saitama')
+Place.create!(name: Faker::Address.community, address: 'Yokohama')
+Place.create!(name: Faker::Address.community, address: 'Kawasaki')
 
 User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', instagram_url: 'instagram.com')
 
