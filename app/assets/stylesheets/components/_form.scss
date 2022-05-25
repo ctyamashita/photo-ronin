@@ -1,14 +1,22 @@
+.form-control {
+  background-color: rgb(240, 240, 240) !important;
+}
 
 .form-control:focus {
   background-color: $white !important;
 }
 
 #form-list {
-  background-color: lightgrey;
-  color: darkgrey;
+  background-color: $black;
+  color: $white;
   display: none;
-  position: absolute;
+  position: fixed;
   inset: 0;
+  top: 25vh;
+  height: 300px;
+  width: 300px;
+  box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.3);
+  border-radius: 16px;
   // pairs with position absolute
   z-index: 100;
   // make it not transparent
@@ -16,4 +24,14 @@
     display: block;
     // default value for display
   }
+  .form-control {
+    width: 200px !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+    #form-list {
+        height: 300px;
+        width: 300px;
+    }
 }
