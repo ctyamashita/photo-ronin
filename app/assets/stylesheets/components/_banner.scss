@@ -1,11 +1,17 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 200px 0;
 }
 
 .banner h1 {
   margin: 0;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  padding: 34vh 0 0 0;
+  padding: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.51);
+  letter-spacing: 6px;
+}
+
+.banner h3 {
+  margin: 0;
+  letter-spacing: 3px;
 }
