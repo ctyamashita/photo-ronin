@@ -6,7 +6,8 @@ class MarkersController < ApplicationController
     if @marker.save
       redirect_to list_path(@marker.list), notice: "#{@marker.place.name} has been added"
     else
-      render place_path(@marker.place)
+      @place = Place.find(params[:place_id])
+      render place_path(@place)
     end
   end
 
