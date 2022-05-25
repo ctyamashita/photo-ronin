@@ -1,7 +1,7 @@
 .card-trip {
   overflow: hidden;
   background: $black;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   position: relative;
 }
@@ -87,9 +87,9 @@
   height: 180px;
   display: flex;
   justify-content: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   align-items: center;
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
   a {
     color: white;
