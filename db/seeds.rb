@@ -43,10 +43,12 @@ User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', ins
       user: user
     )
     2.times do
+      place = 0
       Marker.create!(
         list: list,
-        place: Place.all.sample
+        place: Place.all[place]
       )
+      place + 1
     end
   end
 
