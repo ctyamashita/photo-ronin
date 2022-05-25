@@ -1,11 +1,12 @@
 <div class="card-trip">
   <%= link_to "", place_path(place), class: 'card-category-link' %>
-  <img src= 'https://source.unsplash.com/300x300'/>
+  <img src='<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : image_path('Ronin.jpg') %>'>
 
   <div class="card-trip-infos">
     <div class="description-capacity p-3">
       <h3><%= place.name %></h2>
-      <p><i class="fas fa-map-marker"></i> <%= place.address %></p>
+      <p class="green"><i class="fas fa-map-marker"></i> <%= place.address %></p>
+      <p>This place is #urban, #moody, #cityscape, #cyberpunk and #nightphoto</p>
     </div>
   </div>
 </div>

@@ -9,6 +9,7 @@ class PlacesController < ApplicationController
                 policy_scope(Place.all)
               end
     @pins = create_markers(@places)
+
   end
 
   def show
