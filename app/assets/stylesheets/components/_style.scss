@@ -1,5 +1,6 @@
 body {
   background-color: $black;
+  padding-bottom: 96px;
   color: $white;
 }
 
@@ -104,6 +105,10 @@ p {
 
 .gray {
   color: $gray;
+}
+
+.gray {
+  color: $white;
 }
 
 // Other

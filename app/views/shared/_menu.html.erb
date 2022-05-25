@@ -5,13 +5,6 @@
       <div class="grid grid-icon text-center mx-3 py-3">
         <li><%= link_to places_path do %>
           <div class="flex-column icon-active">
-            <i class="icon-big gray fas fa-home mb-1"></i>
-            <p class="icon-text">Home</p>
-          </div>
-          <% end %>
-        </li>
-        <li><%= link_to places_path do %>
-          <div class="flex-column icon-active">
             <i class="icon-big gray fas fa-map mb-1"></i>
             <p class="icon-text">Map</p>
           </div>
@@ -26,15 +19,15 @@
         </li>
         <li><%= link_to places_path do %>
           <div class="flex-column icon-active">
-            <i class="icon-big gray fas fa-heart mb-1"></i>
-            <p class="icon-text">Wishlist</p>
+            <i class="icon-big gray fas fa-list mb-1"></i>
+            <p class="icon-text">Places</p>
           </div>
           <% end %>
         </li>
         <li><%= link_to user_dashboard_path(current_user) do %>
           <div class="flex-column icon-active">
-            <i class="icon-big gray fas fa-user mb-1"></i>
-            <p class="icon-text">Profile</p>
+            <i class="icon-big gray fas fa-heart mb-1"></i>
+            <p class="icon-text">Wishlist</p>
           </div>
           <% end %>
         </li>
