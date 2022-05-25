@@ -25,3 +25,16 @@
   right: 16px;
   top: 16px;
 }
+
+.btn-close {
+  position: absolute;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  top: 2px;
+  right: 7px;
+}
+
+.btn-close-relative {
+  position: relative;
+}

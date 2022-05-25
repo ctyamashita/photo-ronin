@@ -1,0 +1,9 @@
+<div class="container text-center bg-black" id="form-list" data-new-list-target="formList">
+  <div class="vertical-center">
+    <h2>Select a list</h2>
+    <%= simple_form_for [place, marker] do |f| %>
+      <%= f.association :list, collection: @lists, include_blank: false %>
+      <%= f.submit class: 'btn btn-ghost mt-3'%>
+    <% end %>
+  </div>
+</div>

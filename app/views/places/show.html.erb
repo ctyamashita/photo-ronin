@@ -29,3 +29,24 @@
         <p>camera model</p>
       </div>
     </div> %>
+
+<%# </div> %>
+
+<div data-controller="new-marker">
+  <button data-new-list-target="popupButton" data-action="click->new-marker#showForm" style="background: rgba(0,0,0,0); border: none">
+    <div class="flex-column icon-active">
+      <i class="icon-big gray fas fa-plus"></i><p class="icon-text">Add to List</p>
+    </div>
+  </button>
+
+  <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-marker-target="formList">
+    <div class="vertical-center">
+      <h2>Select a list</h2>
+      <%= simple_form_for [@place, @marker] do |f| %>
+        <%= f.association :list, collection: @lists, include_blank: false %>
+        <%= f.submit class: 'btn btn-ghost mt-3'%>
+      <% end %>
+    </div>
+    <button data-action="click->new-marker#showForm" class='btn-close'>✖</button>
+  </div>
+</div>
