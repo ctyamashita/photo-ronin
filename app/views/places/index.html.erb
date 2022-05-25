@@ -7,7 +7,7 @@
       <% if @places.any? %>
         <% @places.each do |place| %>
           <div class="card-trip mx-3 mt-5">
-          <%= render 'place_card', place: place %>
+          <%= render 'shared/place_card', place: place %>
           </div>
         <% end %>
       <% else %>

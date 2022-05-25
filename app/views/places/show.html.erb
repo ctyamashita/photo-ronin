@@ -1,35 +1,26 @@
 <%# <div class="card-trip"> %>
-<%# <div class="card-trip mb-3"> %>
-  <%#= render 'place_card', place: @place %>
-
-<div class="card-trip m-5">
-  <% if @place.photos.any? %>
-    <% @place.photos.each do |photo| %>
-      <div class="rounded">
-        <%= image_tag cl_image_path(photo.photo.key) %>
-      </div>
-      <% end %>
-      <% else %>
-        <div class="rounded">
-          <%= image_tag '/assets/Ronin.jpg' %>
+  <div class="card-show row">
+    <% if @place.photos.any? %>
+      <% @place.photos.first(3).each do |photo| %>
+        <div class="card-trip mb-3 col-4">
+          <%= image_tag cl_image_path(photo.photo.key) %>
         </div>
+      <% end %>
+    <% else %>
+        <%= image_tag '/assets/Ronin.jpg' %>
     <% end %>
-  <div class="card-trip-infos">
-    <h2 class="bold"><%= @place.name %></h2>
-    <h4><%= @place.address %></h4>
-  </div>
-    <div class="row">
-      <div class="col-4 text-center">
-        <p>aperture</p>
-      </div>
-      <div class="col-4 text-center">
-        <p>shutter speed</p>
-      </div>
-      <div class="col-4 text-center">
-        <p>iOS</p>
+    <div class="card-trip-info">
+      <div class="position-relative">
+        <div class="d-flex justify-content-between mt-5">
+          <h2 class="bold"><%= @place.name %></h3>
+          <h3 class="bold">5.0  <i class="fas fa-star green"></i></h4>
+        </div>
+        <h3 class="green mb-4"><%= @place.address %></h4>
+        <p class="">This place is #urban, #moody, #cityscape, #cyberpunk and #nightphoto</p>
       </div>
     </div>
-</div>
+  </div>
+<%# </div> %>
 
     <%# <div class="card-trip-infos">
       <div class="info-middle">

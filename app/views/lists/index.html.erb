@@ -1,1 +1,12 @@
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima unde aliquid iste ipsa dolore iusto explicabo voluptate aut ipsam blanditiis ad adipisci nihil numquam tenetur soluta, in vel delectus quo?
+<div class="container col-10 mt-5">
+  <h1 class="ms-4 mb-5 bold">All lists</h1>
+  <div class="grid">
+    <% if @lists.any? %>
+      <% @lists.each do |list|%>
+        <%= render "list_card", list: list %>
+      <% end %>
+    <% else %>
+      No lists.
+    <% end %>
+  </div>
+</div>

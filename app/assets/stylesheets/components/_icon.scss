@@ -7,11 +7,23 @@
 }
 
 .icon-big {
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .icon-text {
-  font-size: 12px;
+  font-size: 10px;
   margin-bottom: 0;
-  color: $white;
+  color: $light-gray;
+}
+.icon-active {
+
+  p,
+  i {
+    transition: 0.2s;
+  }
+}
+.icon-active:hover {
+  p, i {
+    color: $green;
+  }
 }
