@@ -1,1 +1,23 @@
 <%= render 'shared/banner' %>
+
+<div class="container my-5">
+  <h2 class="recommended text-center mb-5">Recommended</h2>
+  <div class="grid">
+    <% @places.each do |place| %>
+      <div id="places-list" class="card-trip mb-5">
+        <%= render 'places/place_card', place: place %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container my-5">
+  <h2 class="recommended text-center mb-5">Trending</h2>
+  <div class="grid">
+    <% @places.each do |place| %>
+      <div id="places-list" class="card-trip mb-5">
+        <%= render 'places/place_card', place: place %>
+      </div>
+    <% end %>
+  </div>
+</div>
