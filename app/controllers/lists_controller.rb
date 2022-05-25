@@ -14,7 +14,7 @@ class ListsController < ApplicationController
     authorize @list
 
     unless @list.save
-      @list = List.new(title: "New_List_#{List.last.id}", user: current_user)
+      @list = List.new(title: "New_List_#{List.all.any? ? List.last.id : 1}", user: current_user)
       @list.save
     end
     redirect_to user_dashboard_path(current_user), notice: "#{@list.title} has been added"
