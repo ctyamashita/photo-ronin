@@ -138,3 +138,7 @@ a {
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
 }
+
+.shadow {
+  box-shadow: 0 -4px 8px rgba($color: #000000, $alpha: 0.3);
+}
