@@ -1,5 +1,5 @@
 <div class="fixed-bottom bg-black">
-  <div class="d-flex justify-content-around text-center px-2 mx-4 py-3">
+  <div class="d-flex justify-content-around text-center align-items-start px-2 mx-4 py-3">
     <%= link_to root_path do %>
       <div class="flex-column icon-active">
         <i class="icon-big light-gray fas fa-images mb-1"></i>
@@ -14,11 +14,11 @@
       </div>
     <% end %>
 
-     <div class="btn-add-list" data-controller="new-list">
-      <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
+      <div class="btn-add-list" data-controller="new-list">
+        <button class="btn-add" data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
         <div class="flex-column icon-active">
-          <i class="icon-big light-gray fas fa-plus mb-1"></i>
-          <p class="icon-text">Add Place</p>
+          <i class="icon-plus light-gray fas fa-plus mb-1"></i>
+          <p class="icon-text light-gray">Add Place</p>
         </div>
       </button>
       <%= render 'shared/new_place', place: Place.new %>
