@@ -1,0 +1,5 @@
+<h2>Share your photo of <%= place.name %></h2>
+<%= simple_form_for [@place, @photo] do |f| %>
+  <%= f.input :photo, as: :file, label: false %>
+  <%= f.submit 'Send', class: 'btn btn-ghost'%>
+<% end %>
