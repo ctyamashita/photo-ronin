@@ -3,7 +3,8 @@
 <div class="container my-5">
   <h2 class="recommended text-center mb-5">Recommended <i class="green fas fa-heart"></i></h2>
   <div class="grid">
-    <% @places.each do |place| %>
+  <%# add real places%>
+    <% @places.first(4).each do |place| %>
       <div id="places-list" class="card-trip mb-5">
         <%= render 'shared/place_card', place: place %>
       </div>
@@ -14,7 +15,7 @@
 <div class="container my-5">
   <h2 class="trending text-center mb-5">Trending <i class="green fas fa-fire"></i></h2>
   <div class="grid">
-    <% @places.each do |place| %>
+    <% @places.last(4).each do |place| %>
       <div id="places-list" class="card-trip mb-5">
         <%= render 'shared/place_card', place: place %>
       </div>
