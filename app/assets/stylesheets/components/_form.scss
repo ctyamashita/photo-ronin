@@ -1,13 +1,19 @@
 .form-control {
-  background-color: rgb(240, 240, 240) !important;
+  background-color: $black !important;
+  color: $light-gray;
 }
 
 .form-control:focus {
-  background-color: $white !important;
+  background-color: $black !important;
+  box-shadow: 0 0 3px rgba($color: $green, $alpha: 1);
+  color: white;
+
+  placeholder {
+    color: white;
+  }
 }
 
 #form-list {
-  background-color: $black;
   color: $white;
   display: none;
   position: fixed;

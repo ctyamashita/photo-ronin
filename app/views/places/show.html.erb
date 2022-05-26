@@ -1,58 +1,113 @@
-<%# <div class="card-trip"> %>
-  <div class="card-show row">
-    <% if @place.photos.any? %>
-      <% @place.photos.first(3).each do |photo| %>
-        <div class="card-trip mb-3 col-4">
-          <%= image_tag cl_image_path(photo.photo.key) %>
+<div class="container">
+  <div class="card-trip position-relative mt-5">
+
+    <%# TODO Made this placeholder for "LIKE", not functional yet %>
+
+    <div class="position-absolute btn-like-place" data-controller="new-marker">
+      <button data-new-list-target="popupButton" data-action="click->new-marker#showForm" style="background: rgba(0,0,0,0); border: none">
+        <div class="flex-column icon-active">
+          <i class="icon-card white fas fa-heart"></i>
         </div>
-      <% end %>
-    <% else %>
-        <%= image_tag '/assets/Ronin.jpg' %>
-    <% end %>
-    <div class="card-trip-info">
-      <div class="position-relative">
-        <div class="d-flex justify-content-between mt-5">
-          <h2 class="bold"><%= @place.name %></h3>
-          <h3 class="bold">5.0  <i class="fas fa-star green"></i></h4>
+      </button>
+    </div>
+
+    <div class="position-absolute btn-add-list" data-controller="new-marker">
+      <button data-new-list-target="popupButton" data-action="click->new-marker#showForm" style="background: rgba(0,0,0,0); border: none">
+        <div class="flex-column icon-active">
+          <i class="icon-card white fas fa-plus"></i>
         </div>
-        <h3 class="green mb-4"><%= @place.address %></h4>
-        <p class="">This place is #urban, #moody, #cityscape, #cyberpunk and #nightphoto</p>
+      </button>
+
+    <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-marker-target="formList">
+      <div class="vertical-center" data-controller="form-toggle">
+        <% if @lists.any? %>
+          <div data-form-toggle-target="list" class='d-none'>
+            <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
+          </div>
+          <div data-form-toggle-target="new">
+            <%= render 'shared/new_list', list: @list %>
+          </div>
+            <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3'>Existing list</button>
+        <% else %>
+          <%= render 'shared/new_list', list: @list %>
+        <% end %>
       </div>
+      <button data-action="click->new-marker#showForm" class='btn-close'>✖</button>
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src=<%= @place.photos.any? ? cl_image_path(@place.photos.first.photo.key) : '/assets/Ronin.jpg' %> class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src=<%= @place.photos.any? ? cl_image_path(@place.photos.first.photo.key) : '/assets/Ronin.jpg' %> class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src=<%= @place.photos.any? ? cl_image_path(@place.photos.first.photo.key) : '/assets/Ronin.jpg' %> class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src=<%= @place.photos.any? ? cl_image_path(@place.photos.first.photo.key) : '/assets/Ronin.jpg' %> class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src=<%= @place.photos.any? ? cl_image_path(@place.photos.first.photo.key) : '/assets/Ronin.jpg' %> class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="card-trip-infos mt-3">
+      <div class="position-relative">
+        <div class="d-flex justify-content-between">
+          <h4 class="bold mt-1"><%= @place.name %></h3>
+          <h4 class="bold">5.0  <i class="fas fa-star yellow"></i></h4>
+        </div>
+        <h4 class="green mb-4"><%= @place.address %></h4>
+        <p>This place is #urban, #moody, #cityscape, #cyberpunk and #nightphoto</p>
+      </div>
+    </div>
+    <div class="mt-5">
+      <div data-map-toggle-target="map" style="width: 100%; height: 30vh; margin: 0; padding: 0">
+      <%= render 'map', marker: @pins %>
+        </div>
     </div>
   </div>
-<%# </div> %>
 
-    <%# <div class="card-trip-infos">
-      <div class="info-middle">
-        <i class="fas fa-calendar"></i>
-        <i class="fas fa-camera"></i>
-        <p>camera model</p>
+  <div class="d-flex justify-content-between px-3 mt-5">
+    <h2>Reviews</h2>
+  </div>
+
+  <div>
+  <%  3.times do %>
+    <div class="light-gray px-3 pb-3 mt-2">
+      <div class="d-flex justify-content-between">
+        <p class="light-gray">Username</p>
+        <p>5 days ago</p>
       </div>
-    </div> %>
-
-<%# </div> %>
-
-<div data-controller="new-marker">
-  <button data-new-list-target="popupButton" data-action="click->new-marker#showForm" style="background: rgba(0,0,0,0); border: none">
-    <div class="flex-column icon-active">
-      <i class="icon-big gray fas fa-plus"></i><p class="icon-text">Add to List</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptatum reiciendis autem est voluptates veniam omnis numquam laboriosam natus eos.</p>
     </div>
-  </button>
-
-  <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-marker-target="formList">
-
-    <div class="vertical-center" data-controller="form-toggle">
-      <% if @lists.any? %>
-        <div data-form-toggle-target="list" class='d-none'>
-          <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
-        </div>
-        <div data-form-toggle-target="new">
-          <%= render 'shared/new_list', list: @list %>
-        </div>
-        <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3'>Existing list</button>
-      <% else %>
-        <%= render 'shared/new_list', list: @list %>
+  <% end %>
+      <%= form_with(model: [@place], local: true) do |f| %>
+        <%= f.text_area :content,
+                        class: "form-control rounded-corner mt-3",
+                        rows: 3,
+                        input_html: { autocomplete: "Comment" } %>
+        <%= button_tag type: "submit", class: "btn btn-ghost float-right mt-3" do %>
+          Post
+        <% end %>
       <% end %>
-    </div>
-    <button data-action="click->new-marker#showForm" class='btn-close'>✖</button>
+  </div>
 </div>
