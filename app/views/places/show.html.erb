@@ -92,17 +92,18 @@
   </div>
 
   <div>
-  <%  3.times do %>
+  <%  @reviews.each do |review| %>
     <div class="light-gray px-3 pb-3 mt-2">
       <div class="d-flex justify-content-between">
         <p class="light-gray">Username</p>
         <p>5 days ago</p>
       </div>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptatum reiciendis autem est voluptates veniam omnis numquam laboriosam natus eos.</p>
+      <p><%= review.content %></p>
     </div>
   <% end %>
-      <%= form_with(model: [@place], local: true) do |f| %>
-        <%= f.text_area :content,
+      <%= simple_form_for [@place, @review] do |f| %>
+        <%= f.input :rating %>
+        <%= f.input :content,
                         class: "form-control rounded-corner mt-3",
                         rows: 3,
                         input_html: { autocomplete: "Comment" } %>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     # resources :photos, only: %i[create]
     resources :markers, only: %i[create]
     resources :lists, only: :create
+    resources :reviews, only: :create
   end
 
   resources :lists, only: %i[show index]
