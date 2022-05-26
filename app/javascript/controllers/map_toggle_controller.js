@@ -16,7 +16,7 @@ export default class extends Controller {
       this.buttonTarget.className = "bg-black toggle-button btn-center";
     } else {
       this.buttonTarget.innerHTML = "See Map";
-      this.buttonTarget.className = "bg-green toggle-button btn-center";
+      this.buttonTarget.className = "bg-green black toggle-button btn-center";
     }
   }
 }

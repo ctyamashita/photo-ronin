@@ -1,7 +1,7 @@
 <%= render 'shared/banner' %>
 
 <div class="container my-5">
-  <h2 class="recommended text-center mb-5">Recommended</h2>
+  <h2 class="recommended text-center mb-5">Recommended <i class="green fas fa-heart"></i></h2>
   <div class="grid">
     <% @places.each do |place| %>
       <div id="places-list" class="card-trip mb-5">
@@ -12,7 +12,7 @@
 </div>
 
 <div class="container my-5">
-  <h2 class="recommended text-center mb-5">Trending</h2>
+  <h2 class="recommended text-center mb-5">Trending <i class="green fas fa-fire"></i></h2>
   <div class="grid">
     <% @places.each do |place| %>
       <div id="places-list" class="card-trip mb-5">
