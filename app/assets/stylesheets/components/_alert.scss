@@ -1,6 +1,23 @@
 .alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  left: 32px;
+  bottom: 90px;
   z-index: 1000;
+  background-color: $black;
+  color: $light-gray;
+  border-color: $green;
+  border-radius: 50px;
+  font-size: 12px;
+}
+
+.btn-close {
+  background: none;
+  padding-left: 10px;
+}
+
+.alert-dismissible .btn-close {
+  position: absolute;
+  top: -14px;
+  /* right: 0; */
+  z-index: 2;
 }
