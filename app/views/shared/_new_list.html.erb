@@ -1,10 +1,5 @@
-<div class="container text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
-<div class="vertical-center">
-  <h2>New List</h2>
-  <%= simple_form_for @list do |f| %>
-    <%= f.input :title, label: false , input_html: { class: "input" }, placeholder: "New_List_#{List.all.any? ? List.last.id : 1}" %>
-    <%= f.submit class: 'btn btn-ghost mt-3'%>
-  <% end %>
-  </div>
-  <button data-action="click->new-list#showForm" class='btn-close'>✖</button>
-</div>
+<h2>New List</h2>
+<%= simple_form_for [@place,@list] do |f| %>
+  <%= f.input :title, label: false , input_html: { class: "input" }, placeholder: "New_List_#{List.all.any? ? List.last.id : 1}" %>
+  <%= f.submit class: 'btn btn-ghost mt-3'%>
+<% end %>

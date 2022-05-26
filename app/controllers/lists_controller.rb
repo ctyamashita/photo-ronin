@@ -9,6 +9,7 @@ class ListsController < ApplicationController
   end
 
   def create
+    @place = Place.find(params[:place_id])
     @list = List.new(list_params)
     @list.user = current_user
     authorize @list
@@ -17,7 +18,10 @@ class ListsController < ApplicationController
       @list = List.new(title: "New_List_#{List.all.any? ? List.last.id : 1}", user: current_user)
       @list.save
     end
-    redirect_to user_dashboard_path(current_user), notice: "#{@list.title} has been added"
+    @marker = Marker.new(list: @list, place: @place)
+    @marker.save
+
+    redirect_to list_path(@list), notice: "#{@place.name} has been added to #{@list.title}"
   end
 
   def show

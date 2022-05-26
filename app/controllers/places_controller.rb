@@ -17,6 +17,7 @@ class PlacesController < ApplicationController
     authorize @place
     @marker = Marker.new
     @lists = current_user.lists.where.not(id: @place.lists)
+    @list = List.new
   end
 
   private
