@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :places, except: %i[destroy edit update] do
-    # resources :photos, only: %i[create]
+    resources :photos, only: %i[create]
     resources :markers, only: %i[create]
     resources :lists, only: :create
     resources :reviews, only: :create

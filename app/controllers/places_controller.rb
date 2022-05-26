@@ -1,10 +1,11 @@
 class PlacesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :form_instances, only: :show
 
   def index
     @places = if params[:address].present?
                 # policy_scope(Place.search_by_address_and_name(params[:q]))
-                policy_scope(Place.near(params[:address], 200))
+                policy_scope(Place.near(params[:address], 10))
               else
                 policy_scope(Place.all)
               end
@@ -14,10 +15,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     authorize @place
-    @marker = Marker.new
     @lists = current_user.lists.where.not(id: @place.lists)
-    @list = List.new
-    @review = Review.new
     @reviews = @place.reviews
     @pin = create_marker(@place)
   end
@@ -58,5 +56,12 @@ class PlacesController < ApplicationController
 
   def place_params
     params.require(:place).permit(:name, :address)
+  end
+
+  def form_instances
+    @list = List.new
+    @review = Review.new
+    @marker = Marker.new
+    @photo = Photo.new
   end
 end

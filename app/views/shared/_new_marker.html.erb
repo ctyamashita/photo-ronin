@@ -1,5 +1,5 @@
 <h2>Select a list</h2>
 <%= simple_form_for [place, marker] do |f| %>
   <%= f.association :list, collection: lists, class: 'form-control', label:false, include_blank: false %>
-  <%= f.submit class: 'btn btn-ghost mt-3'%>
+  <%= f.submit 'Add',class: 'btn btn-ghost mt-3'%>
 <% end %>
