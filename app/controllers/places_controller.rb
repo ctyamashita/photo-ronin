@@ -9,7 +9,6 @@ class PlacesController < ApplicationController
                 policy_scope(Place.all)
               end
     @pins = create_markers(@places)
-
   end
 
   def show
@@ -18,6 +17,20 @@ class PlacesController < ApplicationController
     @marker = Marker.new
     @lists = current_user.lists.where.not(id: @place.lists)
     @list = List.new
+  end
+
+  def create
+    @place = Place.new(place_params)
+    authorize @place
+    if @place.save
+      redirect_to place_path(@place), notice: "#{@place.name} has been added"
+    else
+      if Place.where(name: @place.name).any?
+        redirect_to place_path(Place.where(name: @place.name).first), notice: "#{@place.name} already exists"
+      else
+        redirect_to places_path
+      end
+    end
   end
 
   private
@@ -32,4 +45,7 @@ class PlacesController < ApplicationController
     end
   end
 
+  def place_params
+    params.require(:place).permit(:name, :address)
+  end
 end

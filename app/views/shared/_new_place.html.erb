@@ -1,0 +1,13 @@
+<div class="container text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
+  <div class="vertical-center" data-controller="form-toggle">
+    <h1>Add place</h1>
+    <%= simple_form_for place do |f| %>
+      <%= f.input :name, input_html: { class: "input" }, label: false, placeholder: 'Place name' %>
+      <%= f.input :address, label: false,
+            wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } },
+            input_html: { data: { geocoder_target: 'address' }, class: 'd-none' } %>
+      <%= f.submit class: 'btn btn-ghost mt-3'%>
+    <% end %>
+  </div>
+  <button data-action="click->new-list#showForm" class='btn-close'>✖</button>
+</div>

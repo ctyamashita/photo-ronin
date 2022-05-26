@@ -11,4 +11,5 @@ class Place < ApplicationRecord
   #                 using: {
   #                   tsearch: { prefix: true }
   #                 }
+  validates :address, presence: true, uniqueness: true
 end

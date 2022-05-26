@@ -14,12 +14,15 @@
       </div>
     <% end %>
 
-    <%= link_to places_path do %>
-      <div class="flex-column icon-active">
-        <i class="icon-big light-gray fas fa-plus"></i>
-        <p class="icon-text">Add Place</p>
-      </div>
-    <% end %>
+     <div class="btn-add-list" data-controller="new-list">
+      <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
+        <div class="flex-column icon-active">
+          <i class="icon-big light-gray fas fa-plus mb-1"></i>
+          <p class="icon-text">Add Place</p>
+        </div>
+      </button>
+      <%= render 'shared/new_place', place: Place.new %>
+    </div>
 
     <% if current_user %>
       <%= link_to user_dashboard_path(current_user) do %>

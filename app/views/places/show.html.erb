@@ -3,22 +3,22 @@
 
     <%# TODO Made this placeholder for "LIKE", not functional yet %>
 
-    <div class="position-absolute btn-like-place" data-controller="new-marker">
-      <button data-new-list-target="popupButton" data-action="click->new-marker#showForm" style="background: rgba(0,0,0,0); border: none">
+    <div class="position-absolute btn-like-place" data-controller="new-list">
+      <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
         <div class="flex-column icon-active">
           <i class="icon-card white fas fa-heart"></i>
         </div>
       </button>
     </div>
 
-    <div class="position-absolute btn-add-list" data-controller="new-marker">
-      <button data-new-list-target="popupButton" data-action="click->new-marker#showForm" style="background: rgba(0,0,0,0); border: none">
+    <div class="position-absolute btn-add-list" data-controller="new-list">
+      <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
         <div class="flex-column icon-active">
           <i class="icon-card white fas fa-plus"></i>
         </div>
       </button>
 
-      <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-marker-target="formList">
+      <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
         <div class="vertical-center" data-controller="form-toggle">
           <% if @lists.any? %>
             <div data-form-toggle-target="list" class='d-none'>
@@ -32,7 +32,7 @@
             <%= render 'shared/new_list', list: @list %>
           <% end %>
         </div>
-        <button data-action="click->new-marker#showForm" class='btn-close'>✖</button>
+        <button data-action="click->new-list#showForm" class='btn-close'>✖</button>
       </div>
     </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
