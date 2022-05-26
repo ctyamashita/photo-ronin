@@ -38,7 +38,7 @@ gem "geocoder"
 gem 'pg_search', '~> 2.3.0'
 gem 'pundit'
 gem 'simple_form', github: 'heartcombo/simple_form'
-
+gem 'rails_admin', '~> 2.0'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
