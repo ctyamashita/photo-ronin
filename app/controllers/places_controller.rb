@@ -19,6 +19,7 @@ class PlacesController < ApplicationController
     @list = List.new
     @review = Review.new
     @reviews = @place.reviews
+    @pin = create_marker(@place)
   end
 
   def create
@@ -45,6 +46,14 @@ class PlacesController < ApplicationController
         info_window: render_to_string(partial: 'places/info_window', locals: { place: place })
       }
     end
+  end
+
+  def create_marker(place)
+    {
+      lat: place.latitude,
+      lng: place.longitude,
+      info_window: render_to_string(partial: 'places/info_window', locals: { place: place })
+    }
   end
 
   def place_params
