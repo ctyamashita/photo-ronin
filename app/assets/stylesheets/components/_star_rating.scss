@@ -1,0 +1,30 @@
+.star-rating {
+  display: flex;
+  align-items: center;
+
+
+  input {
+    visibility: hidden;
+    margin-right: 20px;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  input:before {
+    cursor: pointer;
+    visibility: visible;
+    font-family: 'Font Awesome 5 Free';
+    content: '\f005';
+    font-size: 24px;
+    color: $green;
+    transition: color 0.35s;
+  }
+
+  input:hover {
+    transform: scale(1.2) translate(-10%, -10%);
+  }
+
+  input:checked~input:before {
+    color: $light-gray;
+  }
+}

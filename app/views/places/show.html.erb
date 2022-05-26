@@ -90,26 +90,37 @@
   <div class="d-flex justify-content-between px-3 mt-5">
     <h2>Reviews</h2>
   </div>
-
-  <div>
-  <%  @reviews.each do |review| %>
-    <div class="light-gray px-3 pb-3 mt-2">
-      <div class="d-flex justify-content-between">
-        <p class="light-gray">Username</p>
-        <p>5 days ago</p>
-      </div>
-      <p><%= review.content %></p>
-    </div>
-  <% end %>
-      <%= simple_form_for [@place, @review] do |f| %>
-        <%= f.input :rating %>
-        <%= f.input :content,
-                        class: "form-control rounded-corner mt-3",
-                        rows: 3,
-                        input_html: { autocomplete: "Comment" } %>
-        <%= button_tag type: "submit", class: "btn btn-ghost float-right mt-3" do %>
-          Post
+    <div class="container mt-3">
+      <div class="position-relative">
+        <%= simple_form_for [@place, @review] do |f| %>
+          <%= f.input :content,
+                      class: "form-control-custom rounded-corner mt-1 input-background",
+                      rows: 5,
+                      label: false,
+                      id: "form-list",
+                      placeholder: "Your comment",
+                      input_html: { autocomplete: "Comment" } %>
+        <div class="star-rating mb-3">
+          <% 5.times do |i| %>
+            <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+          <% end %>
+        </div>
+        <%= button_tag type: "submit", class: "btn btn-ghost position-absolute position-submit-review" do %>
+              Post
         <% end %>
-      <% end %>
-  </div>
+      </div>
+    <% end %>
+    <%  @reviews.each do |review| %>
+      <div class="light-gray pb-3 mt-5">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex">
+            <p class="light-gray me-3">Username</p>
+            <p class="white bold"><%= review.rating %> <i class="icon-big green fas fa-star mb-1"></i></p>
+          </div>
+          <p>Posted <%= (Time.now - review.created_at).to_i / (24 * 60 * 60)  %> days ago</p>
+        </div>
+        <p><%= review.content %></p>
+      </div>
+    <% end %>
+    </div>
 </div>
