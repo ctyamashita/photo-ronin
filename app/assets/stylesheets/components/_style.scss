@@ -22,7 +22,6 @@ h3 {
 
 h4 {
   font-size: 12px;
-  line-height: 2px
 }
 
 p {
@@ -95,7 +94,7 @@ p {
     }
 
     p {
-      font-size: 24px;
+      font-size: 14px;
     }
 }
 
@@ -107,6 +106,10 @@ p {
 
 .gray {
   color: $gray;
+}
+
+.light-gray {
+  color: $light-gray;
 }
 
 .black {
