@@ -91,24 +91,24 @@
   </div>
 
   <div>
-  <%  @reviews.each do |review| %>
-    <div class="light-gray px-3 pb-3 mt-2">
-      <div class="d-flex justify-content-between">
-        <p class="light-gray">Username</p>
-        <p>5 days ago</p>
+    <%  @reviews.each do |review| %>
+      <div class="light-gray px-3 pb-3 mt-2">
+        <div class="d-flex justify-content-between">
+          <p class="light-gray">Username</p>
+          <p>5 days ago</p>
+        </div>
+        <p><%= review.content %></p>
       </div>
-      <p><%= review.content %></p>
-    </div>
-  <% end %>
-      <%= simple_form_for [@place, @review] do |f| %>
-        <%= f.input :rating %>
-        <%= f.input :content,
-                        class: "form-control rounded-corner mt-3",
-                        rows: 3,
-                        input_html: { autocomplete: "Comment" } %>
-        <%= button_tag type: "submit", class: "btn btn-ghost float-right mt-3" do %>
-          Post
-        <% end %>
+    <% end %>
+    <%= simple_form_for [@place, @review] do |f| %>
+      <%= f.input :rating %>
+      <%= f.input :content,
+                  class: "form-control rounded-corner mt-3",
+                  rows: 3,
+                  input_html: { autocomplete: "Comment" } %>
+      <%= button_tag type: "submit", class: "btn btn-ghost float-right mt-3" do %>
+        Post
       <% end %>
+    <% end %>
   </div>
 </div>
