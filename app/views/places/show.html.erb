@@ -40,23 +40,19 @@
   </button>
 
   <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-marker-target="formList">
-    <div class="vertical-center">
 
+    <div class="vertical-center" data-controller="form-toggle">
       <% if @lists.any? %>
-        <h2>Select a list</h2>
-        <%= simple_form_for [@place, @marker] do |f| %>
-          <%= f.association :list, collection: @lists, include_blank: false %>
-          <%= f.submit class: 'btn btn-ghost mt-3'%>
-        <% end %>
+        <div data-form-toggle-target="list" class='d-none'>
+          <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
+        </div>
+        <div data-form-toggle-target="new">
+          <%= render 'shared/new_list', list: @list %>
+        </div>
+        <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3'>Existing list</button>
       <% else %>
-        <h2 class="mb-5">No list available</h2>
-        <button data-new-list-target="popupButton" data-action="click->new-list#showForm click->new-marker#showForm" style="background: rgba(0,0,0,0); border: none">
-            <div class="flex-column icon-active">
-              <i class="icon-big gray fas fa-plus"></i><p class="icon-text">Create a new list</p>
-            </div>
-        </button>
+        <%= render 'shared/new_list', list: @list %>
       <% end %>
     </div>
     <button data-action="click->new-marker#showForm" class='btn-close'>✖</button>
-  </div>
 </div>

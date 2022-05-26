@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   resources :places, except: %i[destroy edit update] do
     # resources :photos, only: %i[create]
     resources :markers, only: %i[create]
+    resources :lists, only: :create
   end
 
-  resources :lists, only: %i[create show index]
+  resources :lists, only: %i[show index]
 
   resources :photos, only: :show
 
