@@ -18,21 +18,22 @@
         </div>
       </button>
 
-    <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-marker-target="formList">
-      <div class="vertical-center" data-controller="form-toggle">
-        <% if @lists.any? %>
-          <div data-form-toggle-target="list" class='d-none'>
-            <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
-          </div>
-          <div data-form-toggle-target="new">
+      <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-marker-target="formList">
+        <div class="vertical-center" data-controller="form-toggle">
+          <% if @lists.any? %>
+            <div data-form-toggle-target="list" class='d-none'>
+              <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
+            </div>
+            <div data-form-toggle-target="new">
+              <%= render 'shared/new_list', list: @list %>
+            </div>
+              <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3'>Existing list</button>
+          <% else %>
             <%= render 'shared/new_list', list: @list %>
-          </div>
-            <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3'>Existing list</button>
-        <% else %>
-          <%= render 'shared/new_list', list: @list %>
-        <% end %>
+          <% end %>
+        </div>
+        <button data-action="click->new-marker#showForm" class='btn-close'>✖</button>
       </div>
-      <button data-action="click->new-marker#showForm" class='btn-close'>✖</button>
     </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
