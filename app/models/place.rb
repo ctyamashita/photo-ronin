@@ -2,6 +2,7 @@ class Place < ApplicationRecord
   has_many :markers
   has_many :lists, through: :markers
   has_many :photos
+  has_many :reviews
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 

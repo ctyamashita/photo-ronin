@@ -18,6 +18,8 @@ class PlacesController < ApplicationController
     @marker = Marker.new
     @lists = current_user.lists.where.not(id: @place.lists)
     @list = List.new
+    @review = Review.new
+    @reviews = @place.reviews
   end
 
   private
