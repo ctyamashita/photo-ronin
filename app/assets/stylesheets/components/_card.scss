@@ -6,6 +6,19 @@
   position: relative;
 }
 
+.card-map {
+  overflow: hidden;
+  background: $black;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  position: relative;
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover
+    };
+}
+
 .card-trip>img {
   width: 100%;
   height: 200px;
@@ -26,7 +39,7 @@
 }
 
 .card-trip .card-trip-infos {
-  padding: 20px;
+  padding: 8px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -69,7 +82,7 @@
     }
 
   .card-trip>img {
-      height: 375px;
+      height: 320px;
     }
 }
 

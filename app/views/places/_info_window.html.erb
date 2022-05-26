@@ -1,8 +1,8 @@
-<div class="card-trip">
+<div class="card-map">
   <%= link_to "", place_path(place), class: 'card-category-link' %>
   <img src='<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : image_path('Ronin.jpg') %>'>
 
-  <div class="card-trip-infos">
+  <div class="infos-small">
     <div class="description-capacity p-3">
       <h3><%= place.name %></h2>
       <p class="green"><i class="fas fa-map-marker"></i> <%= place.address %></p>
