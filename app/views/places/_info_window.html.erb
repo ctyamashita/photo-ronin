@@ -7,7 +7,9 @@
       <h3><%= place.name %></h2>
       <div class="d-flex justify-content-between">
         <p class="green"><i class="fas fa-map-marker"></i> <%= place.address %></p>
-        <p class="bold"><%= rand(3..5) %>  <i class="fas fa-star green"></i></p>
+        <% if place.average_review > 0 %>
+          <p class="bold"><%= place.average_review %>  <i class="fas fa-star green"></i></p>
+        <% end %>
       </div>
     </div>
   </div>
