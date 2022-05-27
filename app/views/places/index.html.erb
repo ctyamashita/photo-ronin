@@ -2,12 +2,12 @@
   <button data-map-toggle-target="button" class="text-center btn-center toggle-button" data-action="click->map-toggle#mapDisplay">
     See List
   </button>
-  <div class="container d-none" data-map-toggle-target="list">
+  <div class="container mt-3 d-none" data-map-toggle-target="list">
     <div class="grid">
       <% if @places.any? %>
         <% @places.each do |place| %>
-          <div class="card-trip mx-3 mt-5">
-          <%= render 'shared/place_card', place: place %>
+          <div class="card-trip">
+            <%= render 'shared/place_card', place: place %>
           </div>
         <% end %>
       <% else %>
