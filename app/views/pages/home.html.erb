@@ -5,7 +5,7 @@
   <div class="grid">
   <%# add real places%>
     <% @places.first(4).each do |place| %>
-      <div id="places-list" class="card-trip mb-5">
+      <div id="places-list" class="card-trip mb-2">
         <%= render 'shared/place_card', place: place %>
       </div>
     <% end %>

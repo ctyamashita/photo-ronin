@@ -1,11 +1,11 @@
 <div class="card-trip">
   <img src=<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : '/assets/Ronin.jpg' %> />
   <%= link_to '', place_path(place), class: 'card-trip-link' %>
-  <div class="card-trip-infos mt-3">
-    <div class="position-relative">
-      <div class="d-flex justify-content-between">
-        <h4 class="bold mt-1"><%= place.name %></h3>
-        <h4 class="bold"><%= rand(3..5) %>  <i class="fas fa-star yellow"></i></h4>
+  <div class="card-trip-infos mt-2">
+    <div class="position-relative p-2 mb-3">
+      <div class="d-flex justify-content-between align-items-end">
+        <h4 class="bold"><%= place.name %></h3>
+        <h4 class="bold"><%= rand(3..5) %>  <i class="fas fa-star green"></i></h4>
       </div>
       <h4 class="green mb-4"><%= place.address %></h4>
       <p>#urban #moody #cityscape #cyberpunk #nightphoto</p>
