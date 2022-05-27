@@ -13,7 +13,7 @@ class Place < ApplicationRecord
   #                   tsearch: { prefix: true }
   #                 }
   validates :name, presence: true
-  validates :address, presence: true, uniqueness: true
+  validates :address, presence: true
 
   def average_review
     # ratings = self.reviews.map { |review| review.rating}
