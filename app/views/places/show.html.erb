@@ -114,7 +114,7 @@
       <div class="light-gray pb-3 mt-5">
         <div class="d-flex justify-content-between">
           <div class="d-flex">
-            <p class="light-gray me-3">Username</p>
+            <p class="light-gray me-3"><%= review.user.name %></p>
             <p class="white bold"><%= review.rating %> <i class="icon-big green fas fa-star mb-1"></i></p>
           </div>
           <p>Posted <%= (Time.now - review.created_at).to_i / (24 * 60 * 60)  %> days ago</p>
