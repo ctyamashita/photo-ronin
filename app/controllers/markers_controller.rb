@@ -4,7 +4,7 @@ class MarkersController < ApplicationController
     @marker.place = Place.find(params[:place_id])
     authorize @marker
     if @marker.save
-      redirect_to list_path(@marker.list), notice: "#{@marker.place.name} has been added"
+      redirect_to place_path(@marker.place), notice: "#{@marker.place.name} has been added to #{@marker.list.title}."
     else
       @place = Place.find(params[:place_id])
       render place_path(@place)

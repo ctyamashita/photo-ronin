@@ -13,7 +13,7 @@ class ListsController < ApplicationController
 
     Marker.create(list: @list, place: @place)
 
-    redirect_to list_path(@list), notice: "#{@place.name} has been added to #{@list.title}"
+    redirect_to place_path(@place), notice: "#{@place.name} has been added to #{@list.title}."
   end
 
   def show
