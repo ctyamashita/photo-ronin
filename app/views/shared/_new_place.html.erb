@@ -2,12 +2,12 @@
   <div class="vertical-center" data-controller="form-toggle">
     <h1>Add place</h1>
     <%= simple_form_for place do |f| %>
-      <%= f.input :name, input_html: { class: "input" }, label: false, placeholder: 'Place name' %>
+      <%= f.input :name, input_html: { class: "input input-background text-center" }, label: false, placeholder: 'Place name' %>
       <%= f.input :address, label: false,
             wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } },
-            input_html: { data: { geocoder_target: 'address' }, class: 'd-none' } %>
-      <%= f.submit class: 'btn btn-ghost mt-3'%>
+            input_html: { data: { geocoder_target: 'address' }, class: 'd-none input input-background' } %>
+      <%= f.submit 'Add', class: 'btn btn-ghost mt-3'%>
     <% end %>
-  </div>
-  <button data-action="click->new-list#showForm" class='btn-close'>✖</button>
+  </div class="pb-4">
+  <button data-action="click->new-list#showForm" class='btn-close'><i class="fas fa-times icon-scale"></i></button>
 </div>

@@ -9,7 +9,6 @@ class ListPolicy < ApplicationPolicy
     true
   end
 
-
   def dashboard?
     true
   end

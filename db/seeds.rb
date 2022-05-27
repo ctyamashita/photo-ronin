@@ -19,11 +19,24 @@ List.destroy_all
 User.destroy_all
 Place.destroy_all
 
-Place.create!(name: Faker::Address.community, address: 'Tokyo')
-Place.create!(name: Faker::Address.community, address: 'Kyoto')
-Place.create!(name: Faker::Address.community, address: 'Saitama')
-Place.create!(name: Faker::Address.community, address: 'Yokohama')
-Place.create!(name: Faker::Address.community, address: 'Kawasaki')
+# random places
+# Place.create!(name: Faker::Address.community, address: 'Tokyo')
+# Place.create!(name: Faker::Address.community, address: 'Kyoto')
+# Place.create!(name: Faker::Address.community, address: 'Saitama')
+# Place.create!(name: Faker::Address.community, address: 'Yokohama')
+# Place.create!(name: Faker::Address.community, address: 'Kawasaki')
+
+# hidden places
+gotokuji = Place.create!(name: 'Gotokuji', address: 'Nakamachi, Setagaya')
+omoide_yokocho = Place.create!(name: 'Omoide Yokocho', address: 'Nishishinjuku, Shinjuku')
+tokyu_plaza = Place.create!(name: 'Tokyu Plaza Omotesando', address: 'Jingumae, Shibuya')
+underground_temple = Place.create!(name: 'Underground Temple', address: 'Kasukabe, Saitama')
+
+# trending places
+shibuya_crossing = Place.create!(name: 'Shibuya Crossing', address: 'Dogenzaka, Shibuya')
+skytree = Place.create!(name: 'Skytree', address: 'Oshiage, Sumida')
+kabukicho = Place.create!(name: 'Kabukicho', address: 'Kabukicho, Shinjuku')
+rainbow_bridge = Place.create!(name: 'Rainbow Bridge', address: 'Minato City, Tokyo')
 
 User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', instagram_url: 'instagram.com')
 
@@ -50,16 +63,7 @@ User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', ins
     # end
   end
 
-  5.times do
-    photograph = Photo.create!(
-      user: user,
-      place: Place.all.sample
-    )
-    file = URI.open(IMAGE_URLS.sample)
-    photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
-  end
-
-  5.times do
+    5.times do
     Review.create!(
       content: Faker::Camera.brand_with_model,
       rating: rand(1..5),
@@ -68,4 +72,65 @@ User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', ins
     )
   end
 end
+
+# hidden places
+photograph = Photo.create!(
+  user: User.all.sample,
+  place: gotokuji
+)
+file = URI.open('https://s3-ap-northeast-1.amazonaws.com/thegate/2019/06/14/10/33/03/Gotokuji-temple-maneki-neko-offering-area.jpeg')
+photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
+photograph = Photo.create!(
+  user: User.all.sample,
+  place: omoide_yokocho
+)
+file = URI.open('https://static.wixstatic.com/media/c92124_b847a2ec2be14b0bb5f10b25ced8c93d~mv2.jpg/v1/fill/w_1000,h_625,al_c,q_90,usm_0.66_1.00_0.01/c92124_b847a2ec2be14b0bb5f10b25ced8c93d~mv2.jpg')
+photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
+photograph = Photo.create!(
+  user: User.all.sample,
+  place: tokyu_plaza
+)
+file = URI.open('https://i.pinimg.com/736x/cf/af/de/cfafde42ae4e88825b8efd5323d40cca.jpg')
+photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
+photograph = Photo.create!(
+  user: User.all.sample,
+  place: underground_temple
+)
+file = URI.open('http://cdn.theatlantic.com/assets/media/img/photo/2015/05/scenes-from-underground/g03_468889108/main_1200.jpg')
+photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
+
+
+# trending places
+photograph = Photo.create!(
+  user: User.all.sample,
+  place: shibuya_crossing
+)
+file = URI.open('https://tz-mag-media.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2019/07/20192118/12.jpg')
+photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
+photograph = Photo.create!(
+  user: User.all.sample,
+  place: skytree
+)
+file = URI.open('https://live.staticflickr.com/7853/46843750984_84ce4d8f64_b.jpg')
+photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
+photograph = Photo.create!(
+  user: User.all.sample,
+  place: kabukicho
+)
+file = URI.open('https://i.pinimg.com/originals/6f/d8/18/6fd818c25cc70ebbff8b95e0bceca5b1.jpg')
+photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
+photograph = Photo.create!(
+  user: User.all.sample,
+  place: rainbow_bridge
+)
+file = URI.open('https://blog.japanwondertravel.com/wp-content/uploads/2020/09/Rainbow-bridge-tokyo-1200x800.jpg')
+photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
 puts "seeds created"
