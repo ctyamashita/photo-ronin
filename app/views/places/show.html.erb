@@ -20,7 +20,7 @@
         </button>
 
         <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
-          <div class="vertical-center" data-controller="form-toggle">
+          <div class="vertical-center position-relative" data-controller="form-toggle">
             <% if @lists.any? %>
               <div data-form-toggle-target="list" class='d-none'>
                 <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
@@ -28,7 +28,7 @@
               <div data-form-toggle-target="new">
                 <%= render 'shared/new_list', list: @list %>
               </div>
-                <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3'>Existing list</button>
+                <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3 position-absolute position-existing'>Existing list</button>
             <% else %>
               <%= render 'shared/new_list', list: @list %>
             <% end %>
