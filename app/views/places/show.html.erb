@@ -20,7 +20,7 @@
         </button>
 
         <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
-          <div class="vertical-center" data-controller="form-toggle">
+          <div class="vertical-center position-relative" data-controller="form-toggle">
             <% if @lists.any? %>
               <div data-form-toggle-target="list" class='d-none'>
                 <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
@@ -28,7 +28,7 @@
               <div data-form-toggle-target="new">
                 <%= render 'shared/new_list', list: @list %>
               </div>
-                <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3'>Existing list</button>
+                <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3 position-absolute position-existing'>Existing list</button>
             <% else %>
               <%= render 'shared/new_list', list: @list %>
             <% end %>
@@ -64,17 +64,18 @@
       <% end %>
     </div>
 
-    <div class="card-trip-infos mt-3">
-      <div class="position-relative">
-        <div class="d-flex justify-content-between">
-          <h4 class="bold mt-1"><%= @place.name %></h3>
-          <h4 class="bold"><%= @place.average_review %>  <i class="fas fa-star yellow"></i></h4>
+    <div class="card-trip-infos mt-2">
+      <div class="position-relative p-2 mb-3">
+        <div class="d-flex justify-content-between align-items-end">
+          <h4 class="bold mt-1 "><%= @place.name %></h3>
+          <h4 class="bold"><%= rand(3..5) %>  <i class="fas fa-star green"></i></h4>
         </div>
-        <h4 class="green mb-4"><%= @place.address %></h4>
-        <p>This place is #urban, #moody, #cityscape, #cyberpunk and #nightphoto</p>
+        <h4 class="green mb-2"><%= @place.address %></h4>
+        <p>#urban #moody #cityscape #cyberpunk #nightphoto</p>
       </div>
     </div>
-    <div class="mt-5">
+
+    <div class="mt-3">
       <div data-map-toggle-target="map">
         <%= render 'map_show', marker: [@pin] %>
       </div>
