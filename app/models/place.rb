@@ -16,7 +16,11 @@ class Place < ApplicationRecord
   validates :address, presence: true, uniqueness: true
 
   def average_review
-    ratings = self.reviews.map { |review| review.rating}
+    # ratings = self.reviews.map { |review| review.rating}
+    ratings = self.reviews.map(&:rating)
+
+    return 0 if ratings.empty?
+
     ratings.sum.fdiv(self.reviews.count).round(1)
   end
 end
