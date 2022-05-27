@@ -1,6 +1,8 @@
 .form-control {
   background-color: $black !important;
   color: $light-gray;
+  border-color: $green;
+  border-radius: 16px;
 }
 
 .form-control:focus {
