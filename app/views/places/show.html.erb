@@ -117,7 +117,7 @@
               <i class="icon-big green fas fa-star mb-1"></i>
             <% end %>
           </div>
-          <p>Posted <%= (Time.now - review.created_at).to_i / (24 * 60 * 60)  %> days ago</p>
+          <p><%= time_ago_in_words(review.created_at) %> ago</p>
         </div>
         <p><%= review.content %></p>
       </div>
