@@ -1,5 +1,10 @@
 <div class="container col-10 mt-5">
-  <h1 class="ms-4 mb-3 bold">My lists</h1>
+  <div class="d-flex justify-content-between">
+    <h1 class="ms-4 mb-3 bold">My lists</h1>
+    <div>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-ghost" %>
+    </div>
+  </div>
   <div class="grid">
     <% if @lists.any? %>
       <% @lists.each do |list|%>
@@ -10,5 +15,5 @@
     <% end %>
   </div>
 
-  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
+
 </div>
