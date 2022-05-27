@@ -15,6 +15,12 @@
   }
 }
 
+.form-select {
+  background-color: $black !important;
+  width: 245px;
+  color: $light-gray;
+}
+
 #form-list {
   color: $white;
   display: none;
