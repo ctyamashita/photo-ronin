@@ -1,8 +1,13 @@
 <div class="container mt-5">
-  <h1 class="ms-4 bold"><%= @list.title %></h1>
+  <div class='d-flex'>
+    <h1 class="ms-4 bold flex-grow-1"><%= @list.title %></h1>
+    <div>
+      <%= link_to 'Start Path', "https://www.google.com/maps/dir/#{@route}", class: 'btn btn-ghost me-3' %>
+    </div>
+  </div>
   <div class="grid">
-    <% if @list.places.any? %>
-      <% @list.places.each do |place| %>
+    <% if @places.any? %>
+      <% @places.each do |place| %>
         <div class="card-trip mx-3 mt-5">
         <%= render 'shared/place_card', place: place %>
         </div>

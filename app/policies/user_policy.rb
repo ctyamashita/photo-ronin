@@ -1,11 +1,11 @@
 class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 
   def dashboard?
-    true
+    user
   end
 end
