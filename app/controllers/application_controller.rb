@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def initialize
     super
-    @list = List.new
+    @new_place = Place.new
     # here so that new list page would be in every page
   end
   # Pundit: white-list approach.

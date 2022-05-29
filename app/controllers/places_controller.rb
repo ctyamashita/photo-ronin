@@ -16,7 +16,6 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     authorize @place
     @lists = current_user.lists.where.not(id: @place.lists) if current_user
-    @reviews = @place.reviews
     @pin = create_marker(@place)
   end
 
