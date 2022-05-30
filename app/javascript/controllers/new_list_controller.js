@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "popupButton", "formList" ]
+  static targets = [ "popupButton", "formList", "background" ]
 
   connect() {
     // console.log(this.popupButtonTarget);
@@ -12,5 +12,6 @@ export default class extends Controller {
   showForm() {
     console.log('click');
     this.formListTarget.classList.toggle("show")
+    this.backgroundTarget.classList.toggle("dark-background")
   }
 }

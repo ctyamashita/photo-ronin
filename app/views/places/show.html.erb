@@ -24,7 +24,8 @@
           </button>
 
           <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
-            <div class="vertical-center position-relative" data-controller="form-toggle">
+            <div data-new-list-target="background"></div>
+            <div class="vertical-center" data-controller="form-toggle">
               <% if @lists.any? %>
                 <div data-form-toggle-target="list" class='d-none'>
                   <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
