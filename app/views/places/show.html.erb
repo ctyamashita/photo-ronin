@@ -82,7 +82,8 @@
 
   <div class="container mt-3">
     <%  @place.reviews.each do |review| %>
-      <div class="light-gray pb-3 mt-5">
+      <hr>
+      <div class="light-gray pb-3">
         <div class="d-flex justify-content-between">
           <div class="reviews-name">
             <p class="h3 white mb-0 bold"><%= review.user.name %></p>
@@ -93,8 +94,10 @@
             <% end %>
           </div>
         </div>
-        <p class="gray"><%= time_ago_in_words(review.created_at) %> ago</p>
-        <p class="white reviews-content"><%= review.content %></p>
+        <p class="gray mb-1"><%= time_ago_in_words(review.created_at) %> ago</p>
+        <% if review.content %>
+          <p class="white reviews-content mb-0"><%= review.content %></p>
+        <% end %>
       </div>
     <% end %>
     <div class="position-relative review-form">
@@ -110,8 +113,11 @@
           <% 5.times do |i| %>
             <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
           <% end %>
+        </div>
+        <%= button_tag type: "submit", class: "btn btn-ghost position-absolute position-submit-review" do %>
+          Post
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

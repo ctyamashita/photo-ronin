@@ -13,7 +13,8 @@ export default class extends Controller {
     this.photoTarget.classList.toggle("d-none")
     this.pageTarget.classList.toggle("d-none")
     this.menuTarget.classList.toggle("d-none")
-    this.activeTarget.classList.add("active")
-    this.nonActiveTarget.classList.remove("active")
+    // this.activeTarget.classList.remove("active")
+    // this.activeTarget.classList.add("active")
+    // this.nonActiveTarget.classList.remove("active")
   }
 }
