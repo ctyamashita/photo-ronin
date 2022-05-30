@@ -1,23 +1,41 @@
 .alert {
   position: fixed;
-  left: 32px;
-  bottom: 90px;
+  left: 50vw;
+  top: 80vh;
+  transform: translateX(-50%);
   z-index: 1000;
-  background-color: $black;
-  color: $light-gray;
-  border-color: $green;
+  background-color: $green;
+  color: $black;
   border-radius: 50px;
   font-size: 12px;
+  text-align: center;
 }
 
-.btn-close {
+.alert-info {
+  border-color: none !important;
+}
+
+.alert .btn-close {
+  background-color: transparent !important;
+  color: $white !important;
+  opacity: 1 !important;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
   background: none;
-  padding-left: 10px;
+    &:focus {
+      box-shadow: rgba($color: #000000, $alpha: 0) !important;
+    }
+}
+
+.alert-dismissible {
+  padding: 8px 16px;
 }
 
 .alert-dismissible .btn-close {
   position: absolute;
-  top: -14px;
+  right: -30px;
+  top: -45px;
   /* right: 0; */
   z-index: 2;
 }
