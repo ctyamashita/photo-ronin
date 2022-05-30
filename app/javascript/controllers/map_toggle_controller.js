@@ -11,10 +11,10 @@ export default class extends Controller {
     this.listTarget.classList.toggle('d-none')
     if (this.buttonTarget.innerHTML === "See Map") {
       this.buttonTarget.innerHTML = "See List";
-      this.buttonTarget.className = "bg-black toggle-button btn-center";
+      this.buttonTarget.className = "toggle-button btn-center";
     } else {
       this.buttonTarget.innerHTML = "See Map";
-      this.buttonTarget.className = "bg-green black toggle-button btn-center";
+      this.buttonTarget.className = "toggle-button btn-center";
     }
   }
 }
