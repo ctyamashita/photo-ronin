@@ -43,7 +43,8 @@
       <% end %>
 
       <% if @place.photos.any? %>
-        <div class="photo-carousel" style="background: url(<%= cl_image_path(@place.photos.first.photo.key) %>)" data-action="click->photo-popup#show">
+        <div class="photo-carousel" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 30%), url(<%= cl_image_path(@place.photos.first.photo.key) %>)" data-action="click->photo-popup#show">
+          <p class="text-photo"><%= @place.photos.count %> <i class="fas fa-images"></i></p>
         </div>
       <% else %>
         <div class="photo-carousel" style="background: url(<%= image_path('Ronin.jpg') %>)">
@@ -81,7 +82,8 @@
 
   <div class="container mt-3">
     <%  @place.reviews.each do |review| %>
-      <div class="light-gray pb-3 mt-5">
+      <hr>
+      <div class="light-gray pb-3">
         <div class="d-flex justify-content-between">
           <div class="reviews-name">
             <p class="h3 white mb-0 bold"><%= review.user.name %></p>
@@ -92,11 +94,13 @@
             <% end %>
           </div>
         </div>
-        <p class="gray"><%= time_ago_in_words(review.created_at) %> ago</p>
-        <p class="white reviews-content"><%= review.content %></p>
+        <p class="gray mb-1"><%= time_ago_in_words(review.created_at) %> ago</p>
+        <% if review.content %>
+          <p class="white reviews-content mb-0"><%= review.content %></p>
+        <% end %>
       </div>
     <% end %>
-    <div class="position-relative">
+    <div class="position-relative review-form">
       <%= simple_form_for [@place, @review] do |f| %>
         <%= f.input :content,
                     class: "form-control-custom rounded-corner mt-1 input-background",
@@ -109,24 +113,10 @@
           <% 5.times do |i| %>
             <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
           <% end %>
-        <% end %>
-      </div>
-      <%  @place.reviews.each do |review| %>
-        <div class="light-gray pb-3 mt-5">
-
-          <div class="d-flex justify-content-between">
-            <div class="reviews-name">
-              <p class="h3 white mb-0 bold"><%= review.user.name %></p>
-            </div>
-            <div class="reviews-star">
-              <% (review.rating).times do%>
-                <i class="icon-big green fas fa-star mb-1"></i>
-              <% end %>
-            </div>
-          </div>
-          <p class="gray"><%= time_ago_in_words(review.created_at) %> ago</p>
-          <p class="white reviews-content"><%= review.content %></p>
         </div>
+        <%= button_tag type: "submit", class: "btn btn-ghost position-absolute position-submit-review" do %>
+          Post
+        <% end %>
       <% end %>
     </div>
   </div>
