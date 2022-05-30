@@ -21,6 +21,10 @@
                     hint: "we need your current password to confirm your changes",
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
+        <%= f.input :instagram_url,
+                    hint: "leave it blank if you don't add or change it",
+                    required: false,
+                    input_html: { autocomplete: "current-instagram_url" } %>
       </div>
 
       <div class="form-actions">
