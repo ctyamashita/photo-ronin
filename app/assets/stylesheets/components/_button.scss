@@ -23,19 +23,19 @@
   z-index: 1;
   position: fixed;
   left: 50vw;
-  top: 75vh;
   transform: translateX(-50%);
 }
 
 
 .toggle-button {
   padding: 8px 24px;
-  color: $white;
+  color: $black;
   box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.3);
   border-radius: 50px;
   transition: 0.1s;
+  top: 80vh;
   border: none;
-  background-color: $black;
+  background-color: $green;
 }
 
 .toggle-button:hover {
