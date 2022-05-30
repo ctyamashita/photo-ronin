@@ -55,7 +55,7 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:name, :address)
+    params.require(:place).permit(:name, :address, tag_list: [])
   end
 
   def form_instances

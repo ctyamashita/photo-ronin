@@ -3,6 +3,15 @@
     <h1>Add place</h1>
     <%= simple_form_for place do |f| %>
       <%= f.input :name, input_html: { class: "input input-background text-center" }, label: false, placeholder: 'Place name' %>
+
+      <%= f.input :tag_list,
+                value_method: :name,
+                legend_tag: false,
+                as: :check_boxes,
+                collection: ActsAsTaggableOn::Tag.all,
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item' %>
+
       <%= f.input :address, label: false,
             wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] }, class: 'input input-background' },
             input_html: { data: { geocoder_target: 'address' }, class: 'd-none input input-background' } %>
