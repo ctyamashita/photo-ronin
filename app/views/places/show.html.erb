@@ -58,12 +58,10 @@
             <h4 class="bold"><%= @place.average_review %>  <i class="fas fa-star green"></i></h4>
           </div>
           <h4 class="green mb-2"><%= @place.address %></h4>
-          <p>#urban #moody #cityscape #cyberpunk #nightphoto</p>
+          <% @place.tag_list.each do |tag| %>
+            <%= link_to tag, tagged_path(tag: tag) %>
+          <% end %>
         </div>
-        <h4 class="green mb-2"><%= @place.address %></h4>
-        <% @place.tag_list.each do |tag| %>
-          <%= link_to tag, tagged_path(tag: tag) %>
-        <% end %>
       </div>
 
       <div class="mt-3">

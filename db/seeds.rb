@@ -43,6 +43,8 @@ rainbow_bridge = Place.create!(name: 'Rainbow Bridge', address: 'Minato City, To
 
 User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', instagram_url: 'instagram.com')
 
+User.create!(name: 'Celso Yamashita', email: 'celso@camp.com', password: '123123', instagram_url: 'instagram.com', admin: true)
+
 2.times do
   user = User.create!(
     name: Faker::Name.unique.name,
