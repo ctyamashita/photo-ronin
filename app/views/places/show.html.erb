@@ -18,7 +18,6 @@
             </div>
           </button>
           <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
-            <div data-new-list-target="background"></div>
             <div class="vertical-center" data-controller="form-toggle">
               <% if @lists.any? %>
                 <div data-form-toggle-target="list" class='d-none'>
@@ -34,6 +33,7 @@
             </div>
             <button data-action="click->new-list#showForm" class='btn-close'><i class="fas fa-times icon-scale"></i></button>
           </div>
+          <div data-new-list-target="background"></div>
         </div>
       <% end %>
       <% if @place.photos.any? %>
