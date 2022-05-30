@@ -35,7 +35,9 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= render 'shared/menu' %>
+    <div data-controller="photo-popup">
+      <%= yield %>
+      <%= render 'shared/menu' %>
+    </div>
   </body>
 </html>
