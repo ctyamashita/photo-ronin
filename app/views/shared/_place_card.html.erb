@@ -7,6 +7,8 @@
         <h4 class="bold"><%= place.name %></h3>
         <% if place.average_review > 0 %>
           <h4 class="bold"><%= place.average_review %>  <i class="fas fa-star green"></i></h4>
+        <% else %>
+          <h4 class="bold">No Review</h4>
         <% end %>
       </div>
       <h4 class="green mb-4"><%= place.address %></h4>
