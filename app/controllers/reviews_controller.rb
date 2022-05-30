@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     authorize @review
     if @review.save
-      redirect_to place_path(@place)
+      redirect_to place_path(@place), notice: "Review submited"
     else
       render 'place/reviews'
     end

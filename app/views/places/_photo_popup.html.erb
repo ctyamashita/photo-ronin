@@ -1,0 +1,25 @@
+ <div id="carouselExampleIndicators" class="carousel slide d-none popup-carousel" data-bs-ride="carousel" data-photo-popup-target="photo">
+  <div class="carousel-inner">
+    <% if place.photos.any? %>
+        <div class="carousel-item active popup-photo" data-photo-popup-target="active">
+          <img src="<%= cl_image_path(place.photos.first.photo.key) %>" alt="">
+        </div>
+      <% place.photos[1..-1].each_with_index do |photo, index| %>
+        <div class="carousel-item popup-photo" data-photo-popup-target="nonActive">
+          <img src="<%= cl_image_path(photo.photo.key) %>" alt="">
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <% if place.photos.count > 1 %>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  <% end %>
+  <button data-action="click->photo-popup#show" class='btn-close'><i class="fas fa-times icon-scale"></i></button>
+</div>

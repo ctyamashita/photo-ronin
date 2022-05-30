@@ -22,6 +22,7 @@
         <%= f.input :instagram_url,
                     required: false,
                     input_html: { autocomplete: "instagram_url" } %>
+        <%= f.input :photo, as: :file, label: false, input_html: { class: "input" } %>
       </div>
 
       <div class="form-actions">

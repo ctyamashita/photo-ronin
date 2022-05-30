@@ -20,26 +20,30 @@ User.destroy_all
 Place.destroy_all
 ActsAsTaggableOn::Tag.destroy_all
 
-# random places
-# Place.create!(name: Faker::Address.community, address: 'Tokyo')
-# Place.create!(name: Faker::Address.community, address: 'Kyoto')
-# Place.create!(name: Faker::Address.community, address: 'Saitama')
-# Place.create!(name: Faker::Address.community, address: 'Yokohama')
-# Place.create!(name: Faker::Address.community, address: 'Kawasaki')
+
+# syntax for tag gem
+city_tag = ActsAsTaggableOn::Tag.create!(name: 'City')
+nature_tag = ActsAsTaggableOn::Tag.create!(name: 'Nature')
+modern_tag = ActsAsTaggableOn::Tag.create!(name: 'Modern')
+traditional_tag = ActsAsTaggableOn::Tag.create!(name: 'Traditional')
+landscape_tag = ActsAsTaggableOn::Tag.create!(name: 'Landscape')
+portrait_tag = ActsAsTaggableOn::Tag.create!(name: 'Portrait')
 
 # hidden places
-gotokuji = Place.create!(name: 'Gotokuji', address: 'Nakamachi, Setagaya')
-omoide_yokocho = Place.create!(name: 'Omoide Yokocho', address: 'Nishishinjuku, Shinjuku')
-tokyu_plaza = Place.create!(name: 'Tokyu Plaza Omotesando', address: 'Jingumae, Shibuya')
-underground_temple = Place.create!(name: 'Underground Temple', address: 'Kasukabe, Saitama')
+gotokuji = Place.create!(name: 'Gotokuji', address: 'Nakamachi, Setagaya', tag_list: [nature_tag, traditional_tag])
+omoide_yokocho = Place.create!(name: 'Omoide Yokocho', address: 'Nishishinjuku, Shinjuku', tag_list: [traditional_tag, city_tag])
+tokyu_plaza = Place.create!(name: 'Tokyu Plaza Omotesando', address: 'Jingumae, Shibuya', tag_list: [city_tag, portrait_tag])
+underground_temple = Place.create!(name: 'Underground Temple', address: 'Kasukabe, Saitama', tag_list: [city_tag])
 
 # trending places
-shibuya_crossing = Place.create!(name: 'Shibuya Crossing', address: 'Dogenzaka, Shibuya')
-skytree = Place.create!(name: 'Skytree', address: 'Oshiage, Sumida')
-kabukicho = Place.create!(name: 'Kabukicho', address: 'Kabukicho, Shinjuku')
-rainbow_bridge = Place.create!(name: 'Rainbow Bridge', address: 'Minato City, Tokyo')
+shibuya_crossing = Place.create!(name: 'Shibuya Crossing', address: 'Dogenzaka, Shibuya', tag_list: [city_tag, portrait_tag])
+skytree = Place.create!(name: 'Skytree', address: 'Oshiage, Sumida', tag_list: [city_tag, modern_tag])
+kabukicho = Place.create!(name: 'Kabukicho', address: 'Kabukicho, Shinjuku', tag_list: [city_tag, modern_tag])
+rainbow_bridge = Place.create!(name: 'Rainbow Bridge', address: 'Minato City, Tokyo', tag_list: [city_tag, landscape_tag])
 
 User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', instagram_url: 'instagram.com')
+
+User.create!(name: 'Celso Yamashita', email: 'celso@camp.com', password: '123123', instagram_url: 'instagram.com', admin: true)
 
 2.times do
   user = User.create!(
@@ -67,7 +71,7 @@ User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', ins
     5.times do
     Review.create!(
       content: Faker::Camera.brand_with_model,
-      rating: rand(1..5),
+      rating: rand(3..5),
       user: user,
       place: Place.all.sample
     )
@@ -133,6 +137,7 @@ photograph = Photo.create!(
 )
 file = URI.open('https://blog.japanwondertravel.com/wp-content/uploads/2020/09/Rainbow-bridge-tokyo-1200x800.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
 
 # syntax for tag gem
 ActsAsTaggableOn::Tag.create!(name: 'Urban', id: 'place_tag_list_urban')

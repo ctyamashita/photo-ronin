@@ -16,6 +16,7 @@ class Place < ApplicationRecord
   validates :address, presence: true
 
   acts_as_taggable_on :tags
+  # making tag_list in Place attribute usuable in the seeds
 
   def average_review
     # ratings = self.reviews.map { |review| review.rating}

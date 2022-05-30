@@ -12,4 +12,9 @@ class PlacePolicy < ApplicationPolicy
   def create?
     user
   end
+
+  def tagged?
+    true
+  end
+
 end
