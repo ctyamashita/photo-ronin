@@ -1,7 +1,9 @@
-<h2>Share your photo of <%= place.name %></h2>
-<%= simple_form_for [@place, @photo] do |f| %>
-  <div class="d-flex align-items-center justify-content-between">
-    <%= f.input :photo, as: :file, label: false, input_html: { class: "input" } %>
-    <%= f.submit 'Send', class: 'btn btn-ghost'%>
+<div class="container">
+  <h2 class="mt-4">Share your photo of <%= place.name %></h2>
+  <%= simple_form_for [@place, @photo] do |f| %>
+    <div class="mt-2">
+      <%= f.input :photo, as: :file, label: false, input_html: { class: "input input-photo" } %>
+      <%= f.submit 'Add', class: 'btn btn-ghost'%>
+  </div>
+  <% end %>
 </div>
-<% end %>
