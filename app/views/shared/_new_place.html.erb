@@ -5,10 +5,10 @@
       <%= f.input :name, input_html: { class: "input input-background text-center" }, label: false, placeholder: 'Place description' %>
       <fieldset class="form-group radio_buttons required snippet_category">
         <div class="category-wrapper">
-          <input type="hidden" name="snippet[category_id]" value="">
+          <input type="hidden" name="place[tag_list][]" value="">
           <% ActsAsTaggableOn::Tag.all.each do |tag| %>
           <div class="category-item my-2 text-center">
-            <input class="form-check-input radio_buttons required category-selector" type="radio" value="<%= tag.id %>" name="snippet[category_id]" id="snippet_category_id_<%= tag.id %>">
+            <input class="form-check-input check_boxes required category-selector" type="checkbox" value="<%= tag.name %>" name="place[tag_list][]" id="snippet_category_id_<%= tag.id %>">
             <label class="form-check-label collection_radio_buttons" for="snippet_category_id_<%= tag.id %>"> <i class="<%= tag_class(tag.name) %> tag-big green m-2"></i> <%= tag.name %> </label>
           </div>
           <% end %>
