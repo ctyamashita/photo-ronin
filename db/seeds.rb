@@ -139,4 +139,13 @@ file = URI.open('https://blog.japanwondertravel.com/wp-content/uploads/2020/09/R
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 
 
+# syntax for tag gem
+ActsAsTaggableOn::Tag.create!(name: 'Urban', id: 'place_tag_list_urban')
+ActsAsTaggableOn::Tag.create!(name: 'Nature')
+ActsAsTaggableOn::Tag.create!(name: 'Modern')
+ActsAsTaggableOn::Tag.create!(name: 'Traditional')
+ActsAsTaggableOn::Tag.create!(name: 'Day')
+ActsAsTaggableOn::Tag.create!(name: 'Night')
+
+
 puts "seeds created"
