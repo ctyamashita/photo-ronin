@@ -33,6 +33,17 @@ class PlacesController < ApplicationController
     end
   end
 
+  def tagged
+    if params[:tag].present?
+      @places = Place.tagged_with(params[:tag])
+    else
+      @places = Place.all
+    end
+    authorize @places
+    @pins = create_markers(@places)
+    render 'places/index'
+  end
+
   private
 
   def create_markers(places)

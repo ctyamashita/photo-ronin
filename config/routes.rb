@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   resources :lists, only: %i[show index]
   resources :photos, only: :show
+
+  get '/tagged', to: "places#tagged", as: :tagged
 end
