@@ -26,4 +26,6 @@ class Place < ApplicationRecord
 
     ratings.sum.fdiv(self.reviews.count).round(1)
   end
+
+  CATEGORIES = ["Urban", "Nature", "Modern", "Traditional", "Day", "Night"]
 end

@@ -1,6 +1,8 @@
 .photo-carousel {
   height: 50vh;
   background-size: cover !important;
+
+  position: relative;
 }
 
 .popup-carousel {
@@ -13,10 +15,28 @@
 }
 
 .popup-photo {
+  position: relative;
   img {
     max-width: 100vw;
     max-height: 100vh;
     margin-left: 50%;
     transform: translateX(-50%)
+  }
+}
+
+.text-photo {
+  text-align: center;
+  position: absolute;
+  bottom: 16px;
+  padding: 0 8px;
+  border-radius: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px !important;
+  background-color: white;
+  color: $gray;
+
+  i {
+    opacity: .4;
   }
 }
