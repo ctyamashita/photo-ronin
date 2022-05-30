@@ -137,7 +137,7 @@ photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image
 # syntax for tag gem
 ActsAsTaggableOn::Tag.create!(name: 'City')
 ActsAsTaggableOn::Tag.create!(name: 'Nature')
-ActsAsTaggableOn::Tag.create!(name: 'Village')
+ActsAsTaggableOn::Tag.create!(name: 'Modern')
 
 
 puts "seeds created"
