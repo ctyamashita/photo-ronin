@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "page", "photo", "menu" ]
+  static targets = [ "page", "photo", "menu", "active", "nonActive" ]
 
   connect() {
     // console.log(this.popupButtonTarget);
@@ -10,9 +10,10 @@ export default class extends Controller {
   }
 
   show() {
-    console.log('click');
     this.photoTarget.classList.toggle("d-none")
     this.pageTarget.classList.toggle("d-none")
     this.menuTarget.classList.toggle("d-none")
+    this.activeTarget.classList.add("active")
+    this.nonActiveTarget.classList.remove("active")
   }
 }

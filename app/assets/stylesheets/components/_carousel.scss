@@ -5,9 +5,18 @@
 
 .popup-carousel {
   z-index: 99;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .popup-photo {
-  height: 100vh;
-  width: 100%;
+  img {
+    max-width: 100vw;
+    max-height: 100vh;
+    margin-left: 50%;
+    transform: translateX(-50%)
+  }
 }

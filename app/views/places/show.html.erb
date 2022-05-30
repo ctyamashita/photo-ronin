@@ -3,12 +3,11 @@
   <%= render 'photo_popup', place: @place %>
 
   <div class="container" data-photo-popup-target="page">
-    <div class="card-trip position-relative mt-3">
+    <div class="card-trip mt-3">
 
       <%# TODO Made this placeholder for "LIKE", not functional yet %>
 
       <% if current_user %>
-      <button data-action="click->photo-popup#show">show</button>
         <div class="position-absolute btn-like-place" data-controller="new-list">
           <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
             <div class="flex-column icon-active">
@@ -43,31 +42,13 @@
         </div>
       <% end %>
 
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <% if @place.photos.any? %>
-              <div class="carousel-item active photo-carousel" style="background: url(<%= cl_image_path(@place.photos.first.photo.key) %>)">
-              </div>
-            <% @place.photos[1..-1].each do |photo| %>
-              <div class="carousel-item photo-carousel" style="background: url(<%= cl_image_path(photo.photo.key) %>)">
-              </div>
-            <% end %>
-          <% else %>
-            <div class="carousel-item active photo-carousel" style="background: url(<%= image_path('Ronin.jpg') %>)">
-            </div>
-          <% end %>
+      <% if @place.photos.any? %>
+        <div class="photo-carousel" style="background: url(<%= cl_image_path(@place.photos.first.photo.key) %>)" data-action="click->photo-popup#show">
         </div>
-        <% if @place.photos.count > 1 %>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        <% end %>
-      </div>
+      <% else %>
+        <div class="photo-carousel" style="background: url(<%= image_path('Ronin.jpg') %>)">
+        </div>
+      <% end %>
 
       <div class="card-trip-infos mt-2">
         <div class="position-relative p-2 mb-3">

@@ -1,11 +1,11 @@
  <div id="carouselExampleIndicators" class="carousel slide d-none popup-carousel" data-bs-ride="carousel" data-photo-popup-target="photo">
   <div class="carousel-inner">
     <% if place.photos.any? %>
-        <div class="carousel-item active popup-photo">
+        <div class="carousel-item active popup-photo" data-photo-popup-target="active">
           <img src="<%= cl_image_path(place.photos.first.photo.key) %>" alt="">
         </div>
       <% place.photos[1..-1].each do |photo| %>
-        <div class="carousel-item popup-photo">
+        <div class="carousel-item popup-photo" data-photo-popup-target="nonActive">
           <img src="<%= cl_image_path(photo.photo.key) %>" alt="">
         </div>
       <% end %>
