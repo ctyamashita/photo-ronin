@@ -70,9 +70,10 @@
     <div class="d-flex justify-content-between px-3 mt-5">
       <h2>Reviews</h2>
     </div>
-    <div class="container mt-3">
+    <div class="container">
       <%  @place.reviews.each do |review| %>
-        <div class="light-gray pb-3 mt-5">
+        <hr>
+        <div class="light-gray pb-3">
           <div class="d-flex justify-content-between align-items-center">
             <div class="icon-name d-flex justify-content-start align-items-center">
               <div class="icon">
@@ -89,10 +90,11 @@
             </div>
           </div>
         </div>
-        <p class="gray"><%= time_ago_in_words(review.created_at) %> ago</p>
-        <p class="white reviews-content"><%= review.content %></p>
-      </div>
-    <% end %>
+        <p class="gray mb-1"><%= time_ago_in_words(review.created_at) %> ago</p>
+        <% if review.content %>
+          <p class="white reviews-content mb-0"><%= review.content %></p>
+        <% end %>
+      <% end %>
     <div class="position-relative review-form">
       <%= simple_form_for [@place, @review] do |f| %>
         <%= f.input :content,
