@@ -67,9 +67,11 @@
 }
 
 .tag-text {
+  display: inline-block;
   background-color: rgba($color: white, $alpha: .1);
   padding: 4px 16px;
   margin-right: 8px;
+  margin-bottom: 8px;
   border-radius: 50px;
   color: white;
 }
