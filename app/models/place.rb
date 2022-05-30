@@ -15,11 +15,13 @@ class Place < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
 
+  acts_as_taggable_on :tags
+
   def average_review
     # ratings = self.reviews.map { |review| review.rating}
     ratings = self.reviews.map(&:rating)
 
-    return 0 if ratings.empty?
+    return 0 if ratings.empty? || ratings.nil?
 
     ratings.sum.fdiv(self.reviews.count).round(1)
   end
