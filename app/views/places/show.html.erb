@@ -72,7 +72,7 @@
         </div>
         <h4 class="green mb-2"><%= @place.address %></h4>
         <% @place.tag_list.each do |tag| %>
-          <%= tag %>
+          <%= link_to tag, tagged_path(tag: tag) %>
         <% end %>
       </div>
     </div>
