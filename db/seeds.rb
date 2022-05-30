@@ -69,7 +69,7 @@ User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', ins
     5.times do
     Review.create!(
       content: Faker::Camera.brand_with_model,
-      rating: rand(1..5),
+      rating: rand(3..5),
       user: user,
       place: Place.all.sample
     )
