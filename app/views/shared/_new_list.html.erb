@@ -1,5 +1,5 @@
 <h2>Add to a new list</h2>
 <%= simple_form_for [@place,@list] do |f| %>
-  <%= f.input :title, label: false , input_html: { class: "input light-gray border-green border mt-3 position-absolute position-input" }, placeholder: "New list #{List.all.any? ? List.last.id : 1}" %>
-  <%= f.submit 'Add', class: 'btn btn-ghost mt-3 position-absolute position-add'%>
+  <%= f.input :title, label: false , input_html: { class: "input light-gray border-green border mt-3 position-absolute position-input", style: "left: -52px" }, placeholder: "New list #{List.all.any? ? List.last.id : 1}" %>
+  <%= f.submit 'Add', class: 'btn btn-ghost mt-3 position-absolute position-add', style: "left: 16px"%>
 <% end %>
