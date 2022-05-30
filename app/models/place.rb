@@ -15,6 +15,8 @@ class Place < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
 
+  acts_as_taggable_on :tags
+
   def average_review
     # ratings = self.reviews.map { |review| review.rating}
     ratings = self.reviews.map(&:rating)

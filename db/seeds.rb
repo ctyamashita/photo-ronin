@@ -18,6 +18,7 @@ Marker.destroy_all
 List.destroy_all
 User.destroy_all
 Place.destroy_all
+ActsAsTaggableOn::Tag.destroy_all
 
 # random places
 # Place.create!(name: Faker::Address.community, address: 'Tokyo')
@@ -132,5 +133,11 @@ photograph = Photo.create!(
 )
 file = URI.open('https://blog.japanwondertravel.com/wp-content/uploads/2020/09/Rainbow-bridge-tokyo-1200x800.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
+# syntax for tag gem
+ActsAsTaggableOn::Tag.create!(name: 'City')
+ActsAsTaggableOn::Tag.create!(name: 'Nature')
+ActsAsTaggableOn::Tag.create!(name: 'Modern')
+
 
 puts "seeds created"
