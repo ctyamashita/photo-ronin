@@ -51,7 +51,11 @@
             <h4 class=""><%= @place.average_review %>  <i class="fas fa-star green bold"></i></h4>
           </div>
           <h4>
-            <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@place.geocode.join(',')}", class: "green mb-2" do %>
+            <% if @place.geocode %>
+              <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@place.geocode.join(',')}", class: "green mb-2" do %>
+                <i class="fas fa-map-marked-alt"></i> <%= @place.address %>
+              <% end %>
+            <% else %>
               <i class="fas fa-map-marked-alt"></i> <%= @place.address %>
             <% end %>
           </h4>
@@ -82,7 +86,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <div class="icon-name d-flex justify-content-start align-items-center">
               <div class="icon">
-                <img class="avatar" src=<%= review.user.photo.attached? ? cl_image_path(review.user.photo.key) : '/assets/Ronin.jpg' %> />
+                <img class="avatar" src=<%= review.user.photo.attached? ? cl_image_path(review.user.photo.key) : image_path('Ronin.jpg') %> />
               </div>
               <div class="reviews-name ms-2 mt-4">
                 <p class="h4 white mb-0 bold align-middle"><%= review.user.name %></p>
