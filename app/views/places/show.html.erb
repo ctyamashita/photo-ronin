@@ -18,7 +18,6 @@
             </div>
           </button>
           <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
-            <div data-new-list-target="background"></div>
             <div class="vertical-center" data-controller="form-toggle">
               <% if @lists.any? %>
                 <div data-form-toggle-target="list" class='d-none'>
@@ -34,6 +33,7 @@
             </div>
             <button data-action="click->new-list#showForm" class='btn-close'><i class="fas fa-times icon-scale"></i></button>
           </div>
+          <div data-new-list-target="background"></div>
         </div>
       <% end %>
       <% if @place.photos.any? %>
@@ -68,11 +68,11 @@
       <%= render 'new_photo', place: @place %>
     </div>
     <div class="container">
-    <div class="d-flex justify-content-between mt-5">
-      <h2>Reviews</h2>
-    </div>
+      <div class="d-flex justify-content-between mt-5">
+        <h2>Reviews</h2>
+      </div>
       <% @place.reviews.each do |review| %>
-        <div class="light-gray pb-3 mt-3">
+        <div class="light-gray pb-3">
           <div class="d-flex justify-content-between align-items-center">
             <div class="icon-name d-flex justify-content-start align-items-center">
               <div class="icon">
@@ -89,8 +89,8 @@
             </div>
           </div>
         </div>
-        <p class="gray"><%= time_ago_in_words(review.created_at) %> ago</p>
-        <p class="white reviews-content"><%= review.content %></p>
+        <p class="gray mb-1"><%= time_ago_in_words(review.created_at) %> ago</p>
+        <p class="white reviews-content mb-0"><%= review.content %></p>
         <% end %>
       <div class="position-relative review-form">
         <%= simple_form_for [@place, @review] do |f| %>
