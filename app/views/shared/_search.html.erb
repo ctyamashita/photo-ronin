@@ -8,12 +8,17 @@
       %>
 
       <fieldset class="form-group radio_buttons required snippet_search">
-        <div class="search-wrapper">
+        <div class="d-flex overflow">
           <input type="hidden" name="search[tag_list][]" value="">
           <% ActsAsTaggableOn::Tag.all.each do |tag| %>
-            <div class="search-item my-2 text-center">
+            <div class="search-item mt-2 mx-1 text-center">
               <input class="form-check-input check_boxes required search-selector" type="checkbox" value="<%= tag.name %>" name="search[tag_list][]" id="snippet_search_id_<%= tag.id %>">
-              <label class="form-check-label collection_radio_buttons" for="snippet_search_id_<%= tag.id %>"> <i class="<%= tag_class(tag.name) %> tag-big green m-2"></i> <%= tag.name %> </label>
+              <label class="form-check-label collection_radio_buttons" for="snippet_search_id_<%= tag.id %>">
+              <div class="flex-column">
+                <i class="<%= tag_class(tag.name) %> tag-big green mb-2"></i>
+                <div><%= tag.name %></div>
+              </div>
+              </label>
             </div>
           <% end %>
         </div>

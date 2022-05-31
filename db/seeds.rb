@@ -45,6 +45,8 @@ User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', ins
 
 User.create!(name: 'Celso Yamashita', email: 'celso@camp.com', password: '123123', instagram_url: 'instagram.com', admin: true)
 
+User.create!(name: 'Shinji', email: 'shinji@gmail.com', password: '123123', instagram_url: 'instagram.com/paintitblack8', admin: true)
+
 2.times do
   user = User.create!(
     name: Faker::Name.unique.name,
@@ -140,12 +142,14 @@ photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image
 
 
 # syntax for tag gem
-ActsAsTaggableOn::Tag.create!(name: 'Urban', id: 'place_tag_list_urban')
-ActsAsTaggableOn::Tag.create!(name: 'Nature')
-ActsAsTaggableOn::Tag.create!(name: 'Modern')
-ActsAsTaggableOn::Tag.create!(name: 'Traditional')
-ActsAsTaggableOn::Tag.create!(name: 'Day')
-ActsAsTaggableOn::Tag.create!(name: 'Night')
+
+# ActsAsTaggableOn::Tag.create!(name: 'Urban')
+# ActsAsTaggableOn::Tag.create!(name: 'Nature')
+# ActsAsTaggableOn::Tag.create!(name: 'Modern')
+# ActsAsTaggableOn::Tag.create!(name: 'Traditional')
+# ActsAsTaggableOn::Tag.create!(name: 'Landscape')
+# ActsAsTaggableOn::Tag.create!(name: 'Portrait')
+
 
 
 puts "seeds created"

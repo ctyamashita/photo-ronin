@@ -1,0 +1,11 @@
+.overflow {
+  overflow: auto;
+  white-space: nowrap;
+    .search-item {
+      display: inline-block;
+    }
+}
+
+.overflow::-webkit-scrollbar {
+  display: none;
+}
