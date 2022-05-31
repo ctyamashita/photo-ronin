@@ -15,7 +15,7 @@
 <div class="container my-5">
   <h2 class="trending text-center mb-5">Trending <i class="green fas fa-fire"></i></h2>
   <div class="grid">
-    <% @trending.last(4).each do |place| %>
+    <% @trending.first(4).each do |place| %>
       <div id="places-list" class="card-trip mb-5">
         <%= render 'shared/place_card', place: place %>
       </div>
