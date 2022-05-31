@@ -5,3 +5,7 @@
       display: inline-block;
     }
 }
+
+.overflow::-webkit-scrollbar {
+    display: none;
+}
