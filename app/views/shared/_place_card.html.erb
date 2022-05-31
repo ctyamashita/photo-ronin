@@ -11,12 +11,16 @@
           <h4 class="bold">No Review</h4>
         <% end %>
       </div>
-      <h4 class="green mb-4"><%= place.address %></h4>
-        <div class="mt-4">
-          <% place.tag_list.each do |tag| %>
-            <%= link_to tag, tagged_path(tag: tag), class: 'tag-text' %>
-          <% end %>
-        </div>
+      <h4 class="green mb-4">
+        <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.geocode.join(',')}" do %>
+          <i class="fas fa-map-marked-alt"></i> <%= place.address %>
+        <% end %>
+      </h4>
+      <div class="mt-4">
+        <% place.tag_list.each do |tag| %>
+          <%= link_to tag, tagged_path(tag: tag), class: 'tag-text' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
