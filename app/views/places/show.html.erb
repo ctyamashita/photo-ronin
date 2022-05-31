@@ -78,18 +78,18 @@
               <div class="icon">
                 <img class="avatar" src=<%= review.user.photo.attached? ? cl_image_path(review.user.photo.key) : '/assets/Ronin.jpg' %> />
               </div>
-              <div class="reviews-name ms-2">
+              <div class="reviews-name ms-2 mt-4">
                 <p class="h4 white mb-0 bold align-middle"><%= review.user.name %></p>
+                <p class="gray"><%= time_ago_in_words(review.created_at) %> ago</p>
               </div>
             </div>
             <div class="reviews-star">
               <% (review.rating).times do%>
-                <i class="icon-big green fas fa-star"></i>
+                <i class="icon-star green fas fa-star"></i>
               <% end %>
             </div>
           </div>
         </div>
-        <p class="gray"><%= time_ago_in_words(review.created_at) %> ago</p>
         <p class="white reviews-content"><%= review.content %></p>
         <% end %>
       <div class="position-relative review-form">
