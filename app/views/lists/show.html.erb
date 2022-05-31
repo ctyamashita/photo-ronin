@@ -6,31 +6,37 @@
       <%# <%= link_to 'Start Path', "https://www.google.com/maps/dir/?api=1&destination=#{@route}", class: 'btn btn-ghost me-3' %>
     </div>
   </div>
-  <div class="ms-4 creater-info">
-    <div class="d-flex justify-content-start align-items-center">
-      <img class="avatar me-2" src=<%= @list.user.photo.attached? ? cl_image_path(@list.user.photo.key) : '/assets/Ronin.jpg' %> />
-      <div class="me-2">
-        <p class="h4 bold white mb-0"><%= @list.user.name %></p>
-      </div>
-      <div class="h4 white mb-0">
-        <% if @list.user.instagram_url? %>
-          <%#=link_to @list.user.instagram_url, @list.user.instagram_url, target: '_blank'%>
-          <%= link_to @list.user.instagram_url do %>
-            <i class="fab fa-instagram fa-lg"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="grid review-form">
     <% if @places.any? %>
       <% @places.each do |place| %>
-        <div class="card-trip mx-3">
-          <%= render 'shared/place_card', place: place %>
+        <div class="card-product mb-3">
+          <img src="<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : image_path('Ronin.jpg') %>" />
+          <div class="card-product-infos">
+            <h2> <%= place.name %></h2>
+            <div class="d-flex mt-3">
+              <% place.tag_list.each do |tag| %>
+                <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost' %>
+              <% end %>
+            </div>
+          </div>
         </div>
       <% end %>
     <% else %>
       No places.
     <% end %>
-  </div>
+    <div class="creater-info mt-5">
+      <div class="d-flex justify-content-start align-items-center">
+        <img class="avatar mx-2" src=<%= @list.user.photo.attached? ? cl_image_path(@list.user.photo.key) : '/assets/Ronin.jpg' %> />
+          <div>
+              <h3 class="white ms-2 mt-2"><%= @list.user.name %> <span class="light-gray ms-1">created this list.</span></h3>
+            <div>
+              <% if @list.user.instagram_url? %>
+                <p class="green ms-2 mt-0"> <%= link_to "Follow on instagram", @list.user.instagram_url %> </p>
+              <% end %>
+            </div>
+          </div>
+      </div>
+
+
+          <%#=link_to @list.user.instagram_url, @list.user.instagram_url, target: '_blank'%>
+    </div>
 </div>
