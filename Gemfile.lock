@@ -126,6 +126,7 @@ GEM
     haml (5.2.2)
       temple (>= 0.8.0)
       tilt
+    htmlbeautifier (1.4.2)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -172,9 +173,9 @@ GEM
     nested_form (0.3.2)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.6-x86_64-darwin)
     nokogiri (1.13.6-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.6-x86_64-darwin)
     nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -319,8 +320,8 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
-  x86_64-darwin-21
   arm64-darwin-21
+  x86_64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
@@ -335,6 +336,7 @@ DEPENDENCIES
   faker
   font-awesome-sass (~> 5.6.1)
   geocoder
+  htmlbeautifier
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
@@ -361,4 +363,4 @@ RUBY VERSION
    ruby 3.0.3p157
 
 BUNDLED WITH
-   2.3.13
+   2.3.10
