@@ -1,4 +1,4 @@
-<h2>Add to a new list</h2>
+<h2 class="mb-3">Add to a list</h2>
 <%= simple_form_for [@place,@list] do |f| %>
   <%= f.input :title, label: false , input_html: { class: "input mt-3"  }, item_wrapper_class: "d-flex mt-5", placeholder: "New list #{List.all.any? ? List.last.id : 1}" %>
   <%= f.submit 'Add', class: 'btn btn-ghost mt-3 position-absolute position-add', item_wrapper_class: 'd-flex'%>

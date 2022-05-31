@@ -1,15 +1,15 @@
 <div class="container mt-5">
-  <div class='d-flex'>
+  <div class='d-flex mb-3'>
     <h1 class="ms-4 bold flex-grow-1"><%= @list.title %></h1>
     <div>
       <%#= link_to 'Start Path', "https://www.google.com/maps/dir/#{@route}", class: 'btn btn-ghost me-3' %>
       <%= link_to 'Start Path', "https://www.google.com/maps/dir/?api=1&destination=#{@route}", class: 'btn btn-ghost me-3' %>
     </div>
   </div>
-  <div class="grid">
+  <div class="grid review-form">
     <% if @places.any? %>
       <% @places.each do |place| %>
-        <div class="card-trip mx-3 mt-5">
+        <div class="card-trip mx-3">
           <%= render 'shared/place_card', place: place %>
         </div>
       <% end %>

@@ -1,5 +1,5 @@
-<h2>Select a list</h2>
+<h2 >Select a list</h2>
 <%= simple_form_for [place, marker] do |f| %>
-  <%= f.association :list, collection: lists, input_html: { class: "input border-green border mt-3 position-absolute position-input" }, label:false, include_blank: false %>
-  <%= f.submit 'Add',class: 'btn btn-ghost mt-3 position-absolute position-add'%>
+  <%= f.association :list, collection: lists, input_html: { class: "input border-green border position-absolute position-input" }, label:false, include_blank: false %>
+  <%= f.submit 'Add',class: 'btn btn-ghost mt-3 position-absolute position-add-btn'%>
 <% end %>

@@ -18,16 +18,31 @@
   right: 0;
 }
 
-.position-add {
-  right: 16px;
+.position-add-btn {
+  right: -62px;
   top: 96px;
 }
 
-.position-existing {
-  left: 16px;
+.position-existing-btn {
+  position: fixed;
+  left: -62px;
+  top: 96px;
+}
+
+.existing-list {
+  left: 0px;
+  top: 96px;
+}
+
+.position-add {
+  right: 0px;
   top: 96px;
 }
 
 .position-input {
-  left: 16px;
+  left: -15vw
+}
+
+.position-new-list {
+  left: 0px;
 }
