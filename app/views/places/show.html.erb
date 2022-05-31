@@ -1,7 +1,7 @@
 <div class="position-relative">
   <%= render 'photo_popup', place: @place %>
   <div class="container" data-photo-popup-target="page">
-    <div class="mt-3">
+    <div class="card-trip mt-3">
       <%# TODO Made this placeholder for "LIKE", not functional yet %>
       <% if current_user %>
         <div class="position-absolute btn-like-place" data-controller="new-list">
