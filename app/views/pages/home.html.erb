@@ -1,24 +1,36 @@
 <%= render 'shared/banner' %>
 
 <div class="container my-5">
-  <h2 class="recommended text-center mb-5">Recommended <i class="green fas fa-heart"></i></h2>
-  <div class="grid">
-  <%# add real places%>
-    <% @recommended.first(4).each do |place| %>
-      <div id="places-list" class="card-trip mb-2">
-        <%= render 'shared/place_card', place: place %>
-      </div>
-    <% end %>
-  </div>
-</div>
 
-<div class="container my-5">
-  <h2 class="trending text-center mb-5">Trending <i class="green fas fa-fire"></i></h2>
-  <div class="grid">
-    <% @trending.first(4).each do |place| %>
-      <div id="places-list" class="card-trip mb-5">
-        <%= render 'shared/place_card', place: place %>
+  <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-recommended" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Recommended</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-trending" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Trending</button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-recommended" role="tabpanel" aria-labelledby="pills-home-tab">
+      <div class="grid">
+        <% @recommended.first(10).each do |place| %>
+          <div id="places-list" class="card-trip mb-2">
+            <%= render 'shared/place_card', place: place %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+
+    <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <div class="grid">
+        <% @trending.first(10).each do |place| %>
+          <div id="places-list" class="card-trip mb-5">
+            <%= render 'shared/place_card', place: place %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+  <%# above is JS nav/tabs using BS %>
 </div>
