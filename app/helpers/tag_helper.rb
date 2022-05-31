@@ -7,8 +7,6 @@ module TagHelper
       when "traditional" then "fab fa-fort-awesome"
       when "day" then "fas fa-sun"
       when "night" then "fas fa-moon"
-    else
-      "fas fa-star"
     end
   end
 end
