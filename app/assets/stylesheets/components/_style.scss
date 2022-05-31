@@ -156,7 +156,18 @@ a {
 .vertical-center {
   margin: 0;
   position: absolute;
-  top: 12%;
+  top: 25%;
+  left: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.vertical-center-list {
+  margin: 0;
+  position: absolute;
+  top: 40%;
   left: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);

@@ -1,9 +1,7 @@
 <div class="container col-10 mt-5">
-  <div class="d-flex justify-content-between">
-    <h1 class="ms-4 mb-3 bold">My lists</h1>
-    <div>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-ghost" %>
-    </div>
+  <div class="d-flex justify-content-between align-items-start position-relative">
+      <h2 class="mb-3 mt-5 bold">My Lists</h2>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-ghost position-absolute btn-logout" %>
   </div>
   <div class="grid">
     <% if @lists.any? %>
@@ -14,6 +12,4 @@
       No lists.
     <% end %>
   </div>
-
-
 </div>
