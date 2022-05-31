@@ -1,6 +1,6 @@
 <div class="card-map">
   <%= link_to "", place_path(place), class: 'card-category-link' %>
-  <img src='<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : image_path('Ronin.jpg') %>'>
+  <img src=<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : image_path('Ronin.jpg') %>>
 
   <div class="infos-small">
     <div class="description-capacity p-3">
