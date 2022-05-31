@@ -1,50 +1,45 @@
 <div class="fixed-bottom bg-black pb-3" data-photo-popup-target="menu">
-  <div class="d-flex justify-content-around text-center align-items-start mx-2 py-3">
+  <div class="d-flex justify-content-around text-center align-items-start mx-1 py-3">
     <%= link_to root_path do %>
-      <div class="flex-column icon-active">
-        <i class="icon-big light-gray fas fa-home mb-1"></i>
-        <p class="icon-text">Home</p>
+      <div class="icon-active">
+        <i class="icon-big light-gray fas fa-home"></i>
       </div>
     <% end %>
 
     <%= link_to places_path do %>
-      <div class="flex-column icon-active">
-        <i class="icon-big light-gray fas fa-search mb-1"></i>
-        <p class="icon-text">Search</p>
+      <div class="icon-active">
+        <i class="icon-big light-gray fas fa-search"></i>
       </div>
     <% end %>
 
       <div class="btn-add-list" data-controller="new-list">
         <button class="btn-add" data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
-        <div class="flex-column icon-active">
-          <i class="icon-plus light-gray fas fa-plus mb-1"></i>
-          <p class="icon-text light-gray">Add Place</p>
+        <div class="icon-active">
+          <i class="icon-plus light-gray fas fa-plus"></i>
         </div>
       </button>
       <%= render 'shared/new_place', place: @new_place %>
     </div>
 
-    <% if current_user %>
+    <%= link_to lists_path do %>
+      <div class="icon-active">
+        <i class="icon-big light-gray fas fa-list"></i>
+      </div>
+    <% end %>
+
+      <% if current_user %>
       <%= link_to user_dashboard_path(current_user) do %>
-        <div class="flex-column icon-active">
-          <i class="icon-big light-gray fas fa-heart mb-1"></i>
-          <p class="icon-text">Dashboard</p>
+        <div class="icon-active">
+          <i class="icon-big light-gray fas fa-user"></i>
         </div>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path do %>
-        <div class="flex-column icon-active">
-          <i class="icon-big light-gray fas fa-user mb-1"></i>
-          <p class="icon-text">Login</p>
+        <div class="icon-active">
+          <i class="icon-big light-gray fas fa-user"></i>
         </div>
       <% end %>
     <% end %>
-
-    <%= link_to lists_path do %>
-      <div class="flex-column icon-active">
-        <i class="icon-big light-gray fas fa-list mb-1"></i>
-        <p class="icon-text">Discover</p>
-      </div>
-    <% end %>
   </div>
+
 </div>
