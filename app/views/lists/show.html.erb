@@ -6,6 +6,22 @@
       <%= link_to 'Start Path', "https://www.google.com/maps/dir/?api=1&destination=#{@route}", class: 'btn btn-ghost me-3' %>
     </div>
   </div>
+  <div class="ms-4 creater-info">
+    <div class="d-flex justify-content-start align-items-center">
+      <img class="avatar me-2" src=<%= @list.user.photo.attached? ? cl_image_path(@list.user.photo.key) : '/assets/Ronin.jpg' %> />
+      <div class="me-2">
+        <p class="h4 bold white mb-0"><%= @list.user.name %></p>
+      </div>
+      <div class="h4 white mb-0">
+        <% if @list.user.instagram_url? %>
+          <%#=link_to @list.user.instagram_url, @list.user.instagram_url, target: '_blank'%>
+          <%= link_to @list.user.instagram_url do %>
+            <i class="fab fa-instagram fa-lg"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <div class="grid review-form">
     <% if @places.any? %>
       <% @places.each do |place| %>
