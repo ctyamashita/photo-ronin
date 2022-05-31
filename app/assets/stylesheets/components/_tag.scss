@@ -75,3 +75,39 @@
   border-radius: 50px;
   color: white;
 }
+
+// search
+
+.search-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.search-item {
+  flex: 0 0 30%;
+}
+
+.search-selector {
+  position: absolute;
+  transform: scale(0);
+  margin: 20px 20px;
+}
+
+.search-selector+label {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  font-size: 10px;
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  border-radius: 16px;
+  background-color: $black !important;
+  color: $white;
+  border: $black solid 1px;
+}
+
+.search-selector:checked+label {
+  border-color: $green;
+  border-radius: 16px;
+}

@@ -9,6 +9,12 @@ class PlacesController < ApplicationController
               else
                 policy_scope(Place.all)
               end
+
+    @places = if params[:search].nil? || params[:search][:tag_list].count <= 1
+                @places
+              else
+                @places.tagged_with(params[:search][:tag_list][1..])
+              end
     @pins = create_markers(@places)
   end
 
