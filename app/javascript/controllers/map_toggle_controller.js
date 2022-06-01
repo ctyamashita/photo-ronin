@@ -9,11 +9,11 @@ export default class extends Controller {
   mapDisplay() {
     this.mapTarget.classList.toggle('d-none')
     this.listTarget.classList.toggle('d-none')
-    if (this.buttonTarget.innerHTML === "See Map") {
-      this.buttonTarget.innerHTML = "See List";
+    if (this.buttonTarget.innerHTML === "See List") {
+      this.buttonTarget.innerHTML = "See Map";
       this.buttonTarget.className = "toggle-button btn-center";
     } else {
-      this.buttonTarget.innerHTML = "See Map";
+      this.buttonTarget.innerHTML = "See List";
       this.buttonTarget.className = "toggle-button btn-center";
     }
   }

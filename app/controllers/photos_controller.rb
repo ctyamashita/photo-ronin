@@ -6,7 +6,7 @@ class PhotosController < ApplicationController
     @photo.user = current_user
     @photo.place = Place.find(params[:place_id])
     @photo = add_metadata(@photo)
-    if Place.near(@photo.geocode, 0.5).include?(@photo.place)
+    if Place.near(@photo.geocode, 2000).include?(@photo.place)
       @photo.save
       redirect_to place_path(@photo.place), notice: "Your photo has been added"
     else
