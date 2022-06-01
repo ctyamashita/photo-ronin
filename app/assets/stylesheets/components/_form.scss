@@ -34,7 +34,7 @@
     // default value for display
   }
   .form-control {
-    width: 245px !important;
+    // width: 245px !important;
   }
 }
 
@@ -52,4 +52,27 @@
 
 .input-photo {
     background-color: $green;
+}
+
+
+.list-input {
+  width: 30vw;
+}
+
+@media only screen and (max-width: 1024px) {
+  .list-input {
+      width: 40vw;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+  .list-input {
+      width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+  .list-input {
+      width: 80vw;
+    }
 }

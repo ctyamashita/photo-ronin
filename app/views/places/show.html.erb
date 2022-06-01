@@ -14,13 +14,15 @@
             <div data-new-list-target="background"></div>
             <div class="vertical-center-list" data-controller="form-toggle">
               <% if @lists.any? %>
-                <div data-form-toggle-target="list" class='d-none'>
-                  <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
+                <div class='position-relative'>
+                  <div data-form-toggle-target="list" class='d-none'>
+                    <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
+                  </div>
+                  <div data-form-toggle-target="new">
+                    <%= render 'shared/new_list', list: @list %>
+                  </div>
+                  <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3 position-absolute position-existing-btn'>Existing list</button>
                 </div>
-                <div data-form-toggle-target="new">
-                  <%= render 'shared/new_list', list: @list %>
-                </div>
-                <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3 position-absolute position-existing-btn'>Existing list</button>
               <% else %>
                 <%= render 'shared/new_list', list: @list %>
               <% end %>
