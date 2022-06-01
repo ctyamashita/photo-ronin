@@ -1,8 +1,8 @@
 {
   "background_color": "black",
-  "description": "Photo Ronin is the app for photographers. Discover new unknown locations to boost your creativity.",
-  "display": "fullscreen",
-  "name": "Photo Ronin  ",
+  "description": "Photo Ronin is an app that helps photographers finding new places and angles for their photos.",
+  "display": "standalone",
+  "name": "Photo Ronin",
   "icons": [
     <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
     <% files.each_with_index do |file, index| %>
