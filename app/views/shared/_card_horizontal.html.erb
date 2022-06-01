@@ -1,0 +1,5 @@
+  <img src="<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : image_path('Ronin.jpg') %>" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
