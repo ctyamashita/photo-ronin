@@ -1,0 +1,20 @@
+ <% if place.photos.any? %>
+  <% place.photos.each do |photo| %>
+    <div class="card-trip">
+      <img src="<%= cl_image_path(photo.photo.key) %>" />
+        <%= link_to '', place_path(place), class: 'card-trip-link' %>
+        <div class=" container mt-3 my-4">
+        <% place.tag_list.each do |tag| %>
+          <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost' %>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <img src="<%= image_path('Ronin.jpg') %>" />
+    <div class=" container mt-3 my-4">
+      <% place.tag_list.each do |tag| %>
+        <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

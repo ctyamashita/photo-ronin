@@ -1,9 +1,9 @@
 <%= render 'shared/navbar' %>
 <div data-controller="map-toggle" class="toggle-button-container">
   <button data-map-toggle-target="button" class="text-center btn-center toggle-button" data-action="click->map-toggle#mapDisplay">
-    See List
+    See Map
   </button>
-  <div class="container review-form d-none" data-map-toggle-target="list">
+  <div class="container review-form" data-map-toggle-target="list">
     <div class="grid">
       <% if @places.any? %>
         <% @places.each do |place| %>
@@ -16,7 +16,7 @@
       <% end %>
     </div>
   </div>
-  <div data-map-toggle-target="map">
+  <div data-map-toggle-target="map" class="d-none">
     <%= render 'map', marker: @pins %>
   </div>
 </div>
