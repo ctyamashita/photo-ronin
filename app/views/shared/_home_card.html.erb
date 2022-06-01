@@ -27,7 +27,7 @@
 
       <div class="container mt-3 my-4">
         <% place.tag_list.each do |tag| %>
-          <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost' %>
+          <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost mb-2' %>
         <% end %>
       </div>
     </div>
