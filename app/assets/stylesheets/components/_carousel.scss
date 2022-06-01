@@ -40,3 +40,11 @@
     opacity: .4;
   }
 }
+
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  height: 400px;
+  object-fit: cover;
+  background-color: rgba($color: #000000, $alpha: 0.1);
+}

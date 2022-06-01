@@ -77,4 +77,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << /[a-z0-9\-]+\.ngrok\.io/
+  config.hosts << /.+\.ngrok\.io/
+  config.hosts << "https://photo-ronin.herokuapp.com/"
+  config.hosts << "http://www.photo-ronin.xyz/"
 end
