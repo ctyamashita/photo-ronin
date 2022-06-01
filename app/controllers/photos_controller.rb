@@ -1,4 +1,4 @@
-require 'exifr/jpeg'
+# require 'exifr/jpeg'
 class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
@@ -6,8 +6,12 @@ class PhotosController < ApplicationController
     @photo.user = current_user
     @photo.place = Place.find(params[:place_id])
     @photo = add_metadata(@photo)
-    @photo.save
-    redirect_to place_path(@photo.place), notice: "Your photo has been added"
+    if Place.near(@photo.geocode, 0.5).include?(@photo.place)
+      @photo.save
+      redirect_to place_path(@photo.place), notice: "Your photo has been added"
+    else
+      redirect_to place_path(@photo.place), alert: "Invalid file or geolocation"
+    end
   end
 
   private
@@ -17,7 +21,7 @@ class PhotosController < ApplicationController
   end
 
   def add_metadata(photo)
-    if EXIFR::JPEG.new(params[:photo][:photo].tempfile.path).exif?
+    if params[:photo][:photo].content_type == ("image/jpeg" || "image/jpg") && EXIFR::JPEG.new(params[:photo][:photo].tempfile.path).exif?
       photo.latitude = EXIFR::JPEG.new(params[:photo][:photo].tempfile.path).gps.latitude
       photo.longitude = EXIFR::JPEG.new(params[:photo][:photo].tempfile.path).gps.longitude
       photo.camera = EXIFR::JPEG.new(params[:photo][:photo].tempfile.path).model

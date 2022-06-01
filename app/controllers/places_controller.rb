@@ -22,7 +22,8 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     authorize @place
     @lists = current_user.lists.where.not(id: @place.lists) if current_user
-    @pin = create_marker(@place)
+    # @pin = create_marker(@place)
+    @pin = create_photo_pins(@place.photos) if @place.photos.any?
   end
 
   def create
@@ -31,9 +32,11 @@ class PlacesController < ApplicationController
 
     # using geocoder (comment this part and change the new_place.html.erb)
     @geocoder_info = Geocoder.search(params[:place][:address])[1]
-    @place.latitude = @geocoder_info.latitude
-    @place.longitude = @geocoder_info.longitude
-    @place.address = @geocoder_info.address
+    if @geocoder_info
+      @place.latitude = @geocoder_info.latitude
+      @place.longitude = @geocoder_info.longitude
+      @place.address = @geocoder_info.address
+    end
     ##
 
     if @place.save
@@ -42,7 +45,7 @@ class PlacesController < ApplicationController
       if Place.where(name: @place.name).any?
         redirect_to place_path(Place.where(name: @place.name).first), notice: "#{@place.name} already exists"
       else
-        redirect_to places_path
+        redirect_to places_path, notice: "Please enter a valid address"
       end
     end
   end
@@ -77,6 +80,19 @@ class PlacesController < ApplicationController
       info_window: render_to_string(partial: 'places/info_window', locals: { place: place })
     }
   end
+
+  def create_photo_pins(photos)
+    photos.map do |photo|
+      {
+        lat: photo.latitude,
+        lng: photo.longitude,
+        image_url: helpers.cl_image_path(photo.photo.key),
+        info_window: render_to_string(partial: 'places/info_window_photo', locals: { photo: photo })
+      }
+    end
+  end
+
+
 
   def place_params
     params.require(:place).permit(:name, :address, tag_list: [])
