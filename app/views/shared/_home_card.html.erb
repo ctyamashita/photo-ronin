@@ -4,14 +4,31 @@
       <div class="position-absolute btn-like-place" data-controller="new-list">
         <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
           <div class="flex-column icon-active">
-            <i class="icon-card white fas fa-heart"></i>
+
+            <%# <i class="icon-card white fas fa-heart"</i> %>
+            <%#= photo.cached_votes_total %>
+            <%#= raise %>
+            <%# <button data-action="click->like#photoLike"class="like-button"
+              <div class="flex-column icon-active" %>
+            <%= link_to like_photo_path(photo), method: :post, remote: true do %>
+              <i class="fas fa-heart <%= 'text-danger' if current_user&.liked?(photo) %>"></i>
+            <% end %>
+            <%# </div>
+            <%# </button> %>
+
+            <%= link_to like_photo_path(photo), method: :post, remote: true do %>
+              <i class="fas fa-heart <%= 'text-danger' if current_user.liked?(photo) %>"></i>
+            <% end %>
+
           </div>
         </button>
       </div>
+
       <div class="position-relative">
         <img src="<%= cl_image_path(photo.photo.key) %>" class="w-100"/>
         <%= link_to '', place_path(place), class: 'card-trip-link' %>
       </div>
+
       <div class="container mt-3 my-4">
         <% place.tag_list.each do |tag| %>
           <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost' %>
