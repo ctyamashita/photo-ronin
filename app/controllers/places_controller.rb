@@ -23,7 +23,7 @@ class PlacesController < ApplicationController
     authorize @place
     @lists = current_user.lists.where.not(id: @place.lists) if current_user
     # @pin = create_marker(@place)
-    @pin = create_photo_pins(@place.photos) if @place.photos.any?
+    @pin = create_photo_pins(@place)
   end
 
   def create
@@ -81,14 +81,22 @@ class PlacesController < ApplicationController
     }
   end
 
-  def create_photo_pins(photos)
-    photos.map do |photo|
-      {
-        lat: photo.latitude,
-        lng: photo.longitude,
-        image_url: helpers.cl_image_path(photo.photo.key),
-        info_window: render_to_string(partial: 'places/info_window_photo', locals: { photo: photo })
-      }
+  def create_photo_pins(place)
+    if place.photos.any?
+      place.photos.map do |photo|
+        {
+          lat: photo.latitude,
+          lng: photo.longitude,
+          image_url: helpers.cl_image_path(photo.photo.key),
+          info_window: render_to_string(partial: 'places/info_window_photo', locals: { photo: photo })
+        }
+      end
+    else
+      [{
+        lat: place.latitude,
+        lng: place.longitude,
+        info_window: render_to_string(partial: 'places/info_window', locals: { place: place })
+      }]
     end
   end
 
