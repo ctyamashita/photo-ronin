@@ -36,14 +36,9 @@
           </div>
         </div>
       <% end %>
-      <% if @place.photos.any? %>
-        <div class="photo-carousel" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 30%), url(<%= cl_image_path(@place.photos.first.photo.key) %>)" data-action="click->photo-popup#show">
-          <p class="text-photo"><%= @place.photos.count %> <i class="fas fa-images"></i></p>
-        </div>
-      <% else %>
-        <div class="photo-carousel" style="background: url(<%= image_path('Ronin.jpg') %>)">
-        </div>
-      <% end %>
+      <%= render 'shared/carousel', place: @place %>
+
+
       <div class="card-trip-infos mt-2">
         <div class="position-relative p-2 mb-3">
           <div class="d-flex justify-content-between align-items-end">
@@ -62,7 +57,7 @@
 
           <div class="mt-4">
             <% @place.tag_list.each do |tag| %>
-              <%= link_to tag, tagged_path(tag: tag), class: 'tag-text' %>
+              <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost' %>
             <% end %>
           </div>
         </div>
