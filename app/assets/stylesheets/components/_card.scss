@@ -4,6 +4,12 @@
   position: relative;
 }
 
+.card-home {
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
 .card-map {
   overflow: hidden;
   background: $black;
@@ -20,6 +26,12 @@
 .card-trip>img {
   width: 100%;
   height: 420px;
+  object-fit: cover;
+}
+
+.card-home>img {
+  width: 100%;
+  height: 500px;
   object-fit: cover;
 }
 
@@ -79,6 +91,10 @@
     }
 
   .card-trip>img {
+      height: 500px;
+    }
+
+  .card-home>img {
       height: 500px;
     }
 }
