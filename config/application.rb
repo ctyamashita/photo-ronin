@@ -23,9 +23,11 @@ module PhotoRonin
     #
     # config.time_zone = "Central Time (US & Canada)"
     config.i18n.default_locale = :en
+
     # config.hosts << https://8869-124-219-136-119.jp.ngrok\.io/
     # config.hosts << "photo-ronin.herokuapp.com"
     # config.hosts << "http://www.photo-ronin.xyz/"
+
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
