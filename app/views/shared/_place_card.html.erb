@@ -1,7 +1,7 @@
-<div class="card-trip">
+<div class="card-trip mb-2 mx-1 w-100">
   <img src="<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : image_path('Ronin.jpg') %>" />
   <%= link_to '', place_path(place), class: 'card-trip-link' %>
-  <div class="card-trip-infos mt-2">
+  <div class="card-trip-infos h-100">
     <div class="position-relative p-2 mb-3">
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="bold"><%= place.name %></h3>

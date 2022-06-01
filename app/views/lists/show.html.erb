@@ -9,8 +9,10 @@
     <% if @places.any? %>
       <% @places.each do |place| %>
         <div class="card-product mb-3">
-          <img src="<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : image_path('Ronin.jpg') %>" />
-          <%= link_to '', place_path(place), class: 'card-trip-link' %>
+          <div class="position-relative h-100">
+            <img src="<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : image_path('Ronin.jpg') %>" />
+            <%= link_to '', place_path(place), class: 'card-trip-link' %>
+          </div>
           <div class="card-product-infos pt-5">
             <h3> <%= place.name %></h3>
             <div class="d-flex mt-1">

@@ -7,7 +7,7 @@
     <div class="grid">
       <% if @places.any? %>
         <% @places.each do |place| %>
-          <div class="card-trip">
+          <div class="card-trip d-flex align-items-stretch">
             <%= render 'shared/place_card', place: place %>
           </div>
         <% end %>
