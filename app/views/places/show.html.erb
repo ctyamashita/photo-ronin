@@ -4,10 +4,9 @@
     <div class="card-trip mt-3">
       <%# TODO Made this placeholder for "LIKE", not functional yet %>
       <% if current_user %>
-        <div class="position-absolute btn-like-place" data-controller="new-list">
-          <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
+        <div class="position-absolute btn-like-place" data-controller="like">
+          <button data-action="click->like#photoLike" class="like-button">
             <div class="flex-column icon-active">
-              <i class="icon-card white fas fa-heart"></i>
             </div>
           </button>
         </div>
@@ -20,23 +19,23 @@
           <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
             <div data-new-list-target="background"></div>
             <div class="vertical-center-list" data-controller="form-toggle">
-              <% if @lists.any? %>
-                <div data-form-toggle-target="list" class='d-none'>
-                  <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
-                </div>
-                <div data-form-toggle-target="new">
-                  <%= render 'shared/new_list', list: @list %>
-                </div>
-                <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3 position-absolute position-existing-btn'>Existing list</button>
-              <% else %>
+            <% if @lists.any? %>
+              <div data-form-toggle-target="list" class='d-none'>
+                <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
+              </div>
+              <div data-form-toggle-target="new">
                 <%= render 'shared/new_list', list: @list %>
-              <% end %>
-            </div>
-            <button data-action="click->new-list#showForm" class='btn-close'><i class="fas fa-times icon-scale"></i></button>
+              </div>
+                <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3 position-absolute position-existing-btn'>Existing list</button>
+            <% else %>
+              <%= render 'shared/new_list', list: @list %>
+            <% end %>
           </div>
+          <button data-action="click->new-list#showForm" class='btn-close'><i class="fas fa-times icon-scale"></i></button>
         </div>
-      <% end %>
-      <%= render 'shared/carousel', place: @place %>
+      </div>
+    <% end %>
+    <%= render 'shared/carousel', place: @place %>
 
 
       <div class="card-trip-infos mt-2">
@@ -83,39 +82,76 @@
               <div class="icon">
                 <img class="avatar" src=<%= review.user.photo.attached? ? cl_image_path(review.user.photo.key) : image_path('Ronin.jpg') %> />
               </div>
-              <div class="reviews-name ms-2 mt-4">
-                <p class="h4 white mb-0 bold align-middle"><%= review.user.name %></p>
-                <p class="gray"><%= time_ago_in_words(review.created_at) %> ago</p>
+              <h4>
+                <% if @place.geocode %>
+                  <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@place.geocode.join(',')}", class: "green mb-2" do %>
+                    <i class="fas fa-map-marked-alt"></i> <%= @place.address %>
+                  <% end %>
+                <% else %>
+                  <i class="fas fa-map-marked-alt"></i> <%= @place.address %>
+                <% end %>
+              </h4>
+              <div class="mt-4">
+                <% @place.tag_list.each do |tag| %>
+                  <%= link_to tag, tagged_path(tag: tag), class: 'tag-text' %>
+                <% end %>
               </div>
             </div>
-            <div class="reviews-star">
-              <% (review.rating).times do%>
-                <i class="icon-star green fas fa-star"></i>
-              <% end %>
+          </div>
+          <div class="mt-3">
+            <div data-map-toggle-target="map">
+              <%= render 'map_show', marker: [@pin] %>
             </div>
           </div>
         </div>
-        <p class="white reviews-content"><%= review.content %></p>
-        <% end %>
-      <div class="position-relative review-form">
-        <%= simple_form_for [@place, @review] do |f| %>
-          <%= f.input :content,
+        <div class="mt-3">
+          <%= render 'new_photo', place: @place %>
+        </div>
+        <div class="container">
+          <div class="d-flex justify-content-between mt-5">
+            <h2>Reviews</h2>
+          </div>
+          <% @place.reviews.each do |review| %>
+            <hr>
+            <div class="light-gray pb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="icon-name d-flex justify-content-start align-items-center">
+                  <div class="icon">
+                    <img class="avatar" src=<%= review.user.photo.attached? ? cl_image_path(review.user.photo.key) : image_path('Ronin.jpg') %> />
+                  </div>
+                  <div class="reviews-name ms-2 mt-4">
+                    <p class="h4 white mb-0 bold align-middle"><%= review.user.name %></p>
+                    <p class="gray"><%= time_ago_in_words(review.created_at) %> ago</p>
+                  </div>
+                </div>
+                <div class="reviews-star">
+                  <% (review.rating).times do%>
+                    <i class="icon-star green fas fa-star"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <p class="white reviews-content"><%= review.content %></p>
+          <% end %>
+          <div class="position-relative review-form">
+            <%= simple_form_for [@place, @review] do |f| %>
+              <%= f.input :content,
                       class: "form-control-custom rounded-corner mt-1 input-background",
                       rows: 5,
                       label: false,
                       id: "form-list",
                       placeholder: "Your comment",
                       input_html: { autocomplete: "Comment" } %>
-          <div class="star-rating mb-3">
-            <% 5.times do |i| %>
-              <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+              <div class="star-rating mb-3">
+                <% 5.times do |i| %>
+                  <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+                <% end %>
+              </div>
+              <%= button_tag type: "submit", class: "btn btn-ghost position-absolute position-submit-review" do %>
+                Post
+              <% end %>
             <% end %>
           </div>
-          <%= button_tag type: "submit", class: "btn btn-ghost position-absolute position-submit-review" do %>
-            Post
-          <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
-  </div>
-</div>

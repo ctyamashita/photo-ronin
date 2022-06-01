@@ -8,4 +8,9 @@ class PhotoPolicy < ApplicationPolicy
   def create?
     user
   end
+
+  def like?
+    true
+  end
+
 end

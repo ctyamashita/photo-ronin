@@ -104,6 +104,8 @@ photograph = Photo.create!(
   user: User.all.sample,
   place: gotokuji
 )
+photograph.cached_votes_total = rand(50..500)
+photograph.save
 file = URI.open('https://s3-ap-northeast-1.amazonaws.com/thegate/2019/06/14/10/33/03/Gotokuji-temple-maneki-neko-offering-area.jpeg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 
@@ -111,6 +113,8 @@ photograph = Photo.create!(
   user: User.all.sample,
   place: omoide_yokocho
 )
+photograph.cached_votes_total = rand(50..500)
+photograph.save
 file = URI.open('https://static.wixstatic.com/media/c92124_b847a2ec2be14b0bb5f10b25ced8c93d~mv2.jpg/v1/fill/w_1000,h_625,al_c,q_90,usm_0.66_1.00_0.01/c92124_b847a2ec2be14b0bb5f10b25ced8c93d~mv2.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 
@@ -118,6 +122,8 @@ photograph = Photo.create!(
   user: User.all.sample,
   place: tokyu_plaza
 )
+photograph.cached_votes_total = rand(50..500)
+photograph.save
 file = URI.open('https://i.pinimg.com/736x/cf/af/de/cfafde42ae4e88825b8efd5323d40cca.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 
@@ -125,6 +131,8 @@ photograph = Photo.create!(
   user: User.all.sample,
   place: underground_temple
 )
+photograph.cached_votes_total = rand(50..500)
+photograph.save
 file = URI.open('http://cdn.theatlantic.com/assets/media/img/photo/2015/05/scenes-from-underground/g03_468889108/main_1200.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 
@@ -134,6 +142,8 @@ photograph = Photo.create!(
   user: User.all.sample,
   place: shibuya_crossing
 )
+photograph.cached_votes_total = rand(50..500)
+photograph.save
 file = URI.open('https://tz-mag-media.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2019/07/20192118/12.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 
@@ -141,6 +151,8 @@ photograph = Photo.create!(
   user: User.all.sample,
   place: skytree
 )
+photograph.cached_votes_total = rand(50..500)
+photograph.save
 file = URI.open('https://live.staticflickr.com/7853/46843750984_84ce4d8f64_b.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 
@@ -148,6 +160,8 @@ photograph = Photo.create!(
   user: User.all.sample,
   place: kabukicho
 )
+photograph.cached_votes_total = rand(50..500)
+photograph.save
 file = URI.open('https://i.pinimg.com/originals/6f/d8/18/6fd818c25cc70ebbff8b95e0bceca5b1.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 
@@ -155,6 +169,8 @@ photograph = Photo.create!(
   user: User.all.sample,
   place: rainbow_bridge
 )
+photograph.cached_votes_total = rand(50..500)
+photograph.save
 file = URI.open('https://blog.japanwondertravel.com/wp-content/uploads/2020/09/Rainbow-bridge-tokyo-1200x800.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 

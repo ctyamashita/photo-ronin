@@ -40,7 +40,9 @@ gem 'pundit'
 gem 'simple_form', github: 'heartcombo/simple_form'
 gem 'rails_admin', '~> 2.0'
 gem 'acts-as-taggable-on'
+gem 'acts_as_votable'
 gem 'exifr', '~> 1.3', '>= 1.3.9'
+
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

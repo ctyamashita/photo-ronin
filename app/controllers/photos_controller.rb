@@ -14,6 +14,18 @@ class PhotosController < ApplicationController
     end
   end
 
+  def like
+    @photo = Photo.find(params[:id])
+    if current_user.liked?(@photo)
+      current_user.dislikes(@photo)
+    else
+      current_user.likes(@photo)
+    end
+  end
+
+
+
+
   private
 
   def photo_params
