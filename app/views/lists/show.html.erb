@@ -27,10 +27,10 @@
       <div class="d-flex justify-content-start align-items-center">
         <img class="avatar mx-2" src=<%= @list.user.photo.attached? ? cl_image_path(@list.user.photo.key) : '/assets/Ronin.jpg' %> />
           <div>
-              <h3 class="white ms-2 mt-2"><%= @list.user.name %> <span class="light-gray ms-1">created this list.</span></h3>
+              <h3 class="white ms-2"><%= @list.user.name %> <span class="light-gray ms-1">created this list.</span></h3>
             <div>
               <% if @list.user.instagram_url? %>
-                <p class="green ms-2 mt-0"> <%= link_to "Follow on instagram", @list.user.instagram_url %> </p>
+                <p class="green ms-2 mb-0"> <%= link_to "Follow on instagram", @list.user.instagram_url %> </p>
               <% end %>
             </div>
           </div>
