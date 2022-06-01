@@ -1,10 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 require "faker"
 require "open-uri"
 
@@ -20,7 +16,6 @@ User.destroy_all
 Place.destroy_all
 ActsAsTaggableOn::Tag.destroy_all
 
-
 # syntax for tag gem
 city_tag = ActsAsTaggableOn::Tag.create!(name: 'City')
 nature_tag = ActsAsTaggableOn::Tag.create!(name: 'Nature')
@@ -28,6 +23,39 @@ modern_tag = ActsAsTaggableOn::Tag.create!(name: 'Modern')
 traditional_tag = ActsAsTaggableOn::Tag.create!(name: 'Traditional')
 landscape_tag = ActsAsTaggableOn::Tag.create!(name: 'Landscape')
 portrait_tag = ActsAsTaggableOn::Tag.create!(name: 'Portrait')
+
+# random places
+# tokyo area
+50.times do
+  Place.create!(
+    name: 'test_name',
+    address: 'test_addy'
+  )
+end
+puts 'created 50 places'
+
+tokyo_area = Place.first(50)
+tokyo_area.each do |place|
+  place.longitude = rand(139.360763..139.92477)
+  place.latitude = rand(35.664660..35.90220)
+  place.save
+end
+
+# area below tokyo
+15.times do
+  Place.create!(
+    name: 'test_name',
+    address: 'test_addy'
+  )
+end
+puts 'created 15 places'
+
+below_tokyo = Place.last(15)
+below_tokyo.each do |place|
+  place.longitude = rand(139.392955..139.616137)
+  place.latitude = rand(35.339647..35.637597)
+  place.save
+end
 
 # hidden places
 gotokuji = Place.create!(name: 'Gotokuji', address: 'Nakamachi, Setagaya', tag_list: [nature_tag, traditional_tag])
@@ -41,10 +69,9 @@ skytree = Place.create!(name: 'Skytree', address: 'Oshiage, Sumida', tag_list: [
 kabukicho = Place.create!(name: 'Kabukicho', address: 'Kabukicho, Shinjuku', tag_list: [city_tag, modern_tag])
 rainbow_bridge = Place.create!(name: 'Rainbow Bridge', address: 'Minato City, Tokyo', tag_list: [city_tag, landscape_tag])
 
-User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', instagram_url: 'instagram.com')
-
+# ----------------------------------------------------------------------------------------------------------------------
+User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', instagram_url: 'instagram.com/jharimo')
 User.create!(name: 'Celso Yamashita', email: 'celso@camp.com', password: '123123', instagram_url: 'instagram.com', admin: true)
-
 User.create!(name: 'Shinji', email: 'shinji@gmail.com', password: '123123', instagram_url: 'instagram.com/paintitblack8', admin: true)
 
 2.times do
@@ -56,21 +83,13 @@ User.create!(name: 'Shinji', email: 'shinji@gmail.com', password: '123123', inst
   )
 
   5.times do
-    list = List.create!(
+    List.create!(
       title: Faker::Address.city,
       user: user
     )
-    # counter = 1
-    # 2.times do
-    #   Marker.create!(
-    #     list: list,
-    #     place: Place.all[counter]
-    #   )
-    #   counter + 1
-    # end
   end
 
-    5.times do
+  5.times do
     Review.create!(
       content: Faker::Camera.brand_with_model,
       rating: rand(3..5),
@@ -80,6 +99,7 @@ User.create!(name: 'Shinji', email: 'shinji@gmail.com', password: '123123', inst
   end
 end
 
+# ----------------------------------------------------------------------------------------------------------------------
 # hidden places
 photograph = Photo.create!(
   user: User.all.sample,
@@ -109,8 +129,7 @@ photograph = Photo.create!(
 file = URI.open('http://cdn.theatlantic.com/assets/media/img/photo/2015/05/scenes-from-underground/g03_468889108/main_1200.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 
-
-
+# ----------------------------------------------------------------------------------------------------------------------
 # trending places
 photograph = Photo.create!(
   user: User.all.sample,
@@ -139,17 +158,5 @@ photograph = Photo.create!(
 )
 file = URI.open('https://blog.japanwondertravel.com/wp-content/uploads/2020/09/Rainbow-bridge-tokyo-1200x800.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
-
-
-# syntax for tag gem
-
-# ActsAsTaggableOn::Tag.create!(name: 'Urban')
-# ActsAsTaggableOn::Tag.create!(name: 'Nature')
-# ActsAsTaggableOn::Tag.create!(name: 'Modern')
-# ActsAsTaggableOn::Tag.create!(name: 'Traditional')
-# ActsAsTaggableOn::Tag.create!(name: 'Landscape')
-# ActsAsTaggableOn::Tag.create!(name: 'Portrait')
-
-
 
 puts "seeds created"
