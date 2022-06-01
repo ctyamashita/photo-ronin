@@ -16,10 +16,6 @@
             <%# </div>
             <%# </button> %>
 
-            <%= link_to like_photo_path(photo), method: :post, remote: true do %>
-              <i class="fas fa-heart <%= 'text-danger' if current_user.liked?(photo) %>"></i>
-            <% end %>
-
           </div>
         </button>
       </div>
