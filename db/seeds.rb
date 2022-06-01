@@ -1,14 +1,12 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 require "faker"
 require "open-uri"
 
 IMAGE_URLS = ['https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2036', 'https://images.unsplash.com/photo-1544885935-98dd03b09034?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687', 'https://images.unsplash.com/photo-1536768139911-e290a59011e4?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735', 'https://images.unsplash.com/photo-1508333706533-1ab43ecb1606?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887']
+
+random_places_images = ['https://images.unsplash.com/photo-1586165877141-3dbcfc059283?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80', 'https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', 'https://images.unsplash.com/photo-1534214526114-0ea4d47b04f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', 'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1440&q=80', 'https://images.unsplash.com/photo-1493515322954-4fa727e97985?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', 'https://images.unsplash.com/photo-1618397806621-290788301ced?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', 'https://images.unsplash.com/photo-1604928141064-207cea6f571f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80', 'https://images.unsplash.com/photo-1604604994333-f1b0e9471186?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1936&q=80', 'https://images.unsplash.com/photo-1596713109885-c94bdfd7f19d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', 'https://images.unsplash.com/photo-1582546338780-c9889634b3d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80', 'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80', 'https://images.unsplash.com/photo-1535913917396-518c020c6a1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80', 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', 'https://images.unsplash.com/photo-1559255394-d92ddc3250e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80', 'https://images.unsplash.com/photo-1501769752-a59efa2298ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80']
 
 # seed all 7 models
 puts "creating seeds"
@@ -20,7 +18,26 @@ User.destroy_all
 Place.destroy_all
 ActsAsTaggableOn::Tag.destroy_all
 
+# users
+User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', instagram_url: 'instagram.com/jharimo')
+User.create!(name: 'Celso Yamashita', email: 'celso@camp.com', password: '123123', instagram_url: 'instagram.com', admin: true)
+User.create!(name: 'Shinji', email: 'shinji@gmail.com', password: '123123', instagram_url: 'instagram.com/paintitblack8', admin: true)
 
+20.times do
+  user = User.create!(
+    name: Faker::Name.unique.name,
+    email: Faker::Internet.email,
+    password: 'password',
+    instagram_url: 'instagram_url'
+  )
+
+  1.times do
+    List.create!(
+      title: Faker::Address.city,
+      user: user
+    )
+  end
+end
 # syntax for tag gem
 city_tag = ActsAsTaggableOn::Tag.create!(name: 'City')
 nature_tag = ActsAsTaggableOn::Tag.create!(name: 'Nature')
@@ -28,6 +45,44 @@ modern_tag = ActsAsTaggableOn::Tag.create!(name: 'Modern')
 traditional_tag = ActsAsTaggableOn::Tag.create!(name: 'Traditional')
 landscape_tag = ActsAsTaggableOn::Tag.create!(name: 'Landscape')
 portrait_tag = ActsAsTaggableOn::Tag.create!(name: 'Portrait')
+tags = [city_tag, nature_tag, modern_tag, traditional_tag, landscape_tag, portrait_tag]
+
+# random places
+# tokyo area
+50.times do
+  place = Place.create!(
+    name: 'test_name',
+    address: 'test_addy',
+    longitude: rand(139.360763..139.92477),
+    latitude: rand(35.664660..35.90220),
+    tag_list: tags.sample(2)
+  )
+  image = Photo.create!(
+    user: User.all.sample,
+    place: place
+  )
+  file = URI.open(random_places_images.sample)
+  image.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+end
+puts 'created 50 places'
+
+# area below tokyo
+15.times do
+  place = Place.create!(
+    name: 'test_name',
+    address: 'test_addy',
+    longitude: rand(139.392955..139.616137),
+    latitude: rand(35.339647..35.637597),
+    tag_list: tags.sample(2)
+  )
+  image = Photo.create!(
+    user: User.all.sample,
+    place: place
+  )
+  file = URI.open(random_places_images.sample)
+  image.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+end
+puts 'created 15 places'
 
 # hidden places
 gotokuji = Place.create!(name: 'Gotokuji', address: 'Nakamachi, Setagaya', tag_list: [nature_tag, traditional_tag])
@@ -41,45 +96,9 @@ skytree = Place.create!(name: 'Skytree', address: 'Oshiage, Sumida', tag_list: [
 kabukicho = Place.create!(name: 'Kabukicho', address: 'Kabukicho, Shinjuku', tag_list: [city_tag, modern_tag])
 rainbow_bridge = Place.create!(name: 'Rainbow Bridge', address: 'Minato City, Tokyo', tag_list: [city_tag, landscape_tag])
 
-User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', instagram_url: 'instagram.com')
+# ----------------------------------------------------------------------------------------------------------------------
 
-User.create!(name: 'Celso Yamashita', email: 'celso@camp.com', password: '123123', instagram_url: 'instagram.com', admin: true)
-
-User.create!(name: 'Shinji', email: 'shinji@gmail.com', password: '123123', instagram_url: 'instagram.com/paintitblack8', admin: true)
-
-2.times do
-  user = User.create!(
-    name: Faker::Name.unique.name,
-    email: Faker::Internet.email,
-    password: 'password',
-    instagram_url: 'instagram_url'
-  )
-
-  5.times do
-    list = List.create!(
-      title: Faker::Address.city,
-      user: user
-    )
-    # counter = 1
-    # 2.times do
-    #   Marker.create!(
-    #     list: list,
-    #     place: Place.all[counter]
-    #   )
-    #   counter + 1
-    # end
-  end
-
-    5.times do
-    Review.create!(
-      content: Faker::Camera.brand_with_model,
-      rating: rand(3..5),
-      user: user,
-      place: Place.all.sample
-    )
-  end
-end
-
+# ----------------------------------------------------------------------------------------------------------------------
 # hidden places
 photograph = Photo.create!(
   user: User.all.sample,
@@ -109,8 +128,7 @@ photograph = Photo.create!(
 file = URI.open('http://cdn.theatlantic.com/assets/media/img/photo/2015/05/scenes-from-underground/g03_468889108/main_1200.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 
-
-
+# ----------------------------------------------------------------------------------------------------------------------
 # trending places
 photograph = Photo.create!(
   user: User.all.sample,
@@ -140,16 +158,16 @@ photograph = Photo.create!(
 file = URI.open('https://blog.japanwondertravel.com/wp-content/uploads/2020/09/Rainbow-bridge-tokyo-1200x800.jpg')
 photograph.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 
-
-# syntax for tag gem
-
-# ActsAsTaggableOn::Tag.create!(name: 'Urban')
-# ActsAsTaggableOn::Tag.create!(name: 'Nature')
-# ActsAsTaggableOn::Tag.create!(name: 'Modern')
-# ActsAsTaggableOn::Tag.create!(name: 'Traditional')
-# ActsAsTaggableOn::Tag.create!(name: 'Landscape')
-# ActsAsTaggableOn::Tag.create!(name: 'Portrait')
-
-
-
+# ----------------------------------------------------------------------------------------------------------------------
+# reviews
+User.all.each do |user|
+  5.times do
+    Review.create!(
+      content: Faker::Camera.brand_with_model,
+      rating: rand(3..5),
+      user: user,
+      place: Place.all.sample
+    )
+  end
+end
 puts "seeds created"
