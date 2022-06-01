@@ -4,7 +4,9 @@
       <div class="position-absolute btn-like-place" data-controller="new-list">
         <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
           <div class="flex-column icon-active">
-            <i class="icon-card white fas fa-heart"></i>
+            <%= link_to like_photo_path(photo), method: :post, remote: true do %>
+              <i class="fas fa-heart <%= 'text-danger' if current_user.liked?(photo) %>"></i>
+            <% end %>
           </div>
         </button>
       </div>
