@@ -1,6 +1,6 @@
 <div class="container col-11 mt-5">
   <h2 class="mb-3 bold">All lists</h2>
-  <div class="grid">
+  <div class="grid pb-5 mb-5">
     <% if @lists.any? %>
       <% @lists.each do |list|%>
         <%= render "list_card", list: list %>
