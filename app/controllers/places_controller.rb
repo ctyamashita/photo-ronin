@@ -28,10 +28,14 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     authorize @place
+
+    # using geocoder (comment this part and change the new_place.html.erb)
     @geocoder_info = Geocoder.search(params[:place][:address])[1]
     @place.latitude = @geocoder_info.latitude
     @place.longitude = @geocoder_info.longitude
     @place.address = @geocoder_info.address
+    ##
+
     if @place.save
       redirect_to place_path(@place), notice: "#{@place.name} has been added"
     else
