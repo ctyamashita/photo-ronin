@@ -10,12 +10,22 @@
       <% @places.each do |place| %>
         <div class="card-product mb-3">
           <img src="<%= place.photos.any? ? cl_image_path(place.photos.first.photo.key) : image_path('Ronin.jpg') %>" />
-          <div class="card-product-infos">
-            <h2> <%= place.name %></h2>
-            <div class="d-flex mt-3">
-              <% place.tag_list.each do |tag| %>
-                <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost' %>
-              <% end %>
+          <%= link_to '', place_path(place), class: 'card-trip-link' %>
+          <div class="card-product-infos pt-5">
+            <h3> <%= place.name %></h3>
+            <div class="d-flex mt-1">
+              <h4>
+                <% if place.geocode %>
+                  <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.geocode.join(',')}", class: "green mb-2" do %>
+                    <p><i class="fas fa-map-marked-alt"></i> Directions</p>
+                  <% end %>
+                <% else %>
+                  <i class="fas fa-map-marked-alt"></i> <%= place.address %>
+                <% end %>
+              </h4>
+              <%# place.tag_list.each do |tag| %>
+                <%#= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost' %>
+              <%# end %>
             </div>
           </div>
         </div>
@@ -23,14 +33,17 @@
     <% else %>
       No places.
     <% end %>
-    <div class="creater-info mt-5">
-      <div class="d-flex justify-content-start align-items-center">
+    <div class="creater-info mt-3">
+      <hr>
+      <div class="d-flex justify-content-start">
         <img class="avatar mx-2" src=<%= @list.user.photo.attached? ? cl_image_path(@list.user.photo.key) : '/assets/Ronin.jpg' %> />
           <div>
-              <h3 class="white ms-2"><%= @list.user.name %> <span class="light-gray ms-1">created this list.</span></h3>
+              <h4 class="white ms-2"><%= @list.user.name %> <span class="light-gray">created this list.</span></h4>
             <div>
               <% if @list.user.instagram_url? %>
-                <p class="green ms-2 mb-0"> <%= link_to "Follow on instagram", @list.user.instagram_url %> </p>
+                <p class="green ms-2 mb-0"> <%= link_to @list.user.instagram_url do %> </p>
+                  <p><i class="fab fa-instagram fa-lg green ms-2"></i> Follow on instagram</p>
+                <% end %>
               <% end %>
             </div>
           </div>
