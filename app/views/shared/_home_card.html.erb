@@ -1,8 +1,8 @@
 <% if place.photos.any? %>
   <% place.photos.each do |photo| %>
-    <div class="card-home">
-      <div class="position-absolute btn-like-place"data-controller="new-list">
-        <button data-new-list-target="popupButton"data-action="click->new-list#showForm"style="background: rgba(0,0,0,0); border: none">
+    <div class="card-home mb-2 mx-1">
+      <div class="position-absolute btn-like-place" data-controller="new-list">
+        <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
           <div class="flex-column icon-active">
 
             <%# <i class="icon-card white fas fa-heart"</i> %>
@@ -23,8 +23,12 @@
           </div>
         </button>
       </div>
-      <img src="<%= cl_image_path(photo.photo.key) %>"/>
-      <%= link_to '', place_path(place), class: 'card-trip-link' %>
+
+      <div class="position-relative">
+        <img src="<%= cl_image_path(photo.photo.key) %>" class="w-100"/>
+        <%= link_to '', place_path(place), class: 'card-trip-link' %>
+      </div>
+
       <div class="container mt-3 my-4">
         <% place.tag_list.each do |tag| %>
           <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost' %>
@@ -33,10 +37,15 @@
     </div>
   <% end %>
 <% else %>
-  <img src="<%= image_path('Ronin.jpg') %>"/>
-  <div class="container mt-3 my-4">
-    <% place.tag_list.each do |tag| %>
-      <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost' %>
-    <% end %>
+  <div class="card-home mb-2 mx-1">
+    <div class="position-relative">
+      <img src="<%= image_path('Ronin.jpg') %>" class="w-100"/>
+      <%= link_to '', place_path(place), class: 'card-trip-link' %>
+    </div>
+    <div class=" container mt-3 my-4">
+      <% place.tag_list.each do |tag| %>
+        <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost mb-2' %>
+      <% end %>
+    </div>
   </div>
 <% end %>
