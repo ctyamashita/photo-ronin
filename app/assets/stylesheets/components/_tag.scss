@@ -103,10 +103,11 @@
   padding: 10px 10px 10px 10px;
   background-color: $black !important;
   color: $white;
-  border: $black solid 1px;
+  // border: $black solid 1px;
 }
 
-.search-selector:checked+label {
-  border-color: $green;
-  border-radius: 16px;
+.search-selector:checked + label .btn-ghost {
+  background-color: $green;
+  color: $black;
+  border-radius: 50px;
 }

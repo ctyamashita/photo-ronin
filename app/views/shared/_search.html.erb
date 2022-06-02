@@ -14,7 +14,7 @@
             <div class="search-item mt-2 mx-1 text-center">
               <input class="form-check-input check_boxes required search-selector" type="checkbox" value="<%= tag.name %>" name="search[tag_list][]" id="snippet_search_id_<%= tag.id %>" onclick='this.form.submit()' <%= 'checked' if params[:search] && params[:search][:tag_list] && params[:search][:tag_list].include?(tag.name) %>>
               <label class="form-check-label collection_radio_buttons" for="snippet_search_id_<%= tag.id %>">
-              <div class="flex-column">
+              <div class="flex-column btn btn-ghost">
                 <i class="<%= tag_class(tag.name) %> tag-big green mb-2"></i>
                 <div><%= tag.name %></div>
               </div>
