@@ -1,16 +1,16 @@
 <%= render 'shared/banner' %>
 <div class="review-form">
-  <ul class="nav nav-pills mb-5 mt-5 justify-content-center" id="pills-tab" role="tablist">
+  <ul class="nav nav-tabs mb-3 mt-5 justify-content-center" id="tabs-tab" role="tablist">
     <li class="nav-item me-4" role="presentation">
-      <button class="btn btn-ghost active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-recommended" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Recommended</button>
+      <button class="btn btn-outline-secondary active flex-grow" id="tabs-home-tab" data-bs-toggle="pill" data-bs-target="#tabs-recommended" type="button" role="tab" aria-controls="tabs-home" aria-selected="true">Recommended</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="btn btn-ghost" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-trending" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Trending</button>
+      <button class="btn btn-outline-secondary" id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-trending" type="button" role="tab" aria-controls="tabs-profile" aria-selected="false">Trending</button>
     </li>
   </ul>
 
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active " id="pills-recommended" role="tabpanel" aria-labelledby="pills-home-tab">
+  <div class="tab-content" id="tabs-tabContent">
+    <div class="tab-pane fade show active" id="tabs-recommended" role="tabpanel" aria-labelledby="tabs-home-tab">
       <div class="grid">
         <% @recommended.first(10).each do |photo| %>
           <%= render 'shared/home_card', photo: photo %>
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <div class="tab-pane fade" id="tabs-trending" role="tabpanel" aria-labelledby="tabs-profile-tab">
       <div class="grid">
         <% @trending.first(10).each do |photo| %>
           <%= render 'shared/home_card', photo: photo %>
