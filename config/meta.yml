@@ -1,5 +1,5 @@
 meta_product_name: "Photo Ronin"
 meta_title: "Photo Ronin - Discover new places to take your photos"
 meta_description: "Photo Ronin is an app that helps photographers finding new places and angles for their photos."
-meta_image: "banner.png" # should exist in `app/assets/images/`
+meta_image: "https://postimg.cc/9DC6DYBK" # should exist in `app/assets/images/`
 twitter_account: "@photoronin_twitter_account"   # required for Twitter Cards
