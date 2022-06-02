@@ -1,6 +1,6 @@
 <div class="position-relative">
   <div class="container" data-photo-popup-target="page">
-    <div class="card-trip mt-3" data-controller="carousel-map">
+    <div class="card-trip mt-3">
       <%# TODO Made this placeholder for "LIKE", not functional yet %>
       <% if current_user %>
         <div class="position-absolute btn-add-list" data-controller="new-list">
@@ -30,11 +30,7 @@
         </div>
       <% end %>
 
-
-      <%= render 'shared/carousel', place: @place %>
-
-
-      <div class="card-trip-infos mt-2">
+      <div class="container">
         <div class="position-relative p-2 mb-3">
           <div class="d-flex justify-content-between align-items-end">
             <h3 class="bold mt-1 "><%= @place.name %></h3>
@@ -42,8 +38,8 @@
           </div>
           <h4>
             <% if @place.geocode %>
-              <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@place.geocode.join(',')}", class: "green mb-2" do %>
-                <i class="fas fa-map-marked-alt"></i> <%= @place.address %>
+              <%= link_to "https://www.google.com/maps/dir/#{@place.geocode.join(',')}", class: "green mb-2" do %>
+                <i class="fas fa-map-marked-alt"></i> <%= @place.address.split(',')[0..1].join(',') %>
               <% end %>
             <% else %>
               <i class="fas fa-map-marked-alt"></i> <%= @place.address %>
@@ -56,8 +52,12 @@
           </div>
         </div>
       </div>
+    </div>
+    <div data-controller="carousel-map">
+      <%= render 'shared/carousel', place: @place %>
       <%= render 'map_show', marker: @pin %>
     </div>
+
     <div class="mt-3 mb-5">
       <%= render 'new_photo', place: @place %>
     </div>
