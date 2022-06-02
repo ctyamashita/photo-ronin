@@ -1,5 +1,3 @@
+//= link_tree ../images
+//= link_directory ../stylesheets .css
 //= link manifest.json
-//= link application.css
-//= link Ronin.jpg
-//= link banner.png
-//= link marker.png
