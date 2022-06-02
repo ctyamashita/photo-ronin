@@ -3,14 +3,18 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     authorize @photo
-    @photo.user = current_user
-    @photo.place = Place.find(params[:place_id])
-    @photo = add_metadata(@photo)
-    if Place.near(@photo.geocode, 2000).include?(@photo.place)
-      @photo.save
-      redirect_to place_path(@photo.place), notice: "Your photo has been added"
+    if params[:photo].nil?
+      redirect_to place_path(params[:place_id]), alert: "Please select a image file"
     else
-      redirect_to place_path(@photo.place), alert: "Invalid file or geolocation"
+      @photo.user = current_user
+      @photo.place = Place.find(params[:place_id])
+      @photo = add_metadata(@photo)
+      if Place.near(@photo.geocode, 2000).include?(@photo.place)
+        @photo.save
+        redirect_to place_path(@photo.place), notice: "Your photo has been added"
+      else
+        redirect_to place_path(@photo.place), alert: "Invalid file or geolocation"
+      end
     end
   end
 
@@ -29,7 +33,7 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:photo)
+    params.require(:photo).permit(:photo) unless params[:photo].nil?
   end
 
   def add_metadata(photo)

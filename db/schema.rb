@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2022_06_01_075552) do
 
   # These are extensions that must be enabled in order to support this database
@@ -78,6 +77,12 @@ ActiveRecord::Schema.define(version: 2022_06_01_075552) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "aperture"
+    t.date "taken_on"
+    t.string "exposure"
+    t.string "camera"
+    t.float "latitude"
+    t.float "longitude"
     t.integer "like"
     t.integer "cached_votes_total", default: 0
     t.integer "cached_votes_score", default: 0
@@ -86,12 +91,6 @@ ActiveRecord::Schema.define(version: 2022_06_01_075552) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
-    t.float "aperture"
-    t.date "taken_on"
-    t.string "exposure"
-    t.string "camera"
-    t.float "latitude"
-    t.float "longitude"
     t.index ["place_id"], name: "index_photos_on_place_id"
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
