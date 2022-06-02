@@ -61,54 +61,54 @@
         <%= render 'map_show', marker: @pin %>
       </div>
     </div>
-    <div class="mt-3">
+    <div class="mt-3 mb-5">
       <%= render 'new_photo', place: @place %>
     </div>
     <div class="container">
-    <div class="d-flex justify-content-between mt-5">
+    <div class="d-flex justify-content-between mt-3">
       <h2>Reviews</h2>
     </div>
-      <% @place.reviews.each do |review| %>
-        <hr>
-        <div class="light-gray pb-3">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="icon-name d-flex justify-content-start align-items-center">
-              <div class="icon">
-                <img class="avatar" src=<%= review.user.photo.attached? ? cl_image_path(review.user.photo.key) : image_path('Ronin.jpg') %> />
-              </div>
-              <div class="reviews-name ms-2 mt-4">
-                <p class="h4 white mb-0 bold align-middle"><%= review.user.name %></p>
-                <p class="gray"><%= time_ago_in_words(review.created_at) %> ago</p>
-              </div>
+    <div class="position-relative review-form">
+      <%= simple_form_for [@place, @review] do |f| %>
+        <%= f.input :content,
+                    class: "form-control-custom rounded-corner input-background",
+                    rows: 5,
+                    label: false,
+                    id: "form-list",
+                    placeholder: "Your comment",
+                    input_html: { autocomplete: "Comment" } %>
+        <div class="star-rating">
+          <% 5.times do |i| %>
+            <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+          <% end %>
+        </div>
+        <%= button_tag type: "submit", class: "btn btn-ghost position-absolute position-submit-review" do %>
+          Post
+        <% end %>
+      <% end %>
+    </div>
+    <% @place.reviews.each do |review| %>
+      <div class="light-gray pb-4">
+        <div class="d-flex justify-content-between align-items-top">
+          <div class="icon-name d-flex justify-content-start align-items-center">
+            <div class="icon">
+              <img class="avatar" src=<%= review.user.photo.attached? ? cl_image_path(review.user.photo.key) : image_path('Ronin.jpg') %> />
             </div>
-            <div class="reviews-star">
-              <% (review.rating).times do%>
-                <i class="icon-star green fas fa-star"></i>
-              <% end %>
+            <div class="reviews-name ms-2">
+              <p class="h4 white mb-0 bold align-middle"><%= review.user.name %></p>
+              <p class="gray"><%= time_ago_in_words(review.created_at) %> ago</p>
             </div>
           </div>
-        </div>
-        <p class="white reviews-content"><%= review.content %></p>
-        <% end %>
-      <div class="position-relative review-form">
-        <%= simple_form_for [@place, @review] do |f| %>
-          <%= f.input :content,
-                      class: "form-control-custom rounded-corner mt-1 input-background",
-                      rows: 5,
-                      label: false,
-                      id: "form-list",
-                      placeholder: "Your comment",
-                      input_html: { autocomplete: "Comment" } %>
-          <div class="star-rating mb-3">
-            <% 5.times do |i| %>
-              <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+          <div class="reviews-star">
+            <% (review.rating).times do%>
+              <i class="icon-star green fas fa-star"></i>
             <% end %>
           </div>
-          <%= button_tag type: "submit", class: "btn btn-ghost position-absolute position-submit-review" do %>
-            Post
-          <% end %>
-        <% end %>
+        </div>
       </div>
+      <p class="white reviews-content mb-3"><%= review.content %></p>
+      <hr>
+      <% end %>
     </div>
   </div>
 </div>
