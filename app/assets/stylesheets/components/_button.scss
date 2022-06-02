@@ -6,6 +6,10 @@
   font-weight: lighter;
   opacity: 1;
   transition: all 0.3s ease;
+  // &.active {
+  //   border-radius: 6px;
+  //   background-color: rgba(122, 122, 122, 0.466);
+  // }
 }
 
 .btn-ghost:hover {
@@ -81,4 +85,8 @@ top: 0;
 
 .liked {
   color: $green !important;
+}
+
+.btn-secondary {
+  border-radius: 5px;
 }

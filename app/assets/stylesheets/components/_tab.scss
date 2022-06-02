@@ -1,0 +1,7 @@
+#tabs-tab {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  li, button {
+    width: 100%;
+  }
+}
