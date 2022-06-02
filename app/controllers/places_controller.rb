@@ -88,7 +88,8 @@ class PlacesController < ApplicationController
           lat: photo.latitude,
           lng: photo.longitude,
           image_url: helpers.cl_image_path(photo.photo.key),
-          info_window: render_to_string(partial: 'places/info_window_photo', locals: { photo: photo })
+          info_window: render_to_string(partial: 'places/info_window_photo', locals: { photo: photo }),
+          custom_marker: render_to_string(partial: 'places/marker', locals: { photo: photo })
         }
       end
     else

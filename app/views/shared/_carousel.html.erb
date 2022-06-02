@@ -1,14 +1,14 @@
 
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-action="slid.bs.carousel->carousel-map#selectPin">
   <% if @place.photos.any? %>
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div class="carousel-item active" data-id="<%= @place.photos.first.id %>">
         <% first_photo = @place.photos.first %>
         <span class="helper"></span>
         <img class="d-block w-100" src="<%= cl_image_path(first_photo.photo.key) %>" />
       </div>
       <% @place.photos[1..-1].each do |photo|%>
-      <div class="carousel-item">
+      <div class="carousel-item" data-id="<%= photo.id %>">
         <img class="d-block w-100" src="<%= cl_image_path(photo.photo.key) %>" />
       </div>
       <% end %>

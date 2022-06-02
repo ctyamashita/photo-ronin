@@ -2,3 +2,4 @@
 //= link application.css
 //= link Ronin.jpg
 //= link banner.png
+//= link marker.png

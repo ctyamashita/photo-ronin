@@ -15,7 +15,7 @@ export default class extends Controller {
       style: "mapbox://styles/haharimoto/cl3o308d8001v14tiqc945khi"
     })
 
-    // this.#addMarkersToMap()
+    this.#addMarkersToMap()
     this.#fitMapToMarkers()
   }
 
@@ -32,7 +32,7 @@ export default class extends Controller {
       // Create a HTML element for your custom marker
       const customMarker = document.createElement("div")
       customMarker.className = "marker"
-      customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      customMarker.style.backgroundImage = `url('assets/marker.png')`
       customMarker.style.backgroundSize = "contain"
       customMarker.style.width = "25px"
       customMarker.style.height = "25px"
