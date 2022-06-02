@@ -68,7 +68,8 @@ class PlacesController < ApplicationController
       {
         lat: place.latitude,
         lng: place.longitude,
-        info_window: render_to_string(partial: 'places/info_window', locals: { place: place })
+        info_window: render_to_string(partial: 'places/info_window', locals: { place: place }),
+        custom_marker: render_to_string(partial: 'places/marker', locals: { photo: place })
       }
     end
   end
@@ -77,7 +78,8 @@ class PlacesController < ApplicationController
     {
       lat: place.latitude,
       lng: place.longitude,
-      info_window: render_to_string(partial: 'places/info_window', locals: { place: place })
+      info_window: render_to_string(partial: 'places/info_window', locals: { place: place }),
+      custom_marker: render_to_string(partial: 'places/marker', locals: { photo: place })
     }
   end
 
@@ -96,7 +98,8 @@ class PlacesController < ApplicationController
       [{
         lat: place.latitude,
         lng: place.longitude,
-        info_window: render_to_string(partial: 'places/info_window', locals: { place: place })
+        info_window: render_to_string(partial: 'places/info_window', locals: { place: place }),
+        custom_marker: render_to_string(partial: 'places/marker', locals: { photo: place })
       }]
     end
   end

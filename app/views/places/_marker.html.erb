@@ -1,1 +1,5 @@
-<%= image_tag 'marker.png', data: {id: photo.id, carousel_map_target: 'marker'} %>
+<% if photo %>
+  <%= image_tag 'marker.png', data: {id: photo.id, carousel_map_target: 'marker'} %>
+<% else %>
+  <%= image_tag 'marker.png' %>
+<% end %>
