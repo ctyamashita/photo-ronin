@@ -1,12 +1,18 @@
-<div class="container col-11 mt-5">
+<%# <div class="container col-11 mt-5">
   <h2 class="mb-3 bold">All lists</h2>
-  <div class="grid pb-5 mb-5">
-    <% if @lists.any? %>
-      <% @lists.each do |list|%>
-        <%= render "list_card", list: list %>
-      <% end %>
-    <% else %>
-      No lists.
-    <% end %>
-  </div>
+  <div class="grid pb-5 mb-5"> %>
+    <%# if @lists.any? %>
+      <%# @lists.each do |list|%>
+        <%#= render "list_card", list: list %>
+      <%# end %>
+    <%# else %>
+      <%# No lists. %>
+    <%# end %>
+  <%# </div>
+</div> %>
+
+<%# User Page %>
+<div class="container">
+  <h2>User Page</h2>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-ghost position-absolute btn-logout" %>
 </div>

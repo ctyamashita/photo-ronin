@@ -12,23 +12,28 @@
       </div>
     <% end %>
 
+    <% if current_user %>
       <div class="btn-add-list" data-controller="new-list">
         <button class="btn-add" data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
         <div class="icon-active">
           <i class="icon-plus light-gray fas fa-plus"></i>
         </div>
-      </button>
-      <%= render 'shared/new_place', place: @new_place %>
-    </div>
-
-    <%= link_to lists_path do %>
-      <div class="icon-active">
-        <i class="icon-big light-gray fas fa-list"></i>
+        </button>
+        <%= render 'shared/new_place', place: @new_place %>
       </div>
     <% end %>
 
-      <% if current_user %>
+
+    <% if current_user %>
       <%= link_to user_dashboard_path(current_user) do %>
+        <div class="icon-active">
+          <i class="icon-big light-gray fas fa-list"></i>
+        </div>
+      <% end %>
+    <% end %>
+
+      <% if current_user %>
+      <%= link_to lists_path do %>
         <div class="icon-active">
           <i class="icon-big light-gray fas fa-user"></i>
         </div>
