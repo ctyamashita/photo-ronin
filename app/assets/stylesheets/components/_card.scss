@@ -9,6 +9,19 @@
   overflow: hidden;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   position: relative;
+
+  .author-tag {
+    bottom: 0px;
+    right: 0px;
+    padding: 2px 12px;
+    border-radius: 20px 0 0 20px;
+    background-color: $black;
+    opacity: .3;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .card-map {

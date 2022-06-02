@@ -6,12 +6,12 @@
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="bold"><%= place.name %></h3>
         <% if place.average_review > 0 %>
-          <h4 class=""><%= place.average_review %>  <i class="fas fa-star green bold"></i></h4>
+          <h4><%= place.average_review %>  <i class="fas fa-star green bold"></i></h4>
         <% else %>
           <h4 class="bold">No Review</h4>
         <% end %>
       </div>
-      <h4 class="green mb-4"><%= place.address %></h4>
+      <h4 class="green mb-4"><%= place.address.split(',')[0..1].join(',') %></h4>
       <div class="mt-4">
         <% place.tag_list.each do |tag| %>
           <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost mb-2' %>
