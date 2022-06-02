@@ -12,16 +12,16 @@
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active " id="pills-recommended" role="tabpanel" aria-labelledby="pills-home-tab">
       <div class="grid">
-        <% @recommended.first(10).each do |place| %>
-          <%= render 'shared/home_card', place: place %>
+        <% @recommended.first(10).each do |photo| %>
+          <%= render 'shared/home_card', photo: photo %>
         <% end %>
       </div>
     </div>
 
     <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-profile-tab">
       <div class="grid">
-        <% @trending.first(10).each do |place| %>
-          <%= render 'shared/home_card', place: place %>
+        <% @trending.first(10).each do |photo| %>
+          <%= render 'shared/home_card', photo: photo %>
         <% end %>
       </div>
     </div>

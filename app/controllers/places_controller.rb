@@ -21,7 +21,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     authorize @place
-    @lists = current_user.lists.where.not(id: @place.lists) if current_user
+    @lists = current_user.lists.where.not(id: @place.lists).order(created_at: :desc) if current_user
     # @pin = create_marker(@place)
     @pin = create_photo_pins(@place)
   end
