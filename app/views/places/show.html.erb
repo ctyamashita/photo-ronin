@@ -6,23 +6,22 @@
       <% if current_user %>
         <div class="position-absolute btn-add-list" data-controller="new-list">
           <button data-new-list-target="popupButton" data-action="click->new-list#showForm" style="background: rgba(0,0,0,0); border: none">
-            <div class="flex-column icon-active">
-              <i class="icon-card white fas fa-plus"></i>
+            <div class="d-flex align-items-start icon-active white opacity">
+              <i class="icon-card white fas fa-plus me-1"></i>
+              <h4> Add to a list</h4>
             </div>
           </button>
-          <div class="text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
+          <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
             <div data-new-list-target="background"></div>
             <div class="vertical-center-list" data-controller="form-toggle">
               <% if @lists.any? %>
-                <div class='position-relative'>
-                  <div data-form-toggle-target="list" class='d-none'>
-                    <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
-                  </div>
-                  <div data-form-toggle-target="new">
-                    <%= render 'shared/new_list', list: @list %>
-                  </div>
-                  <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3 position-absolute position-existing-btn'>Existing list</button>
+                <div data-form-toggle-target="list" class='d-none'>
+                  <%= render 'shared/new_marker', place: @place, marker: @marker, lists: @lists %>
                 </div>
+                <div data-form-toggle-target="new">
+                  <%= render 'shared/new_list', list: @list %>
+                </div>
+                <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3 position-absolute position-existing-btn'>Existing list</button>
               <% else %>
                 <%= render 'shared/new_list', list: @list %>
               <% end %>
@@ -31,10 +30,12 @@
           </div>
         </div>
       <% end %>
+
+
       <%= render 'shared/carousel', place: @place %>
 
 
-      <div class="card-trip-infos">
+      <div class="card-trip-infos mt-2">
         <div class="position-relative p-2 mb-3">
           <div class="d-flex justify-content-between align-items-end">
             <h3 class="bold mt-1 "><%= @place.name %></h3>
@@ -49,7 +50,6 @@
               <i class="fas fa-map-marked-alt"></i> <%= @place.address %>
             <% end %>
           </h4>
-
           <div class="mt-4">
             <% @place.tag_list.each do |tag| %>
               <%= link_to tag, tagged_path(tag: tag), class: 'tag-text btn btn-ghost' %>
@@ -57,8 +57,10 @@
           </div>
         </div>
       </div>
-      <div>
-        <%= render 'map_show', marker: @pin %>
+      <div class="mt-3">
+        <div>
+          <%= render 'map_show', marker: @pin %>
+        </div>
       </div>
     </div>
     <div class="mt-3">
