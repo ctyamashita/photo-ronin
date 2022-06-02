@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @places = Place.all
+    # @places = Place.all
     # TO DO
     # get average rating from place model
     # sort each place instance by rating (descending order)
@@ -10,8 +10,8 @@ class PagesController < ApplicationController
     # TO DO
     # assign amount of markers to each place instance (using hash)
     # sort by highest amount of markers
-    @recommended = @places.sort_by { |place| -place.average_review }
-    @trending = @places.sort_by { |place| -place.markers.count }
+    # @recommended = @places.sort_by { |place| -place.average_review }
+    # @trending = @places.sort_by { |place| -place.markers.count }
 
     # same thing as @trending above
     # place_with_marker =
@@ -25,5 +25,8 @@ class PagesController < ApplicationController
     #     }
     #   end
     # @trending = place_with_marker.sort_by { |place| -place[:markers_num] }
+    @photos = Photo.includes(:place)
+    @recommended = @photos.sort_by { |photo| -photo.place.average_review }
+    @trending = @photos.sort_by { |photo| -photo.place.markers.count }
   end
 end
