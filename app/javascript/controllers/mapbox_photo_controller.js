@@ -15,7 +15,7 @@ export default class extends Controller {
       style: "mapbox://styles/haharimoto/cl3o308d8001v14tiqc945khi"
     })
 
-    // this.#addMarkersToMap()
+    this.#addMarkersToMap()
     this.#fitMapToMarkers()
   }
 
