@@ -7,7 +7,8 @@ export default class extends Controller {
   }
 
   mapDisplay() {
-    this.mapTarget.classList.toggle('d-none')
+    // this.mapTarget.classList.toggle('d-none')
+    // no need for above
     this.listTarget.classList.toggle('d-none')
     if (this.buttonTarget.innerHTML === "See List") {
       this.buttonTarget.innerHTML = "See Map";
