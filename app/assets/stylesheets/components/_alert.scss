@@ -9,6 +9,7 @@
   border-radius: 50px;
   font-size: 12px;
   text-align: center;
+  animation: fade 3s;
 }
 
 .alert-info {
@@ -26,6 +27,7 @@
     &:focus {
       box-shadow: rgba($color: #000000, $alpha: 0) !important;
     }
+  opacity: 0 !important;
 }
 
 .alert-dismissible {
@@ -38,4 +40,18 @@
   top: -45px;
   /* right: 0; */
   z-index: 2;
+  opacity: 0 !important;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
