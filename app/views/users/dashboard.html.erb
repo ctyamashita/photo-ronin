@@ -1,15 +1,16 @@
+<%# User's list page %>
 <div class="container col-10 mt-5">
   <div class="d-flex justify-content-between align-items-start position-relative">
       <h2 class="mb-3 mt-5 bold">My Lists</h2>
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-ghost position-absolute btn-logout" %>
   </div>
-  <div class="grid">
+  <div class="grid mb-5 pb-5">
     <% if @lists.any? %>
       <% @lists.each do |list|%>
         <%= render "user_list_card", list: list %>
       <% end %>
     <% else %>
-      No lists.
+      --No list yet--
     <% end %>
   </div>
 </div>
