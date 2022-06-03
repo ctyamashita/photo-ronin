@@ -12,7 +12,11 @@
 </div> %>
 
 <%# User Page %>
-<div class="container">
-  <h2>User Page</h2>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-ghost position-absolute btn-logout" %>
+<div>
+  <div class="user-header">
+    <h2>Setting</h2>
+  </div>
+  <div class="user-header">
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-ghost btn-logout" %>
+  </div>
 </div>
