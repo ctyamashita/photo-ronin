@@ -1,6 +1,6 @@
 <div class="container text-center bg-black btn-close-relative" id="form-list" data-new-list-target="formList">
   <div class="vertical-center" data-controller="form-toggle">
-    <h2 class="mb-3">Add place</h2>
+    <h3 class="mb-3">Add place</h3>
     <%= simple_form_for place do |f| %>
       <%= f.input :name, input_html: { class: "input input-background text-center" }, label: false, placeholder: 'Place description' %>
       <h3 class="mt-5">Select category</h3>
@@ -10,7 +10,7 @@
           <% ActsAsTaggableOn::Tag.all.each do |tag| %>
           <div class="category-item mt-2 text-center">
             <input class="form-check-input check_boxes required category-selector" type="checkbox" value="<%= tag.name %>" name="place[tag_list][]" id="snippet_category_id_<%= tag.id %>">
-            <label class="form-check-label collection_radio_buttons" for="snippet_category_id_<%= tag.id %>"> <i class="<%= tag_class(tag.name) %> tag-big green m-2"></i> <%= tag.name %> </label>
+            <label class="form-check-label collection_radio_buttons" for="snippet_category_id_<%= tag.id %>"><%= tag.name %></label>
           </div>
           <% end %>
         </div>
@@ -25,7 +25,7 @@
                 collection_wrapper_class: 'category-wrapper',
                 item_wrapper_class: 'category-item',
                 input_html: {class: 'category-selector'} %>
-      <h3 class="mt-4">Select address</h3>
+      <h3 class="mt-4 mb-3">Select address</h3>
       <%# using geocoder (comment this part and change the photos_controller.rb) %>
       <%= f.input :address, label: false, input_html: { class: "input input-background text-center" } %>
 
