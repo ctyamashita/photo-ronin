@@ -47,7 +47,7 @@ User.create!(name: 'Shinji', email: 'shinji@gmail.com', password: '123123', inst
     name: Faker::Name.unique.name,
     email: Faker::Internet.email,
     password: 'password',
-    instagram_url: 'instagram_url'
+    instagram_url: 'https://www.instagram.com'
   )
   file = URI.open("https://source.unsplash.com/random/?portrait")
   user.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
