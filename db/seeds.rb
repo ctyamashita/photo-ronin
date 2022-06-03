@@ -6,7 +6,7 @@ require "open-uri"
 
 # IMAGE_URLS = ['https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2036', 'https://images.unsplash.com/photo-1544885935-98dd03b09034?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687', 'https://images.unsplash.com/photo-1536768139911-e290a59011e4?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735', 'https://images.unsplash.com/photo-1508333706533-1ab43ecb1606?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887']
 
-# random_places_images = ['https://images.unsplash.com/photo-1586165877141-3dbcfc059283?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80', 'https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', 'https://images.unsplash.com/photo-1534214526114-0ea4d47b04f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', 'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1440&q=80', 'https://images.unsplash.com/photo-1493515322954-4fa727e97985?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', 'https://images.unsplash.com/photo-1618397806621-290788301ced?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', 'https://images.unsplash.com/photo-1604928141064-207cea6f571f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80', 'https://images.unsplash.com/photo-1604604994333-f1b0e9471186?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1936&q=80', 'https://images.unsplash.com/photo-1596713109885-c94bdfd7f19d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', 'https://images.unsplash.com/photo-1582546338780-c9889634b3d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80', 'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80', 'https://images.unsplash.com/photo-1535913917396-518c020c6a1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80', 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', 'https://images.unsplash.com/photo-1559255394-d92ddc3250e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80', 'https://images.unsplash.com/photo-1501769752-a59efa2298ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80']
+random_places_images = ['https://images.unsplash.com/photo-1586165877141-3dbcfc059283?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80', 'https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', 'https://images.unsplash.com/photo-1534214526114-0ea4d47b04f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', 'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1440&q=80', 'https://images.unsplash.com/photo-1493515322954-4fa727e97985?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', 'https://images.unsplash.com/photo-1618397806621-290788301ced?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', 'https://images.unsplash.com/photo-1604928141064-207cea6f571f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80', 'https://images.unsplash.com/photo-1604604994333-f1b0e9471186?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1936&q=80', 'https://images.unsplash.com/photo-1596713109885-c94bdfd7f19d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', 'https://images.unsplash.com/photo-1582546338780-c9889634b3d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80', 'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80', 'https://images.unsplash.com/photo-1535913917396-518c020c6a1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80', 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', 'https://images.unsplash.com/photo-1559255394-d92ddc3250e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80', 'https://images.unsplash.com/photo-1501769752-a59efa2298ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80']
 # 10 reflection
 reflection_images = %w(https://i.postimg.cc/fRVdnWzc/2-B1-ADD50-4-FA9-468-F-814-F-69-FBB7873-CE9.jpg https://images.unsplash.com/photo-1512580726450-29e80f95fba8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80 https://images.unsplash.com/photo-1534351455006-415f235f0dbe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80 https://images.unsplash.com/photo-1621389133054-202d9ce749e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80 https://images.unsplash.com/photo-1624618008148-2ab204b1b414?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1375&q=80 https://images.unsplash.com/photo-1635243553791-d570233af040?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80 https://images.unsplash.com/photo-1635243914895-83611bbe3ea9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1706&q=80 https://images.unsplash.com/photo-1630540780510-2a30ee4156ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=906&q=80 https://images.unsplash.com/photo-1490855894936-79de3ac55bd8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80 https://images.unsplash.com/photo-1648534740928-f40c995ef07a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80)
 # 6 industrila
@@ -20,16 +20,24 @@ old_alley_images = %w(https://i.postimg.cc/8C715q8V/4-EA1-A02-C-1-BFB-4-FE8-AE7-
 reviews_content = ["Great place for wide shots!", "Tripod recommended for long exposure.", "Afternoon is the best moment to shoot.", "Amazing place for environmental portrait.", "You might spend long hours here, bring extra batteries.", "Bring your nifty-fifty."]
 
 # seed all 7 models
-puts "creating seeds"
+puts "cleaning the db"
 Review.destroy_all
+puts "reviews deleted"
 Photo.destroy_all
+puts "photos deleted"
 Marker.destroy_all
+puts "markers deleted"
 List.destroy_all
+puts "list deleted"
 User.destroy_all
+puts "users deleted"
 Place.destroy_all
+puts "places deleted"
 ActsAsTaggableOn::Tag.destroy_all
+puts "tags deleted"
 
 # users
+puts 'creating users'
 User.create!(name: 'Ronin1', email: 'photo@ronin.com', password: 'password', instagram_url: 'instagram.com/jharimo')
 User.create!(name: 'Celso Yamashita', email: 'celso@camp.com', password: '123123', instagram_url: 'instagram.com', admin: true)
 User.create!(name: 'Shinji', email: 'shinji@gmail.com', password: '123123', instagram_url: 'instagram.com/paintitblack8', admin: true)
@@ -78,10 +86,61 @@ reflection_name = ["Lake reflection", "Rain night", "Mirrors", "Reflections", "S
 facade_wall_name = ["Painting wall", "Shop curtain", "Station sign"]
 rooftop_name = ["Night rooftop", "Neon rooftop", "Daytime rooftop"]
 old_alley_name = ["Neon alley", "Cobblestones alley", "Izakaya alley"]
+random = ['Street', 'City', 'People', 'Lights', 'Urban', 'Tokyo']
+
 # random places
+# below tokyo area
+puts 'created 20 random places'
+20.times do
+  place = Place.create!(
+    name: random.sample,
+    address: "#{rand(1..3)}-chōme-#{rand(1..5)}-#{rand(1..30)}",
+    longitude: rand(139.392955..139.616137),
+    latitude: rand(35.339647..35.637597)
+  )
+
+  image = Photo.create!(
+    user: User.all.sample,
+    place: place,
+    longitude: rand((place.longitude-0.005)..(place.longitude+0.001)),
+    latitude: rand((place.latitude-0.001)..(place.latitude+0.008))
+  )
+
+  url = 'https://source.unsplash.com/400x400/?urban,japan'
+  file = URI.open(url)
+  image.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
+  print '.'
+end
+
+# tokyo area
+puts 'created 50 random pin places'
+30.times do
+  place = Place.create!(
+    name: random.sample,
+    address: "#{rand(1..3)}-chōme-#{rand(1..5)}-#{rand(1..30)}",
+    longitude: rand(139.360763..139.92477),
+    latitude: rand(35.664660..35.90220)
+  )
+
+  image = Photo.create!(
+    user: User.all.sample,
+    place: place,
+    longitude: rand((place.longitude-0.005)..(place.longitude+0.001)),
+    latitude: rand((place.latitude-0.001)..(place.latitude+0.008))
+  )
+
+  url = 'https://source.unsplash.com/400x400/?urban,japan'
+  file = URI.open(url)
+  image.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
+
+  print '.'
+end
+
 # tokyo area
 
 # reflection
+puts 'created 5 real places'
 5.times do
   place = Place.create!(
     name: reflection_name.sample,
@@ -108,10 +167,11 @@ old_alley_name = ["Neon alley", "Cobblestones alley", "Izakaya alley"]
       content: reviews_content.sample
     )
   end
+  print '.'
 end
-puts 'created 10 places'
 
 # industrial
+puts 'created 3 places'
 3.times do
   place = Place.create!(
     name: industrial_name.sample,
@@ -138,6 +198,7 @@ puts 'created 10 places'
       content: reviews_content.sample
     )
   end
+  print '.'
 end
 # industrial_images.each do |img|
 #   Photo.new(
@@ -150,9 +211,10 @@ end
 #   image.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 # end
 # Photo.first(2)
-puts 'created 10 places'
+
 
 # Facade/Wall
+puts 'created 4 places'
 4.times do
   place = Place.create!(
     name: facade_wall_name.sample,
@@ -179,10 +241,12 @@ puts 'created 10 places'
       content: reviews_content.sample
     )
   end
+  print '.'
 end
-puts 'created 10 places'
+
 
 #  rooftop
+puts 'created 5 places'
 5.times do
   place = Place.create!(
     name: rooftop_name.sample,
@@ -207,10 +271,11 @@ puts 'created 10 places'
     rating: rand(3..5),
     content: reviews_content.sample
   )
+  print '.'
 end
-puts 'created 10 places'
 
 # #  old alley
+puts 'created 5 places'
 5.times do
   place = Place.create!(
     name: old_alley_name.sample,
@@ -235,9 +300,11 @@ puts 'created 10 places'
     rating: rand(3..5),
     content: reviews_content.sample
   )
+  print '.'
 end
-puts 'created 10 places'
+
 # area below tokyo
+
 # 15.times do
 #   place = Place.create!(
 #     name: 'test_name',
@@ -253,7 +320,7 @@ puts 'created 10 places'
 #   file = URI.open(random_places_images.sample)
 #   image.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')
 # end
-# puts 'created 15 places'
+
 
 # # hidden places
 # gotokuji = Place.create!(name: 'Gotokuji', address: 'Nakamachi, Setagaya', tag_list: [nature_tag, traditional_tag])
