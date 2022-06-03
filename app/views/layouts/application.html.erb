@@ -55,7 +55,8 @@
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <%= render 'shared/ios_pwa_links' %>
   </head>
-  <body data-controller="alert">
+  <body data-controller="circle-click alert" data-action="click@document->circle-click#start" >
+
     <%= render 'shared/flashes' %>
     <div data-controller="photo-popup">
       <%= yield %>
