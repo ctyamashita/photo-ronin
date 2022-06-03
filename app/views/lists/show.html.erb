@@ -17,8 +17,8 @@
             <h3> <%= place.name %></h3>
             <div class="d-flex mt-1">
               <h4>
-                <% if place.geocode %>
-                  <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.geocode.join(',')}", class: "green mb-2" do %>
+                <% if place.latitude && place.longitude %>
+                  <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{[place.latitude, place.longitude]}", class: "green mb-2" do %>
                     <p><i class="fas fa-map-marked-alt"></i> Directions</p>
                   <% end %>
                 <% else %>
