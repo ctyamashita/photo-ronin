@@ -1,4 +1,4 @@
-<div class="position-relative py-2 search-input">
+<div class="position-relative pt-2 search-input">
   <div><i id="search" class="green fas fa-search "></i>
     <%= form_tag places_path, method: :get do %>
       <%= text_field_tag :address,
@@ -13,7 +13,7 @@
           <% ActsAsTaggableOn::Tag.all.each do |tag| %>
             <div class="search-item mt-2 mx-1 text-center">
               <input class="form-check-input check_boxes required search-selector" type="checkbox" value="<%= tag.name %>" name="search[tag_list][]" id="snippet_search_id_<%= tag.id %>" onclick='this.form.submit()' <%= 'checked' if params[:search] && params[:search][:tag_list] && params[:search][:tag_list].include?(tag.name) %>>
-              <label class="form-check-label collection_radio_buttons" for="snippet_search_id_<%= tag.id %>">
+              <label class="form-check-label collection_radio_buttons px-0" for="snippet_search_id_<%= tag.id %>">
               <div class="flex-column btn btn-ghost">
                 <i class="<%= tag_class(tag.name) %> tag-big green mb-2"></i>
                 <div><%= tag.name %></div>
