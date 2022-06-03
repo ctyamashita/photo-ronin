@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
   def index
     @places = if params[:address].present?
                 # policy_scope(Place.search_by_address_and_name(params[:q]))
-                policy_scope(Place.near(params[:address], 5))
+                policy_scope(Place.near(params[:address], 2))
               else
                 policy_scope(Place.all)
               end
