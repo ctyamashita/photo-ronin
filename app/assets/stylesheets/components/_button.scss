@@ -18,6 +18,28 @@
   transform: scale(1.1);
 }
 
+.btn-ghost-solid {
+  color: $gray;
+  background-color: $green;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  // &.active {
+  //   border-radius: 6px;
+  //   background-color: rgba(122, 122, 122, 0.466);
+  // }
+}
+
+.btn-ghost-solid:hover {
+  opacity: 1.5;
+  color: $gray;
+  font-weight: 500;
+  transform: scale(1.1);
+}
+
 .toggle-button-container {
   z-index: 0;
   position: relative;
@@ -28,6 +50,7 @@
   position: fixed;
   left: 50vw;
   transform: translateX(-50%);
+  opacity: 0.7;
 }
 
 

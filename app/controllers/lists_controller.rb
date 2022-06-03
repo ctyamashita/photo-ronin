@@ -19,8 +19,9 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     authorize @list
-    @places = @list.places.sort {|a, b| b.geocode <=> a.geocode}
-    @route = @places.map { |place| place.geocode.map(&:to_s).join(',') }.join('/')
+    @places = @list.places
+    # @places = @list.places.sort {|a, b| b.geocode <=> a.geocode}
+    # @route = @places.map { |place| place.geocode.map(&:to_s).join(',') }.join('/')
   end
 
   private
