@@ -20,7 +20,7 @@
                 <div data-form-toggle-target="new">
                   <%= render 'shared/new_list', list: @list %>
                 </div>
-                <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost mt-3 position-absolute position-existing-btn'>Existing list</button>
+                <button data-form-toggle-target="button" data-action="click->form-toggle#formDisplay" class='btn btn-ghost-solid mt-3 position-absolute position-existing-btn'>Existing list</button>
               <% else %>
                 <%= render 'shared/new_list', list: @list %>
               <% end %>
