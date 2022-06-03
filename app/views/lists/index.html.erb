@@ -16,7 +16,18 @@
   <div class="user-header">
     <h2>Setting</h2>
   </div>
-  <div class="user-header">
+
+  <div class="user-list">
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action">Edit Profile</li>
+      <a href="#" class="list-group-item list-group-item-action">Change Password</li>
+      <a href="#" class="list-group-item list-group-item-action">Notification</li>
+      <a href="#" class="list-group-item list-group-item-action">Language</li>
+      <a href="#" class="list-group-item list-group-item-action">Social Media</li>
+    </div>
+  </div>
+
+  <div class="user-logout">
     <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-ghost btn-logout" %>
   </div>
 </div>

@@ -1,3 +1,19 @@
 .user-header {
   text-align: center;
+  border-bottom: 1px inset rgba(128, 128, 128, 0.059);
+  h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.user-logout {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.list-group-item {
+  background-color: $black;
+  color: white;
 }
