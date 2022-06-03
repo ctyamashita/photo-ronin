@@ -1,4 +1,4 @@
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-action="slid.bs.carousel->carousel-map#selectPin">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-action="slid.bs.carousel->carousel-map#selectPin" data-bs-interval="false">
   <% if @place.photos.any? %>
     <div class="carousel-inner">
       <div class="carousel-item active" data-id="<%= @place.photos.first.id %>">
