@@ -26,6 +26,7 @@
   font-weight: lighter;
   opacity: 1;
   transition: all 0.3s ease;
+  font-weight: 500;
   // &.active {
   //   border-radius: 6px;
   //   background-color: rgba(122, 122, 122, 0.466);
@@ -35,6 +36,7 @@
 .btn-ghost-solid:hover {
   opacity: 1.5;
   color: $gray;
+  font-weight: 500;
   transform: scale(1.1);
 }
 
