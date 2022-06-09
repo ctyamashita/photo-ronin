@@ -5,7 +5,7 @@
 <a href="https://photo-ronin.herokuapp.com/"><img src="https://github.com/ctyamashita/photo-ronin/blob/main/app/assets/images/og_photo.jpg"/></a>
 - <p>Click on the image to checkout the app!</p>
 
-<img src="https://github.com/ctyamashita/photo-ronin/blob/main/app/assets/images/Screenshots.png" />
+<img src="https://github.com/ctyamashita/photo-ronin/blob/main/app/assets/images/ronin-screenshots.png" />
 
 <br>
 
