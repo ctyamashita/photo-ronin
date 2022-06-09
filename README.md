@@ -3,7 +3,7 @@
 - Discover new places to take your photos
 
 <a href="https://photo-ronin.herokuapp.com/"><img src="https://github.com/ctyamashita/photo-ronin/blob/main/app/assets/images/og_photo.jpg"/></a>
-- <p>Click on the image to checkout the app!</p>
+- <p>Click on the image above to checkout the web app!</p>
 
 <img src="https://github.com/ctyamashita/photo-ronin/blob/main/app/assets/images/ronin-screenshots.png" />
 
