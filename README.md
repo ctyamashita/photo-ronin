@@ -52,9 +52,6 @@ rails s
 - [Bootstrap](https://getbootstrap.com/) — Styling
 - [Figma](https://www.figma.com) — Prototyping
 
-## Acknowledgements
-Inspired by Jane Mount's [Bibliophile](https://www.amazon.com/Bibliophile-Illustrated-Miscellany-Jane-Mount/dp/1452167230) and a story my father once told me: "Why do we keep books? ... We keep books because they remind us of the new perspectives and lessons we learned".
-
 ## Team Members
 - [Celso Takeshi Yamashita](https://www.linkedin.com/in/ctyamashita/)
 - [Hakuyo Harimoto](https://www.linkedin.com/in/hakuyo-harimoto-32338b123/)
